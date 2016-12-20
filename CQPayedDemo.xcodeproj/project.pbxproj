@@ -1,0 +1,918 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04061C771E02452C008F65AC /* CQPhoneNumController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04061C761E02452C008F65AC /* CQPhoneNumController.m */; };
+		04061C791E02453C008F65AC /* CQPhoneNumController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04061C781E02453C008F65AC /* CQPhoneNumController.storyboard */; };
+		04061C7F1E02640E008F65AC /* CQLoadPhoneNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 04061C7E1E02640E008F65AC /* CQLoadPhoneNumber.m */; };
+		04061C821E026F82008F65AC /* CQPhoneNumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04061C811E026F82008F65AC /* CQPhoneNumModel.m */; };
+		0450CD391E028C3D0080F6F7 /* CQPhoneNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0450CD381E028C3D0080F6F7 /* CQPhoneNumberCell.m */; };
+		0450CD3D1E0298500080F6F7 /* NSString+CQUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0450CD3C1E0298500080F6F7 /* NSString+CQUtil.m */; };
+		0450CD401E029B5F0080F6F7 /* CQContactSorted.m in Sources */ = {isa = PBXBuildFile; fileRef = 0450CD3F1E029B5F0080F6F7 /* CQContactSorted.m */; };
+		0453E6341DFE82E900DD68E1 /* CQMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0453E6321DFE82E900DD68E1 /* CQMainController.m */; };
+		0453E63A1DFE82FD00DD68E1 /* CQAppsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0453E6371DFE82FD00DD68E1 /* CQAppsController.m */; };
+		0453E63B1DFE82FD00DD68E1 /* CQAppsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0453E6391DFE82FD00DD68E1 /* CQAppsFlowLayout.m */; };
+		0453E6441DFE831500DD68E1 /* CQAppsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0453E63D1DFE831500DD68E1 /* CQAppsCell.m */; };
+		0453E6451DFE831500DD68E1 /* CQAppsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0453E63F1DFE831500DD68E1 /* CQAppsView.m */; };
+		0453E6461DFE831500DD68E1 /* CQFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0453E6411DFE831500DD68E1 /* CQFooterView.m */; };
+		0453E6471DFE831500DD68E1 /* CQHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0453E6431DFE831500DD68E1 /* CQHeaderView.m */; };
+		0453E64C1DFE832A00DD68E1 /* CQAppsDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0453E6491DFE832A00DD68E1 /* CQAppsDataManager.m */; };
+		0453E64D1DFE832A00DD68E1 /* CQAppsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0453E64B1DFE832A00DD68E1 /* CQAppsModel.m */; };
+		0453E6511DFE836300DD68E1 /* CQDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0453E6501DFE836300DD68E1 /* CQDynamicViewController.m */; };
+		0453E6541DFE83B700DD68E1 /* CQMainController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0453E6521DFE83B700DD68E1 /* CQMainController.storyboard */; };
+		0481030B1DF9065C00FE7C0F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481030A1DF9065C00FE7C0F /* main.m */; };
+		0481030E1DF9065C00FE7C0F /* CQAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481030D1DF9065C00FE7C0F /* CQAppDelegate.m */; };
+		048103161DF9065C00FE7C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048103151DF9065C00FE7C0F /* Assets.xcassets */; };
+		048103191DF9065C00FE7C0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048103171DF9065C00FE7C0F /* LaunchScreen.storyboard */; };
+		048103241DF9065C00FE7C0F /* CQPayedDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048103231DF9065C00FE7C0F /* CQPayedDemoTests.m */; };
+		0481032F1DF9065C00FE7C0F /* CQPayedDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481032E1DF9065C00FE7C0F /* CQPayedDemoUITests.m */; };
+		0481035C1DF94BCC00FE7C0F /* CQHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481035B1DF94BCC00FE7C0F /* CQHeader.m */; };
+		04A341461E014702006D1AF3 /* CQDynamicViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A341451E014702006D1AF3 /* CQDynamicViewController.storyboard */; };
+		04A341481E01472B006D1AF3 /* CQAppsController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A341471E01472B006D1AF3 /* CQAppsController.storyboard */; };
+		04A3414E1E014BDA006D1AF3 /* CQDynamicMenueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3414D1E014BDA006D1AF3 /* CQDynamicMenueView.m */; };
+		04A4EFF91E07A88D001596B2 /* AppDataList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04A4EFF81E07A88D001596B2 /* AppDataList.plist */; };
+		04A4EFFC1E07B29D001596B2 /* CQCoreTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4EFFB1E07B29D001596B2 /* CQCoreTextController.m */; };
+		04A4EFFE1E07B2B4001596B2 /* CQCoreTextController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A4EFFD1E07B2B4001596B2 /* CQCoreTextController.storyboard */; };
+		04A4F0041E07B3B9001596B2 /* CQDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F0031E07B3B9001596B2 /* CQDisplayView.m */; };
+		04A4F0081E07B3EC001596B2 /* CQMagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F0071E07B3EC001596B2 /* CQMagnifierView.m */; };
+		04A4F00D1E07B40F001596B2 /* CQCoreTextUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F00A1E07B40F001596B2 /* CQCoreTextUtils.m */; };
+		04A4F00E1E07B40F001596B2 /* UIImage+CQExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F00C1E07B40F001596B2 /* UIImage+CQExtra.m */; };
+		04A4F0131E07B431001596B2 /* CQCoreTextImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F0101E07B431001596B2 /* CQCoreTextImageData.m */; };
+		04A4F0141E07B431001596B2 /* CQCoreTextLinkData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F0121E07B431001596B2 /* CQCoreTextLinkData.m */; };
+		04A4F0171E07B450001596B2 /* CQCTFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F0161E07B450001596B2 /* CQCTFrameParser.m */; };
+		04A4F01A1E07B472001596B2 /* CQCoreTextData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F0191E07B472001596B2 /* CQCoreTextData.m */; };
+		04A4F01D1E07B491001596B2 /* CQCTFrameParserConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F01C1E07B491001596B2 /* CQCTFrameParserConfig.m */; };
+		04A4F01F1E07B4A1001596B2 /* TempData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04A4F01E1E07B4A1001596B2 /* TempData.plist */; };
+		04A4F0221E07B4B4001596B2 /* CQWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F0211E07B4B4001596B2 /* CQWebViewController.m */; };
+		04A4F0241E07B5F2001596B2 /* default_imgAbout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04A4F0231E07B5F2001596B2 /* default_imgAbout.jpg */; };
+		04A4F0271E07D59D001596B2 /* CQBigImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F0261E07D59D001596B2 /* CQBigImageView.m */; };
+		04F875BF1E03931900D25907 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F875BE1E03931900D25907 /* UIView+Frame.m */; };
+		04F875C21E03E5B000D25907 /* CQPhoneHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F875C11E03E5B000D25907 /* CQPhoneHeaderView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		048103201DF9065C00FE7C0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 048102FE1DF9065B00FE7C0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 048103051DF9065B00FE7C0F;
+			remoteInfo = CQPayedDemo;
+		};
+		0481032B1DF9065C00FE7C0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 048102FE1DF9065B00FE7C0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 048103051DF9065B00FE7C0F;
+			remoteInfo = CQPayedDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04061C751E02452C008F65AC /* CQPhoneNumController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPhoneNumController.h; sourceTree = "<group>"; };
+		04061C761E02452C008F65AC /* CQPhoneNumController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPhoneNumController.m; sourceTree = "<group>"; };
+		04061C781E02453C008F65AC /* CQPhoneNumController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CQPhoneNumController.storyboard; sourceTree = "<group>"; };
+		04061C7D1E02640E008F65AC /* CQLoadPhoneNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQLoadPhoneNumber.h; sourceTree = "<group>"; };
+		04061C7E1E02640E008F65AC /* CQLoadPhoneNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQLoadPhoneNumber.m; sourceTree = "<group>"; };
+		04061C801E026F82008F65AC /* CQPhoneNumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPhoneNumModel.h; sourceTree = "<group>"; };
+		04061C811E026F82008F65AC /* CQPhoneNumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPhoneNumModel.m; sourceTree = "<group>"; };
+		0450CD371E028C3D0080F6F7 /* CQPhoneNumberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPhoneNumberCell.h; sourceTree = "<group>"; };
+		0450CD381E028C3D0080F6F7 /* CQPhoneNumberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPhoneNumberCell.m; sourceTree = "<group>"; };
+		0450CD3B1E0298500080F6F7 /* NSString+CQUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CQUtil.h"; sourceTree = "<group>"; };
+		0450CD3C1E0298500080F6F7 /* NSString+CQUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CQUtil.m"; sourceTree = "<group>"; };
+		0450CD3E1E029B5F0080F6F7 /* CQContactSorted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQContactSorted.h; sourceTree = "<group>"; };
+		0450CD3F1E029B5F0080F6F7 /* CQContactSorted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQContactSorted.m; sourceTree = "<group>"; };
+		0453E6311DFE82E900DD68E1 /* CQMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CQMainController.h; path = PayedAppsDemo/CQMainController.h; sourceTree = "<group>"; };
+		0453E6321DFE82E900DD68E1 /* CQMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CQMainController.m; path = PayedAppsDemo/CQMainController.m; sourceTree = "<group>"; };
+		0453E6361DFE82FD00DD68E1 /* CQAppsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CQAppsController.h; path = PayedAppsDemo/CQAppsController.h; sourceTree = "<group>"; };
+		0453E6371DFE82FD00DD68E1 /* CQAppsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CQAppsController.m; path = PayedAppsDemo/CQAppsController.m; sourceTree = "<group>"; };
+		0453E6381DFE82FD00DD68E1 /* CQAppsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CQAppsFlowLayout.h; path = PayedAppsDemo/CQAppsFlowLayout.h; sourceTree = "<group>"; };
+		0453E6391DFE82FD00DD68E1 /* CQAppsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CQAppsFlowLayout.m; path = PayedAppsDemo/CQAppsFlowLayout.m; sourceTree = "<group>"; };
+		0453E63C1DFE831500DD68E1 /* CQAppsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CQAppsCell.h; path = PayedAppsDemo/CQAppsCell.h; sourceTree = "<group>"; };
+		0453E63D1DFE831500DD68E1 /* CQAppsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CQAppsCell.m; path = PayedAppsDemo/CQAppsCell.m; sourceTree = "<group>"; };
+		0453E63E1DFE831500DD68E1 /* CQAppsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CQAppsView.h; path = PayedAppsDemo/CQAppsView.h; sourceTree = "<group>"; };
+		0453E63F1DFE831500DD68E1 /* CQAppsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CQAppsView.m; path = PayedAppsDemo/CQAppsView.m; sourceTree = "<group>"; };
+		0453E6401DFE831500DD68E1 /* CQFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CQFooterView.h; path = PayedAppsDemo/CQFooterView.h; sourceTree = "<group>"; };
+		0453E6411DFE831500DD68E1 /* CQFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CQFooterView.m; path = PayedAppsDemo/CQFooterView.m; sourceTree = "<group>"; };
+		0453E6421DFE831500DD68E1 /* CQHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CQHeaderView.h; path = PayedAppsDemo/CQHeaderView.h; sourceTree = "<group>"; };
+		0453E6431DFE831500DD68E1 /* CQHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CQHeaderView.m; path = PayedAppsDemo/CQHeaderView.m; sourceTree = "<group>"; };
+		0453E6481DFE832A00DD68E1 /* CQAppsDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CQAppsDataManager.h; path = PayedAppsDemo/CQAppsDataManager.h; sourceTree = "<group>"; };
+		0453E6491DFE832A00DD68E1 /* CQAppsDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CQAppsDataManager.m; path = PayedAppsDemo/CQAppsDataManager.m; sourceTree = "<group>"; };
+		0453E64A1DFE832A00DD68E1 /* CQAppsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CQAppsModel.h; path = PayedAppsDemo/CQAppsModel.h; sourceTree = "<group>"; };
+		0453E64B1DFE832A00DD68E1 /* CQAppsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CQAppsModel.m; path = PayedAppsDemo/CQAppsModel.m; sourceTree = "<group>"; };
+		0453E64F1DFE836300DD68E1 /* CQDynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQDynamicViewController.h; sourceTree = "<group>"; };
+		0453E6501DFE836300DD68E1 /* CQDynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQDynamicViewController.m; sourceTree = "<group>"; };
+		0453E6531DFE83B700DD68E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CQMainController.storyboard; sourceTree = "<group>"; };
+		048103061DF9065B00FE7C0F /* CQPayedDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CQPayedDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0481030A1DF9065C00FE7C0F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0481030C1DF9065C00FE7C0F /* CQAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQAppDelegate.h; sourceTree = "<group>"; };
+		0481030D1DF9065C00FE7C0F /* CQAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQAppDelegate.m; sourceTree = "<group>"; };
+		048103151DF9065C00FE7C0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		048103181DF9065C00FE7C0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0481031A1DF9065C00FE7C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0481031F1DF9065C00FE7C0F /* CQPayedDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CQPayedDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		048103231DF9065C00FE7C0F /* CQPayedDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQPayedDemoTests.m; sourceTree = "<group>"; };
+		0481032A1DF9065C00FE7C0F /* CQPayedDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CQPayedDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0481032E1DF9065C00FE7C0F /* CQPayedDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQPayedDemoUITests.m; sourceTree = "<group>"; };
+		048103301DF9065C00FE7C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0481035A1DF94BCC00FE7C0F /* CQHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQHeader.h; sourceTree = "<group>"; };
+		0481035B1DF94BCC00FE7C0F /* CQHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQHeader.m; sourceTree = "<group>"; };
+		04A341451E014702006D1AF3 /* CQDynamicViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CQDynamicViewController.storyboard; sourceTree = "<group>"; };
+		04A341471E01472B006D1AF3 /* CQAppsController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CQAppsController.storyboard; sourceTree = "<group>"; };
+		04A3414C1E014BDA006D1AF3 /* CQDynamicMenueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQDynamicMenueView.h; sourceTree = "<group>"; };
+		04A3414D1E014BDA006D1AF3 /* CQDynamicMenueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQDynamicMenueView.m; sourceTree = "<group>"; };
+		04A4EFF81E07A88D001596B2 /* AppDataList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppDataList.plist; sourceTree = "<group>"; };
+		04A4EFFA1E07B29D001596B2 /* CQCoreTextController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQCoreTextController.h; sourceTree = "<group>"; };
+		04A4EFFB1E07B29D001596B2 /* CQCoreTextController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQCoreTextController.m; sourceTree = "<group>"; };
+		04A4EFFD1E07B2B4001596B2 /* CQCoreTextController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CQCoreTextController.storyboard; sourceTree = "<group>"; };
+		04A4F0021E07B3B9001596B2 /* CQDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQDisplayView.h; sourceTree = "<group>"; };
+		04A4F0031E07B3B9001596B2 /* CQDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQDisplayView.m; sourceTree = "<group>"; };
+		04A4F0061E07B3EC001596B2 /* CQMagnifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQMagnifierView.h; sourceTree = "<group>"; };
+		04A4F0071E07B3EC001596B2 /* CQMagnifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQMagnifierView.m; sourceTree = "<group>"; };
+		04A4F0091E07B40F001596B2 /* CQCoreTextUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQCoreTextUtils.h; sourceTree = "<group>"; };
+		04A4F00A1E07B40F001596B2 /* CQCoreTextUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQCoreTextUtils.m; sourceTree = "<group>"; };
+		04A4F00B1E07B40F001596B2 /* UIImage+CQExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CQExtra.h"; sourceTree = "<group>"; };
+		04A4F00C1E07B40F001596B2 /* UIImage+CQExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CQExtra.m"; sourceTree = "<group>"; };
+		04A4F00F1E07B431001596B2 /* CQCoreTextImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQCoreTextImageData.h; sourceTree = "<group>"; };
+		04A4F0101E07B431001596B2 /* CQCoreTextImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQCoreTextImageData.m; sourceTree = "<group>"; };
+		04A4F0111E07B431001596B2 /* CQCoreTextLinkData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQCoreTextLinkData.h; sourceTree = "<group>"; };
+		04A4F0121E07B431001596B2 /* CQCoreTextLinkData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQCoreTextLinkData.m; sourceTree = "<group>"; };
+		04A4F0151E07B450001596B2 /* CQCTFrameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQCTFrameParser.h; sourceTree = "<group>"; };
+		04A4F0161E07B450001596B2 /* CQCTFrameParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQCTFrameParser.m; sourceTree = "<group>"; };
+		04A4F0181E07B472001596B2 /* CQCoreTextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQCoreTextData.h; sourceTree = "<group>"; };
+		04A4F0191E07B472001596B2 /* CQCoreTextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQCoreTextData.m; sourceTree = "<group>"; };
+		04A4F01B1E07B491001596B2 /* CQCTFrameParserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQCTFrameParserConfig.h; sourceTree = "<group>"; };
+		04A4F01C1E07B491001596B2 /* CQCTFrameParserConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQCTFrameParserConfig.m; sourceTree = "<group>"; };
+		04A4F01E1E07B4A1001596B2 /* TempData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TempData.plist; sourceTree = "<group>"; };
+		04A4F0201E07B4B4001596B2 /* CQWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQWebViewController.h; sourceTree = "<group>"; };
+		04A4F0211E07B4B4001596B2 /* CQWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQWebViewController.m; sourceTree = "<group>"; };
+		04A4F0231E07B5F2001596B2 /* default_imgAbout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_imgAbout.jpg; sourceTree = "<group>"; };
+		04A4F0251E07D59D001596B2 /* CQBigImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQBigImageView.h; sourceTree = "<group>"; };
+		04A4F0261E07D59D001596B2 /* CQBigImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQBigImageView.m; sourceTree = "<group>"; };
+		04F875BD1E03931900D25907 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		04F875BE1E03931900D25907 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		04F875C01E03E5B000D25907 /* CQPhoneHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPhoneHeaderView.h; sourceTree = "<group>"; };
+		04F875C11E03E5B000D25907 /* CQPhoneHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPhoneHeaderView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		048103031DF9065B00FE7C0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0481031C1DF9065C00FE7C0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		048103271DF9065C00FE7C0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04061C741E0244FC008F65AC /* PhoneNum */ = {
+			isa = PBXGroup;
+			children = (
+				0450CD3A1E02982E0080F6F7 /* Other */,
+				04061C7A1E0246C9008F65AC /* Controller */,
+				04061C7B1E0246DC008F65AC /* Views */,
+				04061C7C1E0246E8008F65AC /* Model */,
+			);
+			path = PhoneNum;
+			sourceTree = "<group>";
+		};
+		04061C7A1E0246C9008F65AC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04061C751E02452C008F65AC /* CQPhoneNumController.h */,
+				04061C761E02452C008F65AC /* CQPhoneNumController.m */,
+				04061C781E02453C008F65AC /* CQPhoneNumController.storyboard */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		04061C7B1E0246DC008F65AC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0450CD371E028C3D0080F6F7 /* CQPhoneNumberCell.h */,
+				0450CD381E028C3D0080F6F7 /* CQPhoneNumberCell.m */,
+				04F875C01E03E5B000D25907 /* CQPhoneHeaderView.h */,
+				04F875C11E03E5B000D25907 /* CQPhoneHeaderView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		04061C7C1E0246E8008F65AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04061C7D1E02640E008F65AC /* CQLoadPhoneNumber.h */,
+				04061C7E1E02640E008F65AC /* CQLoadPhoneNumber.m */,
+				04061C801E026F82008F65AC /* CQPhoneNumModel.h */,
+				04061C811E026F82008F65AC /* CQPhoneNumModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0450CD3A1E02982E0080F6F7 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				0450CD3B1E0298500080F6F7 /* NSString+CQUtil.h */,
+				0450CD3C1E0298500080F6F7 /* NSString+CQUtil.m */,
+				0450CD3E1E029B5F0080F6F7 /* CQContactSorted.h */,
+				0450CD3F1E029B5F0080F6F7 /* CQContactSorted.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		0453E6301DFE825400DD68E1 /* PayedAppsDemo */ = {
+			isa = PBXGroup;
+			children = (
+				04A4EFF71E07A878001596B2 /* other */,
+				0481033E1DF90A0F00FE7C0F /* Controller */,
+				048103421DF90AB800FE7C0F /* Views */,
+				0481034C1DF90F2A00FE7C0F /* Model */,
+			);
+			path = PayedAppsDemo;
+			sourceTree = "<group>";
+		};
+		0453E64E1DFE834600DD68E1 /* Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				04A341491E01494A006D1AF3 /* Controller */,
+				04A3414A1E014970006D1AF3 /* Views */,
+				04A3414B1E014985006D1AF3 /* Model */,
+			);
+			path = Dynamic;
+			sourceTree = "<group>";
+		};
+		048102FD1DF9065B00FE7C0F = {
+			isa = PBXGroup;
+			children = (
+				048103081DF9065C00FE7C0F /* CQPayedDemo */,
+				048103221DF9065C00FE7C0F /* CQPayedDemoTests */,
+				0481032D1DF9065C00FE7C0F /* CQPayedDemoUITests */,
+				048103071DF9065B00FE7C0F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		048103071DF9065B00FE7C0F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				048103061DF9065B00FE7C0F /* CQPayedDemo.app */,
+				0481031F1DF9065C00FE7C0F /* CQPayedDemoTests.xctest */,
+				0481032A1DF9065C00FE7C0F /* CQPayedDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		048103081DF9065C00FE7C0F /* CQPayedDemo */ = {
+			isa = PBXGroup;
+			children = (
+				0453E6311DFE82E900DD68E1 /* CQMainController.h */,
+				0453E6321DFE82E900DD68E1 /* CQMainController.m */,
+				0453E6521DFE83B700DD68E1 /* CQMainController.storyboard */,
+				04F875C31E03F98300D25907 /* CoreText */,
+				04061C741E0244FC008F65AC /* PhoneNum */,
+				0453E64E1DFE834600DD68E1 /* Dynamic */,
+				0453E6301DFE825400DD68E1 /* PayedAppsDemo */,
+				048103591DF94B5900FE7C0F /* Other */,
+				048103091DF9065C00FE7C0F /* Supporting Files */,
+			);
+			path = CQPayedDemo;
+			sourceTree = "<group>";
+		};
+		048103091DF9065C00FE7C0F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0481030A1DF9065C00FE7C0F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		048103221DF9065C00FE7C0F /* CQPayedDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				048103231DF9065C00FE7C0F /* CQPayedDemoTests.m */,
+			);
+			path = CQPayedDemoTests;
+			sourceTree = "<group>";
+		};
+		0481032D1DF9065C00FE7C0F /* CQPayedDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0481032E1DF9065C00FE7C0F /* CQPayedDemoUITests.m */,
+				048103301DF9065C00FE7C0F /* Info.plist */,
+			);
+			path = CQPayedDemoUITests;
+			sourceTree = "<group>";
+		};
+		0481033E1DF90A0F00FE7C0F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0453E6361DFE82FD00DD68E1 /* CQAppsController.h */,
+				0453E6371DFE82FD00DD68E1 /* CQAppsController.m */,
+				04A341471E01472B006D1AF3 /* CQAppsController.storyboard */,
+				0453E6381DFE82FD00DD68E1 /* CQAppsFlowLayout.h */,
+				0453E6391DFE82FD00DD68E1 /* CQAppsFlowLayout.m */,
+			);
+			name = Controller;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		048103421DF90AB800FE7C0F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0453E63C1DFE831500DD68E1 /* CQAppsCell.h */,
+				0453E63D1DFE831500DD68E1 /* CQAppsCell.m */,
+				0453E63E1DFE831500DD68E1 /* CQAppsView.h */,
+				0453E63F1DFE831500DD68E1 /* CQAppsView.m */,
+				0453E6401DFE831500DD68E1 /* CQFooterView.h */,
+				0453E6411DFE831500DD68E1 /* CQFooterView.m */,
+				0453E6421DFE831500DD68E1 /* CQHeaderView.h */,
+				0453E6431DFE831500DD68E1 /* CQHeaderView.m */,
+			);
+			name = Views;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		0481034C1DF90F2A00FE7C0F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0453E6481DFE832A00DD68E1 /* CQAppsDataManager.h */,
+				0453E6491DFE832A00DD68E1 /* CQAppsDataManager.m */,
+				0453E64A1DFE832A00DD68E1 /* CQAppsModel.h */,
+				0453E64B1DFE832A00DD68E1 /* CQAppsModel.m */,
+			);
+			name = Model;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		048103591DF94B5900FE7C0F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				048103151DF9065C00FE7C0F /* Assets.xcassets */,
+				048103171DF9065C00FE7C0F /* LaunchScreen.storyboard */,
+				0481031A1DF9065C00FE7C0F /* Info.plist */,
+				0481030C1DF9065C00FE7C0F /* CQAppDelegate.h */,
+				0481030D1DF9065C00FE7C0F /* CQAppDelegate.m */,
+				04F875BD1E03931900D25907 /* UIView+Frame.h */,
+				04F875BE1E03931900D25907 /* UIView+Frame.m */,
+				0481035A1DF94BCC00FE7C0F /* CQHeader.h */,
+				0481035B1DF94BCC00FE7C0F /* CQHeader.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		04A341491E01494A006D1AF3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0453E64F1DFE836300DD68E1 /* CQDynamicViewController.h */,
+				0453E6501DFE836300DD68E1 /* CQDynamicViewController.m */,
+				04A341451E014702006D1AF3 /* CQDynamicViewController.storyboard */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		04A3414A1E014970006D1AF3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				04A3414C1E014BDA006D1AF3 /* CQDynamicMenueView.h */,
+				04A3414D1E014BDA006D1AF3 /* CQDynamicMenueView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		04A3414B1E014985006D1AF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		04A4EFF71E07A878001596B2 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				04A4EFF81E07A88D001596B2 /* AppDataList.plist */,
+			);
+			name = other;
+			sourceTree = "<group>";
+		};
+		04A4EFFF1E07B2E6001596B2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04A4EFFA1E07B29D001596B2 /* CQCoreTextController.h */,
+				04A4EFFB1E07B29D001596B2 /* CQCoreTextController.m */,
+				04A4EFFD1E07B2B4001596B2 /* CQCoreTextController.storyboard */,
+				04A4F0201E07B4B4001596B2 /* CQWebViewController.h */,
+				04A4F0211E07B4B4001596B2 /* CQWebViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		04A4F0001E07B362001596B2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				04A4F0021E07B3B9001596B2 /* CQDisplayView.h */,
+				04A4F0031E07B3B9001596B2 /* CQDisplayView.m */,
+				04A4F0061E07B3EC001596B2 /* CQMagnifierView.h */,
+				04A4F0071E07B3EC001596B2 /* CQMagnifierView.m */,
+				04A4F0251E07D59D001596B2 /* CQBigImageView.h */,
+				04A4F0261E07D59D001596B2 /* CQBigImageView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		04A4F0011E07B36C001596B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04A4F0181E07B472001596B2 /* CQCoreTextData.h */,
+				04A4F0191E07B472001596B2 /* CQCoreTextData.m */,
+				04A4F01B1E07B491001596B2 /* CQCTFrameParserConfig.h */,
+				04A4F01C1E07B491001596B2 /* CQCTFrameParserConfig.m */,
+				04A4F00F1E07B431001596B2 /* CQCoreTextImageData.h */,
+				04A4F0101E07B431001596B2 /* CQCoreTextImageData.m */,
+				04A4F0111E07B431001596B2 /* CQCoreTextLinkData.h */,
+				04A4F0121E07B431001596B2 /* CQCoreTextLinkData.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		04A4F0051E07B3C6001596B2 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				04A4F0231E07B5F2001596B2 /* default_imgAbout.jpg */,
+				04A4F01E1E07B4A1001596B2 /* TempData.plist */,
+				04A4F0151E07B450001596B2 /* CQCTFrameParser.h */,
+				04A4F0161E07B450001596B2 /* CQCTFrameParser.m */,
+				04A4F0091E07B40F001596B2 /* CQCoreTextUtils.h */,
+				04A4F00A1E07B40F001596B2 /* CQCoreTextUtils.m */,
+				04A4F00B1E07B40F001596B2 /* UIImage+CQExtra.h */,
+				04A4F00C1E07B40F001596B2 /* UIImage+CQExtra.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		04F875C31E03F98300D25907 /* CoreText */ = {
+			isa = PBXGroup;
+			children = (
+				04A4EFFF1E07B2E6001596B2 /* Controller */,
+				04A4F0001E07B362001596B2 /* Views */,
+				04A4F0011E07B36C001596B2 /* Model */,
+				04A4F0051E07B3C6001596B2 /* Other */,
+			);
+			path = CoreText;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		048103051DF9065B00FE7C0F /* CQPayedDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 048103331DF9065C00FE7C0F /* Build configuration list for PBXNativeTarget "CQPayedDemo" */;
+			buildPhases = (
+				048103021DF9065B00FE7C0F /* Sources */,
+				048103031DF9065B00FE7C0F /* Frameworks */,
+				048103041DF9065B00FE7C0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CQPayedDemo;
+			productName = CQPayedDemo;
+			productReference = 048103061DF9065B00FE7C0F /* CQPayedDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0481031E1DF9065C00FE7C0F /* CQPayedDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 048103361DF9065C00FE7C0F /* Build configuration list for PBXNativeTarget "CQPayedDemoTests" */;
+			buildPhases = (
+				0481031B1DF9065C00FE7C0F /* Sources */,
+				0481031C1DF9065C00FE7C0F /* Frameworks */,
+				0481031D1DF9065C00FE7C0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				048103211DF9065C00FE7C0F /* PBXTargetDependency */,
+			);
+			name = CQPayedDemoTests;
+			productName = CQPayedDemoTests;
+			productReference = 0481031F1DF9065C00FE7C0F /* CQPayedDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		048103291DF9065C00FE7C0F /* CQPayedDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 048103391DF9065C00FE7C0F /* Build configuration list for PBXNativeTarget "CQPayedDemoUITests" */;
+			buildPhases = (
+				048103261DF9065C00FE7C0F /* Sources */,
+				048103271DF9065C00FE7C0F /* Frameworks */,
+				048103281DF9065C00FE7C0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0481032C1DF9065C00FE7C0F /* PBXTargetDependency */,
+			);
+			name = CQPayedDemoUITests;
+			productName = CQPayedDemoUITests;
+			productReference = 0481032A1DF9065C00FE7C0F /* CQPayedDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		048102FE1DF9065B00FE7C0F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CQ;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = wwdx;
+				TargetAttributes = {
+					048103051DF9065B00FE7C0F = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Y63K5QYE9U;
+						ProvisioningStyle = Automatic;
+					};
+					0481031E1DF9065C00FE7C0F = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Y63K5QYE9U;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 048103051DF9065B00FE7C0F;
+					};
+					048103291DF9065C00FE7C0F = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Y63K5QYE9U;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 048103051DF9065B00FE7C0F;
+					};
+				};
+			};
+			buildConfigurationList = 048103011DF9065B00FE7C0F /* Build configuration list for PBXProject "CQPayedDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 048102FD1DF9065B00FE7C0F;
+			productRefGroup = 048103071DF9065B00FE7C0F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				048103051DF9065B00FE7C0F /* CQPayedDemo */,
+				0481031E1DF9065C00FE7C0F /* CQPayedDemoTests */,
+				048103291DF9065C00FE7C0F /* CQPayedDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		048103041DF9065B00FE7C0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A341461E014702006D1AF3 /* CQDynamicViewController.storyboard in Resources */,
+				048103191DF9065C00FE7C0F /* LaunchScreen.storyboard in Resources */,
+				04A4EFF91E07A88D001596B2 /* AppDataList.plist in Resources */,
+				048103161DF9065C00FE7C0F /* Assets.xcassets in Resources */,
+				04A4EFFE1E07B2B4001596B2 /* CQCoreTextController.storyboard in Resources */,
+				04A4F0241E07B5F2001596B2 /* default_imgAbout.jpg in Resources */,
+				04A4F01F1E07B4A1001596B2 /* TempData.plist in Resources */,
+				04061C791E02453C008F65AC /* CQPhoneNumController.storyboard in Resources */,
+				04A341481E01472B006D1AF3 /* CQAppsController.storyboard in Resources */,
+				0453E6541DFE83B700DD68E1 /* CQMainController.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0481031D1DF9065C00FE7C0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		048103281DF9065C00FE7C0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		048103021DF9065B00FE7C0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0453E6471DFE831500DD68E1 /* CQHeaderView.m in Sources */,
+				04061C771E02452C008F65AC /* CQPhoneNumController.m in Sources */,
+				0453E64C1DFE832A00DD68E1 /* CQAppsDataManager.m in Sources */,
+				04F875BF1E03931900D25907 /* UIView+Frame.m in Sources */,
+				04A4F0141E07B431001596B2 /* CQCoreTextLinkData.m in Sources */,
+				04A4F0271E07D59D001596B2 /* CQBigImageView.m in Sources */,
+				04F875C21E03E5B000D25907 /* CQPhoneHeaderView.m in Sources */,
+				0481035C1DF94BCC00FE7C0F /* CQHeader.m in Sources */,
+				04A4F0171E07B450001596B2 /* CQCTFrameParser.m in Sources */,
+				04061C821E026F82008F65AC /* CQPhoneNumModel.m in Sources */,
+				04A4F00D1E07B40F001596B2 /* CQCoreTextUtils.m in Sources */,
+				0453E64D1DFE832A00DD68E1 /* CQAppsModel.m in Sources */,
+				04A4F01D1E07B491001596B2 /* CQCTFrameParserConfig.m in Sources */,
+				04A4EFFC1E07B29D001596B2 /* CQCoreTextController.m in Sources */,
+				04A4F0221E07B4B4001596B2 /* CQWebViewController.m in Sources */,
+				04061C7F1E02640E008F65AC /* CQLoadPhoneNumber.m in Sources */,
+				0450CD391E028C3D0080F6F7 /* CQPhoneNumberCell.m in Sources */,
+				0481030E1DF9065C00FE7C0F /* CQAppDelegate.m in Sources */,
+				0453E6441DFE831500DD68E1 /* CQAppsCell.m in Sources */,
+				0453E63A1DFE82FD00DD68E1 /* CQAppsController.m in Sources */,
+				0453E6461DFE831500DD68E1 /* CQFooterView.m in Sources */,
+				0481030B1DF9065C00FE7C0F /* main.m in Sources */,
+				04A3414E1E014BDA006D1AF3 /* CQDynamicMenueView.m in Sources */,
+				0453E6341DFE82E900DD68E1 /* CQMainController.m in Sources */,
+				04A4F0131E07B431001596B2 /* CQCoreTextImageData.m in Sources */,
+				04A4F00E1E07B40F001596B2 /* UIImage+CQExtra.m in Sources */,
+				0450CD3D1E0298500080F6F7 /* NSString+CQUtil.m in Sources */,
+				04A4F0081E07B3EC001596B2 /* CQMagnifierView.m in Sources */,
+				0453E6451DFE831500DD68E1 /* CQAppsView.m in Sources */,
+				0450CD401E029B5F0080F6F7 /* CQContactSorted.m in Sources */,
+				04A4F01A1E07B472001596B2 /* CQCoreTextData.m in Sources */,
+				0453E63B1DFE82FD00DD68E1 /* CQAppsFlowLayout.m in Sources */,
+				0453E6511DFE836300DD68E1 /* CQDynamicViewController.m in Sources */,
+				04A4F0041E07B3B9001596B2 /* CQDisplayView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0481031B1DF9065C00FE7C0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				048103241DF9065C00FE7C0F /* CQPayedDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		048103261DF9065C00FE7C0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0481032F1DF9065C00FE7C0F /* CQPayedDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		048103211DF9065C00FE7C0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 048103051DF9065B00FE7C0F /* CQPayedDemo */;
+			targetProxy = 048103201DF9065C00FE7C0F /* PBXContainerItemProxy */;
+		};
+		0481032C1DF9065C00FE7C0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 048103051DF9065B00FE7C0F /* CQPayedDemo */;
+			targetProxy = 0481032B1DF9065C00FE7C0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0453E6521DFE83B700DD68E1 /* CQMainController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0453E6531DFE83B700DD68E1 /* Base */,
+			);
+			name = CQMainController.storyboard;
+			sourceTree = "<group>";
+		};
+		048103171DF9065C00FE7C0F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				048103181DF9065C00FE7C0F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		048103311DF9065C00FE7C0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		048103321DF9065C00FE7C0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		048103341DF9065C00FE7C0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y63K5QYE9U;
+				INFOPLIST_FILE = CQPayedDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSApp.wwdx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		048103351DF9065C00FE7C0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y63K5QYE9U;
+				INFOPLIST_FILE = CQPayedDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSApp.wwdx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		048103371DF9065C00FE7C0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = Y63K5QYE9U;
+				INFOPLIST_FILE = CQPayedDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSApp.wwdx.CQPayedDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CQPayedDemo.app/CQPayedDemo";
+			};
+			name = Debug;
+		};
+		048103381DF9065C00FE7C0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = Y63K5QYE9U;
+				INFOPLIST_FILE = CQPayedDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSApp.wwdx.CQPayedDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CQPayedDemo.app/CQPayedDemo";
+			};
+			name = Release;
+		};
+		0481033A1DF9065C00FE7C0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = Y63K5QYE9U;
+				INFOPLIST_FILE = CQPayedDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSApp.wwdx.CQPayedDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CQPayedDemo;
+			};
+			name = Debug;
+		};
+		0481033B1DF9065C00FE7C0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = Y63K5QYE9U;
+				INFOPLIST_FILE = CQPayedDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSApp.wwdx.CQPayedDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CQPayedDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		048103011DF9065B00FE7C0F /* Build configuration list for PBXProject "CQPayedDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				048103311DF9065C00FE7C0F /* Debug */,
+				048103321DF9065C00FE7C0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		048103331DF9065C00FE7C0F /* Build configuration list for PBXNativeTarget "CQPayedDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				048103341DF9065C00FE7C0F /* Debug */,
+				048103351DF9065C00FE7C0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		048103361DF9065C00FE7C0F /* Build configuration list for PBXNativeTarget "CQPayedDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				048103371DF9065C00FE7C0F /* Debug */,
+				048103381DF9065C00FE7C0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		048103391DF9065C00FE7C0F /* Build configuration list for PBXNativeTarget "CQPayedDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0481033A1DF9065C00FE7C0F /* Debug */,
+				0481033B1DF9065C00FE7C0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 048102FE1DF9065B00FE7C0F /* Project object */;
+}

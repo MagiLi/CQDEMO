@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="okb-YQ-kMp">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--应用-->
+        <scene sceneID="GRI-8T-u0H">
+            <objects>
+                <collectionViewController id="okb-YQ-kMp" customClass="CQAppsController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="F42-FF-g2x" customClass="CQAppsView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5rE-md-pjd" customClass="CQAppsFlowLayout">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="50" height="25"/>
+                            <size key="footerReferenceSize" width="50" height="10"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AppsCell" id="kVh-R4-Cei" customClass="CQAppsCell">
+                                <rect key="frame" x="10" y="35" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnW-Rk-9BV">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="3MN-4s-0Zl"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.75041118419999997" green="0.70525801809999999" blue="0.1612099095" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNR-hW-79y">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="OT7-xQ-lN0"/>
+                                                <constraint firstAttribute="height" constant="30" id="bOT-VU-wdi"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="stateButtonClicked:" destination="kVh-R4-Cei" eventType="touchUpInside" id="nvf-QK-TnF"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="rnW-Rk-9BV" secondAttribute="bottom" id="5ry-hx-KcT"/>
+                                    <constraint firstAttribute="trailing" secondItem="rnW-Rk-9BV" secondAttribute="trailing" id="RPu-Z2-bRB"/>
+                                    <constraint firstItem="rnW-Rk-9BV" firstAttribute="leading" secondItem="kVh-R4-Cei" secondAttribute="leading" id="Wuu-bs-yZ4"/>
+                                    <constraint firstAttribute="trailing" secondItem="WNR-hW-79y" secondAttribute="trailing" id="b8F-jv-W3t"/>
+                                    <constraint firstItem="WNR-hW-79y" firstAttribute="top" secondItem="kVh-R4-Cei" secondAttribute="top" id="mqP-GJ-1eZ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="stateBtn" destination="WNR-hW-79y" id="kdo-is-32m"/>
+                                    <outlet property="titleLab" destination="rnW-Rk-9BV" id="1YL-hJ-H8V"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="OLJ-F4-yRm" customClass="CQHeaderView">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18l-v3-g6W">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="18l-v3-g6W" secondAttribute="bottom" id="FFN-Jf-qmG"/>
+                                <constraint firstAttribute="trailing" secondItem="18l-v3-g6W" secondAttribute="trailing" id="Sfl-4q-OMH"/>
+                                <constraint firstItem="18l-v3-g6W" firstAttribute="leading" secondItem="OLJ-F4-yRm" secondAttribute="leading" constant="10" id="X8J-sM-le9"/>
+                                <constraint firstItem="18l-v3-g6W" firstAttribute="top" secondItem="OLJ-F4-yRm" secondAttribute="top" id="dNV-Jw-sXp"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="titleLab" destination="18l-v3-g6W" id="ock-kY-Vnp"/>
+                            </connections>
+                        </collectionReusableView>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FooterView" id="rE9-OB-oas" customClass="CQFooterView">
+                            <rect key="frame" x="0.0" y="145" width="375" height="10"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="okb-YQ-kMp" id="KLd-8y-aRP"/>
+                            <outlet property="delegate" destination="okb-YQ-kMp" id="7Uj-m2-765"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="应用" id="iwb-PX-bB7"/>
+                    <connections>
+                        <outlet property="colView" destination="F42-FF-g2x" id="xTn-rl-Mk8"/>
+                        <outlet property="collectionView" destination="F42-FF-g2x" id="SbN-NX-lFP"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eim-TW-24A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="-1110"/>
+        </scene>
+    </scenes>
+</document>
