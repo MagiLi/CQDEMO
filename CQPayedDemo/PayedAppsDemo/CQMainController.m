@@ -11,6 +11,7 @@
 #import "CQAppsController.h"
 #import "CQPhoneNumController.h"
 #import "CQCoreTextController.h"
+#import "CQPlayerController.h"
 
 @interface CQMainController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -46,6 +47,10 @@
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CQCoreTextController" bundle:[NSBundle mainBundle]];
         CQCoreTextController *coreTextVC = [sb instantiateInitialViewController];
         [self.navigationController pushViewController:coreTextVC animated:YES];
+    } else if ([string isEqualToString:@"Player"]) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CQPlayerController" bundle:[NSBundle mainBundle]];
+        CQPlayerController *playerVC = [sb instantiateInitialViewController];
+        [self.navigationController pushViewController:playerVC animated:YES];
     }
 }
 
@@ -69,7 +74,7 @@
 
 - (NSArray *)array {
     if (!_array) {
-        _array = @[@[@"支付宝"],@[@"Dynamic"],@[@"手机通讯录"],@[@"CoreText"]];
+        _array = @[@[@"支付宝"],@[@"Dynamic"],@[@"手机通讯录"],@[@"CoreText"],@[@"Player"]];
     }
     return _array;
 }
