@@ -34,7 +34,7 @@
     [super layoutSubviews];
     self.statusBarView.frame = CGRectMake(0, 0, self.frame.size.width, StatusBar_H);
     self.backBtn.frame = CGRectMake(0, StatusBar_H, 50.0, self.frame.size.height-StatusBar_H);
-    self.fullScreenBtn.frame = CGRectMake(self.frame.size.width - 80.0, StatusBar_H, 80.0, self.frame.size.height-StatusBar_H);
+    self.fullScreenBtn.frame = CGRectMake(self.frame.size.width - 50.0, StatusBar_H, 50.0, self.frame.size.height-StatusBar_H);
 }
 
 - (instancetype)init {

@@ -14,6 +14,7 @@
 
 - (void)backViewController;
 - (void)barHiddenAnimation:(BOOL)hidden;
+- (void)fullScreen:(BOOL)success;
 @end
 
 @interface CQPlayerView : UIView

@@ -14,7 +14,6 @@
 #define BarHidden_T 4.0
 
 @interface CQPlayerView () <CQTopViewDelegate, CQBottomViewDelegate>
-//@property(nonatomic,assign)CGRect originFrame;
 
 @property(nonatomic,strong)AVPlayerItem *playerItem; // 播放资源
 @property(nonatomic,strong)AVPlayer *player; // 播放器
@@ -73,9 +72,6 @@
 }
 
 - (void)fullScreenButtonClickedEvents:(UIButton *)sender {
-    
-
-#warning 该调控方式适用于支持横竖屏的demo
     if (kScreen_W < kScreen_H) { // 横屏
         sender.selected = YES;
         [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationLandscapeRight] forKey:@"orientation"];
@@ -85,9 +81,9 @@
         [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
         self.frame = CGRectMake(0, 0, kScreen_W, kScreen_H * 0.5);
     }
-    
-    
-
+    if ([self.delegate respondsToSelector:@selector(fullScreen:)]) {
+        [self.delegate fullScreen:sender.selected];
+    }
 }
 
 - (void)playButtonClickedEvents:(UIButton *)sender {
@@ -97,6 +93,26 @@
         [self playerVideo];
     }
 }
+#pragma mark -
+#pragma mark - 缓冲进度
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
+        // 计算缓冲进度
+        NSTimeInterval timeInterval = [self availableDuration];
+        CGFloat totalDuration = CMTimeGetSeconds(self.playerItem.duration);
+        [self.bottomView.progressView setProgress:timeInterval / totalDuration animated:YES];
+    }
+
+}
+- (NSTimeInterval)availableDuration
+{
+    CMTimeRange timeRange = [self.playerItem.loadedTimeRanges.firstObject CMTimeRangeValue];// 获取缓冲区域
+    float startSeconds = CMTimeGetSeconds(timeRange.start);
+    float durationSeconds = CMTimeGetSeconds(timeRange.duration);
+    NSTimeInterval result = startSeconds + durationSeconds;// 计算缓冲总进度
+    return result;
+}
+
 #pragma mark -
 #pragma mark - dragSliderEvents
 - (void)dragSliderEvents:(UISlider *)sender {
@@ -163,6 +179,7 @@
     
     self.playerItem = [AVPlayerItem playerItemWithURL:videoUrl];
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
+    [self.playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
     
     [self setupUI];
     
@@ -181,22 +198,19 @@
     self.playerLayer.frame = CGRectMake(0, 0, self.width, self.height);
     self.topView.frame = CGRectMake(0, 0, kScreen_W, Bar_H + 20.0);
     self.bottomView.frame = CGRectMake(0, self.height - Bar_H, kScreen_W, Bar_H);
-    
-    NSLog(@"w: %f  h: %f", self.width, self.height);
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.layer.masksToBounds = YES;
-//        self.originFrame = frame;
         self.backgroundColor = [UIColor blackColor];
         
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
         [self addGestureRecognizer:tapGesture];
         //AVPlayer播放完成通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidPlayToEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:_player.currentItem];
-//        _timer = [NSTimer scheduledTimerWithTimeInterval:BarHidden_T target:self selector:@selector(disappear) userInfo:nil repeats:NO];
+
     }
     return self;
 }
@@ -234,7 +248,7 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
+    [self.playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
     NSLog(@"CQPlayerView: dealloc");
 }
 

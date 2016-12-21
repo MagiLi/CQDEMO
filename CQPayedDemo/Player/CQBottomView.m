@@ -44,6 +44,7 @@
     [super layoutSubviews];
     self.playBtn.frame = CGRectMake(0, 0, 40.0, self.height);
     self.slider.frame = CGRectMake(CGRectGetMaxX(self.playBtn.frame), 0, self.width - TimeLable_W - 40.0, self.height);
+    self.progressView.frame = CGRectMake(self.slider.x+2.0, (self.height - 2.0)*0.5, self.slider.width - 4.0, 2.0);
     self.labTime.frame = CGRectMake(self.width-TimeLable_W, 0, TimeLable_W, self.height);
 }
 
@@ -64,15 +65,21 @@
     [self addSubview:playBtn];
     self.playBtn = playBtn;
 
+    UIProgressView *progressView = [[UIProgressView alloc] init];
+    progressView.trackTintColor = [UIColor lightGrayColor];
+    progressView.progressTintColor = [UIColor greenColor];
+    [self addSubview:progressView];
+    self.progressView = progressView;
+    
     UISlider *slider = [[UISlider alloc] init];
     [slider setThumbImage:[UIImage imageNamed:@"slider"] forState:UIControlStateNormal];
     slider.maximumValue = 1;
     slider.minimumTrackTintColor = Theme_Color;
-    slider.maximumTrackTintColor = [UIColor greenColor];
+    slider.maximumTrackTintColor = [UIColor clearColor];
     [slider addTarget:self action:@selector(dragSlider:) forControlEvents:UIControlEventValueChanged];
     [self addSubview:slider];
     self.slider = slider;
-    
+
     UILabel *labTime = [[UILabel alloc] init];
     labTime.font = [UIFont systemFontOfSize:13.0];
     labTime.textColor = [UIColor whiteColor];

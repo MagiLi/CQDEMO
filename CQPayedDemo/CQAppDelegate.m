@@ -7,6 +7,7 @@
 //
 
 #import "CQAppDelegate.h"
+#import "CQMainController.h"
 
 @interface CQAppDelegate ()
 
@@ -14,9 +15,13 @@
 
 @implementation CQAppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    [self.window makeKeyAndVisible];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CQMainController" bundle:[NSBundle mainBundle]];
+    UINavigationController *nav = [sb instantiateInitialViewController];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self.window setRootViewController:nav];
     return YES;
 }
 

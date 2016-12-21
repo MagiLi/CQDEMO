@@ -17,6 +17,7 @@
 
 @interface CQBottomView : UIView
 @property(nonatomic,weak)UISlider *slider;
+@property(nonatomic,weak)UIProgressView *progressView;
 @property(nonatomic,assign)BOOL playBtnSelected;
 
 - (void)setCurrentTime:(NSString *)currentTime;

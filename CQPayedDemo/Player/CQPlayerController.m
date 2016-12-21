@@ -23,7 +23,6 @@
     [super viewDidLoad];
     
     CGFloat scale = 0.5;
-#warning 该调控方式适用于支持横竖屏的demo
     if (kScreen_W > kScreen_H) { // 横屏
         scale = 1.0;
     }
@@ -38,11 +37,16 @@
 #pragma mark -
 #pragma mark - CQPlayerViewDelegate
 - (void)backViewController {
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)barHiddenAnimation:(BOOL)hidden {
     self.statusBarHidden = hidden;
     [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (void)fullScreen:(BOOL)success {
+    
 }
 
 #pragma mark -
@@ -54,21 +58,6 @@
 - (BOOL)prefersStatusBarHidden {
     return self.statusBarHidden;
 }
-#pragma mark -
-#pragma mark - 横屏/竖屏
-//- (BOOL)shouldAutorotate {
-//    return NO;
-//}
-//- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskLandscapeRight;
-//}
-//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-//    
-//    NSLog(@"====== %d", toInterfaceOrientation);
-//    
-//    return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight);
-//}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
