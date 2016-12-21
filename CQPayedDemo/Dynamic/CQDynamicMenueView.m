@@ -136,7 +136,7 @@ static const float kSphereDamping = 0.3;
 }
 - (void)tapped:(UITapGestureRecognizer *)gesture
 {
-    NSUInteger index = [self.taps indexOfObject:gesture];
+//    NSUInteger index = [self.taps indexOfObject:gesture];
     self.expanded = NO;
     [self shrinkSubmenu];
 }

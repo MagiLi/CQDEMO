@@ -118,7 +118,9 @@
     NSArray *temp = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSIndexPath *  _Nonnull obj1, NSIndexPath *  _Nonnull obj2) {
         return obj1.item > obj2.item;
     }];
-    [totalArray addObject:temp.lastObject];
+    if (temp.lastObject) {
+        [totalArray addObject:temp.lastObject];
+    }
     return totalArray.copy;
 }
 

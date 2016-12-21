@@ -7,8 +7,13 @@
 //
 
 #import "CQPlayerController.h"
+#import "CQPlayerView.h"
 
-@interface CQPlayerController ()
+@interface CQPlayerController ()<CQPlayerViewDelegate>
+
+@property(nonatomic,weak)CQPlayerView *playerView;
+@property(nonatomic,assign)BOOL statusBarHidden;
+
 
 @end
 
@@ -16,22 +21,62 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    CGFloat scale = 0.5;
+#warning 该调控方式适用于支持横竖屏的demo
+    if (kScreen_W > kScreen_H) { // 横屏
+        scale = 1.0;
+    }
+    
+    CQPlayerView *playerView = [[CQPlayerView alloc] initWithFrame:CGRectMake(0, 0, kScreen_W, kScreen_H*scale)];
+    playerView.videoUrl = [NSURL URLWithString:@"http://wvideo.spriteapp.cn/video/2016/0215/56c1809735217_wpd.mp4"];
+    playerView.delegate = self;
+    [self.view addSubview:playerView];
+    self.playerView = playerView;
+
 }
+#pragma mark -
+#pragma mark - CQPlayerViewDelegate
+- (void)backViewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)barHiddenAnimation:(BOOL)hidden {
+    self.statusBarHidden = hidden;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+#pragma mark -
+#pragma mark - statusBar
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return self.statusBarHidden;
+}
+#pragma mark -
+#pragma mark - 横屏/竖屏
+//- (BOOL)shouldAutorotate {
+//    return NO;
+//}
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+//    return UIInterfaceOrientationMaskLandscapeRight;
+//}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+//    
+//    NSLog(@"====== %d", toInterfaceOrientation);
+//    
+//    return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight);
+//}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)dealloc {
+    [self.playerView invalidatePlayerView];
 }
-*/
 
 @end

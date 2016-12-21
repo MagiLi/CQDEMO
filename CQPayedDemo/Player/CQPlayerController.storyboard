@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Player Controller-->
         <scene sceneID="nJV-iz-Auk">
             <objects>
-                <viewController id="fvC-M0-UGf" sceneMemberID="viewController">
+                <viewController id="fvC-M0-UGf" customClass="CQPlayerController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8J0-bs-c2j"/>
                         <viewControllerLayoutGuide type="bottom" id="txs-R5-DHI"/>
@@ -17,12 +17,12 @@
                     <view key="view" contentMode="scaleToFill" id="ZOI-Pr-C3L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92941176469999998" green="0.66666666669999997" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Mf-Iv-d97" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="116"/>
+            <point key="canvasLocation" x="-383" y="-61"/>
         </scene>
     </scenes>
 </document>

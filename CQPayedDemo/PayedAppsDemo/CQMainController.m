@@ -50,7 +50,8 @@
     } else if ([string isEqualToString:@"Player"]) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CQPlayerController" bundle:[NSBundle mainBundle]];
         CQPlayerController *playerVC = [sb instantiateInitialViewController];
-        [self.navigationController pushViewController:playerVC animated:YES];
+        [self presentViewController:playerVC animated:YES completion:nil];
+//        [self.navigationController pushViewController:playerVC animated:YES];
     }
 }
 
