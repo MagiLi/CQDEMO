@@ -15,5 +15,6 @@
 @end
 
 @interface CQTopView : UIView
+@property(nonatomic,weak)UIButton *fullScreenBtn;
 @property(nonatomic,weak)id<CQTopViewDelegate> delegate;
 @end

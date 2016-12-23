@@ -63,6 +63,10 @@
     [self.bottomView setCurrentTime:timeStr];
 }
 
+- (void)interfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+
+}
+
 #pragma mark -
 #pragma mark - CQTopViewDelegate
 - (void)backButtonClickedEvents:(UIButton *)sender {
@@ -80,9 +84,6 @@
         sender.selected = NO;
         [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
         self.frame = CGRectMake(0, 0, kScreen_W, kScreen_H * 0.5);
-    }
-    if ([self.delegate respondsToSelector:@selector(fullScreen:)]) {
-        [self.delegate fullScreen:sender.selected];
     }
 }
 
@@ -176,8 +177,10 @@
 #pragma mark - set方法
 - (void)setVideoUrl:(NSURL *)videoUrl {
     _videoUrl = videoUrl;
-    
-    self.playerItem = [AVPlayerItem playerItemWithURL:videoUrl];
+//    AVURLAssetPreferPreciseDurationAndTimingKey
+    AVURLAsset *urlAssert = [[AVURLAsset alloc] initWithURL:videoUrl options:nil];
+    self.playerItem = [AVPlayerItem playerItemWithAsset:urlAssert];
+//    self.playerItem = [AVPlayerItem playerItemWithURL:videoUrl];
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
     [self.playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
     

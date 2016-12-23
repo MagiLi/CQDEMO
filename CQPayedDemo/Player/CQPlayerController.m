@@ -27,7 +27,9 @@
         scale = 1.0;
     }
     
-    CQPlayerView *playerView = [[CQPlayerView alloc] initWithFrame:CGRectMake(0, 0, kScreen_W, kScreen_H*scale)];
+    CQPlayerView *playerView = [[CQPlayerView alloc] initWithFrame:CGRectMake(0, 0, kScreen_W, kScreen_H*scale)]; 
+    
+//    playerView.videoUrl = [NSURL URLWithString:@"http://img.readerday.com/cover/1481785184.mp3"];
     playerView.videoUrl = [NSURL URLWithString:@"http://wvideo.spriteapp.cn/video/2016/0215/56c1809735217_wpd.mp4"];
     playerView.delegate = self;
     [self.view addSubview:playerView];
@@ -45,9 +47,6 @@
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
-- (void)fullScreen:(BOOL)success {
-    
-}
 
 #pragma mark -
 #pragma mark - statusBar
@@ -57,6 +56,25 @@
 
 - (BOOL)prefersStatusBarHidden {
     return self.statusBarHidden;
+}
+
+//获取将要旋转的状态
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    [self.playerView interfaceOrientation:toInterfaceOrientation];
+}
+
+//获取旋转中的状态
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+
+}
+//屏幕旋转完成的状态
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientationN
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {

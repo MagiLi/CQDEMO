@@ -84,7 +84,7 @@
     labTime.font = [UIFont systemFontOfSize:13.0];
     labTime.textColor = [UIColor whiteColor];
     labTime.textAlignment = NSTextAlignmentCenter;
-    labTime.text = @"00:00/10:00";
+    labTime.text = @"00:00/00:00";
     [self addSubview:labTime];
     self.labTime = labTime;
 }

@@ -13,7 +13,6 @@
 @interface CQTopView ()
 @property(nonatomic,weak)UIView *statusBarView;
 @property(nonatomic,weak)UIButton *backBtn;
-@property(nonatomic,weak)UIButton *fullScreenBtn;
 @end
 
 @implementation CQTopView

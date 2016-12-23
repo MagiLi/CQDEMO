@@ -14,7 +14,6 @@
 
 - (void)backViewController;
 - (void)barHiddenAnimation:(BOOL)hidden;
-- (void)fullScreen:(BOOL)success;
 @end
 
 @interface CQPlayerView : UIView
@@ -23,6 +22,8 @@
 
 // 销毁播放页面
 - (void)invalidatePlayerView;
+
+- (void)interfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation;
 
 @property(nonatomic,weak)id<CQPlayerViewDelegate> delegate;
 @end
