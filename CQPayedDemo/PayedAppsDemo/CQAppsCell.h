@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CQAppsModel.h"
-#import "CQHeader.h"
 
 static NSString * const reuseIdentifier = @"AppsCell";
 

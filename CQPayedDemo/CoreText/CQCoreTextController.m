@@ -12,7 +12,6 @@
 #import "CQDisplayView.h"
 #import "CQBigImageView.h"
 #import "CQCTFrameParser.h"
-#import "CQHeader.h"
 
 static CGFloat margin = 10.0;
 

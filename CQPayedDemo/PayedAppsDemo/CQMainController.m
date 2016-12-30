@@ -12,6 +12,7 @@
 #import "CQPhoneNumController.h"
 #import "CQCoreTextController.h"
 #import "CQPlayerController.h"
+#import "CQMusicBarController.h"
 
 @interface CQMainController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -52,6 +53,11 @@
         CQPlayerController *playerVC = [sb instantiateInitialViewController];
         [self presentViewController:playerVC animated:YES completion:nil];
 //        [self.navigationController pushViewController:playerVC animated:YES];
+    } else if ([string isEqualToString:@"音乐🎵"]) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CQMusicBarController" bundle:[NSBundle mainBundle]];
+        CQMusicBarController *barVC = [sb instantiateInitialViewController];
+        [self.navigationController pushViewController:barVC animated:YES];
+
     }
 }
 
@@ -75,7 +81,7 @@
 
 - (NSArray *)array {
     if (!_array) {
-        _array = @[@[@"支付宝"],@[@"Dynamic"],@[@"手机通讯录"],@[@"CoreText"],@[@"Player"]];
+        _array = @[@[@"支付宝"],@[@"Dynamic"],@[@"手机通讯录"],@[@"CoreText"],@[@"Player", @"音乐🎵"]];
     }
     return _array;
 }

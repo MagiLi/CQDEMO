@@ -14,14 +14,13 @@
 @property(nonatomic,weak)CQPlayerView *playerView;
 @property(nonatomic,assign)BOOL statusBarHidden;
 
-
 @end
 
 @implementation CQPlayerController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     CGFloat scale = 0.5;
     if (kScreen_W > kScreen_H) { // 横屏
         scale = 1.0;
@@ -30,12 +29,27 @@
     CQPlayerView *playerView = [[CQPlayerView alloc] initWithFrame:CGRectMake(0, 0, kScreen_W, kScreen_H*scale)]; 
     
 //    playerView.videoUrl = [NSURL URLWithString:@"http://img.readerday.com/cover/1481785184.mp3"];
-    playerView.videoUrl = [NSURL URLWithString:@"http://wvideo.spriteapp.cn/video/2016/0215/56c1809735217_wpd.mp4"];
+//    playerView.videoUrl = [NSURL URLWithString:@"http://wvideo.spriteapp.cn/video/2016/0215/56c1809735217_wpd.mp4"];
+    playerView.videoUrl = [NSURL URLWithString:@"http://img.readerday.com/cover/978711136541910.mp3"];
     playerView.delegate = self;
     [self.view addSubview:playerView];
     self.playerView = playerView;
+    
+    [self backgroundObserver];
 
 }
+
+- (void)backgroundObserver {
+    // 开始监控
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    // 后台播放
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    // 激活
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    
+    [self becomeFirstResponder];
+}
+
 #pragma mark -
 #pragma mark - CQPlayerViewDelegate
 - (void)backViewController {

@@ -8,7 +8,6 @@
 
 #import "CQPhoneNumberCell.h"
 #import "CQPhoneNumModel.h"
-#import "CQHeader.h"
 
 
 static CGFloat effectiveMinX = 50.0;

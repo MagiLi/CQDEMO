@@ -9,20 +9,23 @@
 #import "CQPlayerView.h"
 #import "CQTopView.h"
 #import "CQBottomView.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 #define Bar_H 40.0
 #define BarHidden_T 4.0
+#define BarAfterTime 10.0
 
 @interface CQPlayerView () <CQTopViewDelegate, CQBottomViewDelegate>
 
+@property(nonatomic,strong)AVURLAsset *urlAsset;
 @property(nonatomic,strong)AVPlayerItem *playerItem; // 播放资源
 @property(nonatomic,strong)AVPlayer *player; // 播放器
 @property(nonatomic,strong)AVPlayerLayer *playerLayer; // 播放图层
 
 @property(nonatomic,strong)CQTopView *topView;
 @property(nonatomic,strong)CQBottomView *bottomView;
+@property(nonatomic,strong)UIActivityIndicatorView *indicateView;
 
-@property(nonatomic,strong)NSTimer *playTimer; // 播放时长
 @property(nonatomic,assign)BOOL barHidden;
 
 @end
@@ -32,24 +35,56 @@
 - (void)stopVideo {
     [self.player pause];
     self.bottomView.playBtnSelected = NO;
-    [self.playTimer invalidate];
-    self.playTimer = nil;
+    
 }
 - (void)playerVideo {
-    self.bottomView.playBtnSelected = YES;
-    self.playTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timeStack) userInfo:nil repeats:YES];
-    [self.player play];
-}
-
-- (void)timeStack {
-    if (self.playerItem.duration.timescale != 0) {
-        float currentTime = CMTimeGetSeconds(self.player.currentTime);
-        float durationTime = self.playerItem.duration.value / self.playerItem.duration.timescale;
-        [self setTimeWithDurationTime:(NSInteger)durationTime withCurrentTime:(NSInteger)currentTime];// 播放时间
-        self.bottomView.slider.value = currentTime / durationTime;//当前进度
+    
+    if (self.playerItem.status == AVPlayerItemStatusReadyToPlay) {
+        self.bottomView.playBtnSelected = YES;
+        [self.player play];
+        __weak typeof(self) weakSelf = self;
+        [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+            [weakSelf timeStack];
+            
+        }];
     }
 
 }
+
+- (void)timeStack {
+
+    if (self.urlAsset.duration.timescale != 0) {
+        float currentTime = CMTimeGetSeconds(self.player.currentTime);
+        float durationTime = self.urlAsset.duration.value / self.urlAsset.duration.timescale;
+        [self setTimeWithDurationTime:(NSInteger)durationTime withCurrentTime:(NSInteger)currentTime];// 播放时间
+        self.bottomView.slider.value = currentTime / durationTime;//当前进度
+    }
+}
+#pragma mark - 锁屏时候的设置，效果需要在真机上才可以看到
+- (void)updateLockedScreenMusic{
+    
+    // 播放信息中心
+    MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
+    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+    // 专辑名称
+    info[MPMediaItemPropertyAlbumTitle] = @"阿杜专辑";
+    // 歌手
+    info[MPMediaItemPropertyArtist] = @"阿杜";
+    // 歌曲名称
+    info[MPMediaItemPropertyTitle] = @"天黑";
+    // 设置图片
+    info[MPMediaItemPropertyArtwork] = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:@"slider"]];
+    // 设置持续时间（歌曲的总时间）
+    [info setObject:[NSNumber numberWithFloat:CMTimeGetSeconds(self.urlAsset.duration)] forKey:MPMediaItemPropertyPlaybackDuration];
+    // 设置当前播放进度
+    [info setObject:[NSNumber numberWithFloat:CMTimeGetSeconds([self.playerItem currentTime])] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+    
+    // 切换播放信息
+    center.nowPlayingInfo = info;
+    
+}
+
+
 #pragma mark -
 #pragma mark - 播放时间
 - (void)setTimeWithDurationTime:(NSInteger)durationTime withCurrentTime:(NSInteger)currentTime {
@@ -98,6 +133,7 @@
 #pragma mark - 缓冲进度
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
+        [self.indicateView stopAnimating];
         // 计算缓冲进度
         NSTimeInterval timeInterval = [self availableDuration];
         CGFloat totalDuration = CMTimeGetSeconds(self.playerItem.duration);
@@ -123,9 +159,6 @@
     }
     if (self.player.status == AVPlayerStatusReadyToPlay) {
         
-        [self.playTimer invalidate];
-        self.playTimer = nil;
-        
         CGFloat durationTime = (CGFloat)_playerItem.duration.value / _playerItem.duration.timescale;
         NSInteger dragedSeconds = floorf(durationTime * sender.value);
         CMTime dragedCMTime = CMTimeMake(dragedSeconds, 1);
@@ -145,8 +178,6 @@
 #pragma mark -
 #pragma mark - AVPlayerItemDidPlayToEndTimeNotification
 - (void)playerItemDidPlayToEnd:(id)sender {
-    [self.playTimer invalidate];
-    self.playTimer = nil;
     self.bottomView.playBtnSelected = NO;
 }
 
@@ -163,36 +194,60 @@
             self.bottomView.y = self.height - self.bottomView.height;
         } completion:^(BOOL finished) {
             self.barHidden = NO;
+            [self performSelector:@selector(hiddenBars) withObject:nil afterDelay:BarAfterTime];
         }];
     } else {
-        [UIView animateWithDuration:0.2 animations:^{
-            self.topView.y = -self.topView.height;
-            self.bottomView.y = self.height;
-        } completion:^(BOOL finished) {
-            self.barHidden = YES;
-        }];
+        [self hiddenBars];
     }
 }
+
+- (void)hiddenBars {
+    if ([self.delegate respondsToSelector:@selector(barHiddenAnimation:)]) {
+        [self.delegate barHiddenAnimation:YES];
+    }
+    [UIView animateWithDuration:0.2 animations:^{
+        self.topView.y = -self.topView.height;
+        self.bottomView.y = self.height;
+    } completion:^(BOOL finished) {
+        self.barHidden = YES;
+    }];
+}
+
 #pragma mark -
 #pragma mark - set方法
 - (void)setVideoUrl:(NSURL *)videoUrl {
     _videoUrl = videoUrl;
-//    AVURLAssetPreferPreciseDurationAndTimingKey
-    AVURLAsset *urlAssert = [[AVURLAsset alloc] initWithURL:videoUrl options:nil];
-    self.playerItem = [AVPlayerItem playerItemWithAsset:urlAssert];
-//    self.playerItem = [AVPlayerItem playerItemWithURL:videoUrl];
+    NSDictionary *option = @{AVURLAssetPreferPreciseDurationAndTimingKey: @(NO)};
+    AVURLAsset *urlAsset = [[AVURLAsset alloc] initWithURL:videoUrl options:option];
+    self.urlAsset = urlAsset;
+    self.playerItem = [AVPlayerItem playerItemWithAsset:urlAsset];
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
     [self.playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
     
     [self setupUI];
-    
+
+    [self performSelector:@selector(hiddenBars) withObject:nil afterDelay:BarAfterTime];
 }
+
+// 获取视频截图
+- (UIImage *)getVideImage:(AVURLAsset *)urlAssert {
+    
+    AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:urlAssert];
+    imageGenerator.appliesPreferredTrackTransform = YES;
+    CMTime actualTime;
+    NSError *error;
+    CGImageRef cgImage = [imageGenerator copyCGImageAtTime:CMTimeMake(0, 10) actualTime:&actualTime error:&error];
+    UIImage *image = [UIImage imageWithCGImage:cgImage];
+    CGImageRelease(cgImage);
+    return image;
+}
+
 
 - (void)setupUI {
     [self.layer addSublayer:self.playerLayer];
     [self addSubview:self.topView];
     [self addSubview:self.bottomView];
-    
+    [self addSubview:self.indicateView];
 }
 
 - (void)layoutSubviews {
@@ -241,12 +296,17 @@
     }
     return _bottomView;
 }
-
+- (UIActivityIndicatorView *)indicateView {
+    if (!_indicateView) {
+        _indicateView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        _indicateView.center = CGPointMake(self.centerX, self.centerY);
+    }
+    [_indicateView startAnimating];
+    return _indicateView;
+}
 - (void)invalidatePlayerView {
     [self.player pause];
     self.player = nil;
-    [self.playTimer invalidate];
-    self.playTimer = nil;
 }
 
 - (void)dealloc {

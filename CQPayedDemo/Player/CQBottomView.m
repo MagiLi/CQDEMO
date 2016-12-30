@@ -7,7 +7,6 @@
 //
 
 #import "CQBottomView.h"
-#import "CQHeader.h"
 
 #define TimeLable_W 90.0
 

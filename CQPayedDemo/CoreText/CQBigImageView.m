@@ -7,7 +7,6 @@
 //
 
 #import "CQBigImageView.h"
-#import "CQHeader.h"
 
 @interface CQBigImageView ()
 @property(nonatomic,assign)CGRect originFrame;

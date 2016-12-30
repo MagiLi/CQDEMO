@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CQHeader.h"
 #import "CQPhoneNumModel.h"
 
 @interface CQLoadPhoneNumber : NSObject

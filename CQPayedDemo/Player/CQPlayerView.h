@@ -6,9 +6,7 @@
 //  Copyright © 2016年 wwdx. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import "CQHeader.h"
 
 @protocol CQPlayerViewDelegate <NSObject>
 

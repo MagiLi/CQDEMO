@@ -11,6 +11,8 @@
 
 @interface CQAppDelegate ()
 
+
+
 @end
 
 @implementation CQAppDelegate
@@ -20,11 +22,10 @@
     [self.window makeKeyAndVisible];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CQMainController" bundle:[NSBundle mainBundle]];
     UINavigationController *nav = [sb instantiateInitialViewController];
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [self.window setRootViewController:nav];
+
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
