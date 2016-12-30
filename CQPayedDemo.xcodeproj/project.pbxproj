@@ -19,21 +19,6 @@
 		04468E2B1E14FCE8002D6942 /* CQRecommendController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04468E2A1E14FCE8002D6942 /* CQRecommendController.storyboard */; };
 		04468E2E1E1500B1002D6942 /* CQMajorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E2D1E1500B1002D6942 /* CQMajorController.m */; };
 		04468E301E1500BE002D6942 /* CQMajorController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04468E2F1E1500BE002D6942 /* CQMajorController.storyboard */; };
-		04468E561E150B8D002D6942 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E351E150B8D002D6942 /* AFHTTPSessionManager.m */; };
-		04468E571E150B8D002D6942 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E381E150B8D002D6942 /* AFNetworkReachabilityManager.m */; };
-		04468E581E150B8D002D6942 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E3A1E150B8D002D6942 /* AFSecurityPolicy.m */; };
-		04468E591E150B8D002D6942 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E3C1E150B8D002D6942 /* AFURLRequestSerialization.m */; };
-		04468E5A1E150B8D002D6942 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E3E1E150B8D002D6942 /* AFURLResponseSerialization.m */; };
-		04468E5B1E150B8D002D6942 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E401E150B8D002D6942 /* AFURLSessionManager.m */; };
-		04468E5C1E150B8D002D6942 /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E431E150B8D002D6942 /* AFAutoPurgingImageCache.m */; };
-		04468E5D1E150B8D002D6942 /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E451E150B8D002D6942 /* AFImageDownloader.m */; };
-		04468E5E1E150B8D002D6942 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E471E150B8D002D6942 /* AFNetworkActivityIndicatorManager.m */; };
-		04468E5F1E150B8D002D6942 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E491E150B8D002D6942 /* UIActivityIndicatorView+AFNetworking.m */; };
-		04468E601E150B8D002D6942 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E4B1E150B8D002D6942 /* UIButton+AFNetworking.m */; };
-		04468E611E150B8D002D6942 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E4E1E150B8D002D6942 /* UIImageView+AFNetworking.m */; };
-		04468E621E150B8D002D6942 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E511E150B8D002D6942 /* UIProgressView+AFNetworking.m */; };
-		04468E631E150B8D002D6942 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E531E150B8D002D6942 /* UIRefreshControl+AFNetworking.m */; };
-		04468E641E150B8D002D6942 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E551E150B8D002D6942 /* UIWebView+AFNetworking.m */; };
 		04468E671E150BFF002D6942 /* CQDownloadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E661E150BFF002D6942 /* CQDownloadData.m */; };
 		04468E6A1E150E7E002D6942 /* CQAFSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E691E150E7E002D6942 /* CQAFSessionManager.m */; };
 		0450CD391E028C3D0080F6F7 /* CQPhoneNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0450CD381E028C3D0080F6F7 /* CQPhoneNumberCell.m */; };
@@ -57,6 +42,10 @@
 		048103241DF9065C00FE7C0F /* CQPayedDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048103231DF9065C00FE7C0F /* CQPayedDemoTests.m */; };
 		0481032F1DF9065C00FE7C0F /* CQPayedDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481032E1DF9065C00FE7C0F /* CQPayedDemoUITests.m */; };
 		0481035C1DF94BCC00FE7C0F /* CQHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481035B1DF94BCC00FE7C0F /* CQHeader.m */; };
+		048D533D1E16404E00A2588F /* CQBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D533C1E16404E00A2588F /* CQBaseModel.m */; };
+		048D53401E16409800A2588F /* CQContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D533F1E16409800A2588F /* CQContentModel.m */; };
+		048D53651E164A5800A2588F /* CQBaseLayoutModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D53641E164A5800A2588F /* CQBaseLayoutModel.m */; };
+		048D53681E164AD300A2588F /* CQContentLayoutModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D53671E164AD300A2588F /* CQContentLayoutModel.m */; };
 		048F89681E08D09300BD7485 /* CQPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F89671E08D09300BD7485 /* CQPlayerController.m */; };
 		048F896F1E08D1B400BD7485 /* CQPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F896E1E08D1B400BD7485 /* CQPlayerView.m */; };
 		048F89711E08D1E300BD7485 /* CQPlayerController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048F89701E08D1E300BD7485 /* CQPlayerController.storyboard */; };
@@ -83,6 +72,7 @@
 		04A4F0271E07D59D001596B2 /* CQBigImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F0261E07D59D001596B2 /* CQBigImageView.m */; };
 		04F875BF1E03931900D25907 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F875BE1E03931900D25907 /* UIView+Frame.m */; };
 		04F875C21E03E5B000D25907 /* CQPhoneHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F875C11E03E5B000D25907 /* CQPhoneHeaderView.m */; };
+		A974070AE76F1655FF2CA8D5 /* libPods-CQPayedDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1591E47FC17EF5AB4A7AA418 /* libPods-CQPayedDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,39 +114,6 @@
 		04468E2D1E1500B1002D6942 /* CQMajorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQMajorController.m; sourceTree = "<group>"; };
 		04468E2F1E1500BE002D6942 /* CQMajorController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CQMajorController.storyboard; sourceTree = "<group>"; };
 		04468E311E150796002D6942 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		04468E341E150B8D002D6942 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		04468E351E150B8D002D6942 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		04468E361E150B8D002D6942 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		04468E371E150B8D002D6942 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		04468E381E150B8D002D6942 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		04468E391E150B8D002D6942 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
-		04468E3A1E150B8D002D6942 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
-		04468E3B1E150B8D002D6942 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		04468E3C1E150B8D002D6942 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		04468E3D1E150B8D002D6942 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		04468E3E1E150B8D002D6942 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
-		04468E3F1E150B8D002D6942 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
-		04468E401E150B8D002D6942 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		04468E421E150B8D002D6942 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAutoPurgingImageCache.h; sourceTree = "<group>"; };
-		04468E431E150B8D002D6942 /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAutoPurgingImageCache.m; sourceTree = "<group>"; };
-		04468E441E150B8D002D6942 /* AFImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageDownloader.h; sourceTree = "<group>"; };
-		04468E451E150B8D002D6942 /* AFImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageDownloader.m; sourceTree = "<group>"; };
-		04468E461E150B8D002D6942 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
-		04468E471E150B8D002D6942 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
-		04468E481E150B8D002D6942 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
-		04468E491E150B8D002D6942 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
-		04468E4A1E150B8D002D6942 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AFNetworking.h"; sourceTree = "<group>"; };
-		04468E4B1E150B8D002D6942 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AFNetworking.m"; sourceTree = "<group>"; };
-		04468E4C1E150B8D002D6942 /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AFNetworking.h"; sourceTree = "<group>"; };
-		04468E4D1E150B8D002D6942 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
-		04468E4E1E150B8D002D6942 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		04468E4F1E150B8D002D6942 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
-		04468E501E150B8D002D6942 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
-		04468E511E150B8D002D6942 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
-		04468E521E150B8D002D6942 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
-		04468E531E150B8D002D6942 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
-		04468E541E150B8D002D6942 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
-		04468E551E150B8D002D6942 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		04468E651E150BFF002D6942 /* CQDownloadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQDownloadData.h; sourceTree = "<group>"; };
 		04468E661E150BFF002D6942 /* CQDownloadData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQDownloadData.m; sourceTree = "<group>"; };
 		04468E681E150E7E002D6942 /* CQAFSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQAFSessionManager.h; sourceTree = "<group>"; };
@@ -203,6 +160,14 @@
 		048103301DF9065C00FE7C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0481035A1DF94BCC00FE7C0F /* CQHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQHeader.h; sourceTree = "<group>"; };
 		0481035B1DF94BCC00FE7C0F /* CQHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQHeader.m; sourceTree = "<group>"; };
+		048D533B1E16404E00A2588F /* CQBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQBaseModel.h; sourceTree = "<group>"; };
+		048D533C1E16404E00A2588F /* CQBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQBaseModel.m; sourceTree = "<group>"; };
+		048D533E1E16409800A2588F /* CQContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQContentModel.h; sourceTree = "<group>"; };
+		048D533F1E16409800A2588F /* CQContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQContentModel.m; sourceTree = "<group>"; };
+		048D53631E164A5800A2588F /* CQBaseLayoutModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQBaseLayoutModel.h; sourceTree = "<group>"; };
+		048D53641E164A5800A2588F /* CQBaseLayoutModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQBaseLayoutModel.m; sourceTree = "<group>"; };
+		048D53661E164AD300A2588F /* CQContentLayoutModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQContentLayoutModel.h; sourceTree = "<group>"; };
+		048D53671E164AD300A2588F /* CQContentLayoutModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQContentLayoutModel.m; sourceTree = "<group>"; };
 		048F89661E08D09300BD7485 /* CQPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPlayerController.h; sourceTree = "<group>"; };
 		048F89671E08D09300BD7485 /* CQPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPlayerController.m; sourceTree = "<group>"; };
 		048F896D1E08D1B400BD7485 /* CQPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPlayerView.h; sourceTree = "<group>"; };
@@ -248,6 +213,9 @@
 		04F875BE1E03931900D25907 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		04F875C01E03E5B000D25907 /* CQPhoneHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPhoneHeaderView.h; sourceTree = "<group>"; };
 		04F875C11E03E5B000D25907 /* CQPhoneHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPhoneHeaderView.m; sourceTree = "<group>"; };
+		1591E47FC17EF5AB4A7AA418 /* libPods-CQPayedDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CQPayedDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D29177CD856F5B1BB9199C9 /* Pods-CQPayedDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CQPayedDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CQPayedDemo/Pods-CQPayedDemo.release.xcconfig"; sourceTree = "<group>"; };
+		DAE9B1454CC1775B89BF801A /* Pods-CQPayedDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CQPayedDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CQPayedDemo/Pods-CQPayedDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A974070AE76F1655FF2CA8D5 /* libPods-CQPayedDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +316,8 @@
 		04468E201E14FBA2002D6942 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				048D53621E164A2600A2588F /* LayoutModel */,
+				048D53611E164A0F00A2588F /* DataModel */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -361,61 +332,12 @@
 		04468E321E150B6B002D6942 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				04468E331E150B8D002D6942 /* AFNetworking */,
-				04468E411E150B8D002D6942 /* UIKit+AFNetworking */,
 				04468E651E150BFF002D6942 /* CQDownloadData.h */,
 				04468E661E150BFF002D6942 /* CQDownloadData.m */,
 				04468E681E150E7E002D6942 /* CQAFSessionManager.h */,
 				04468E691E150E7E002D6942 /* CQAFSessionManager.m */,
 			);
 			path = Util;
-			sourceTree = "<group>";
-		};
-		04468E331E150B8D002D6942 /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				04468E341E150B8D002D6942 /* AFHTTPSessionManager.h */,
-				04468E351E150B8D002D6942 /* AFHTTPSessionManager.m */,
-				04468E361E150B8D002D6942 /* AFNetworking.h */,
-				04468E371E150B8D002D6942 /* AFNetworkReachabilityManager.h */,
-				04468E381E150B8D002D6942 /* AFNetworkReachabilityManager.m */,
-				04468E391E150B8D002D6942 /* AFSecurityPolicy.h */,
-				04468E3A1E150B8D002D6942 /* AFSecurityPolicy.m */,
-				04468E3B1E150B8D002D6942 /* AFURLRequestSerialization.h */,
-				04468E3C1E150B8D002D6942 /* AFURLRequestSerialization.m */,
-				04468E3D1E150B8D002D6942 /* AFURLResponseSerialization.h */,
-				04468E3E1E150B8D002D6942 /* AFURLResponseSerialization.m */,
-				04468E3F1E150B8D002D6942 /* AFURLSessionManager.h */,
-				04468E401E150B8D002D6942 /* AFURLSessionManager.m */,
-			);
-			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		04468E411E150B8D002D6942 /* UIKit+AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				04468E421E150B8D002D6942 /* AFAutoPurgingImageCache.h */,
-				04468E431E150B8D002D6942 /* AFAutoPurgingImageCache.m */,
-				04468E441E150B8D002D6942 /* AFImageDownloader.h */,
-				04468E451E150B8D002D6942 /* AFImageDownloader.m */,
-				04468E461E150B8D002D6942 /* AFNetworkActivityIndicatorManager.h */,
-				04468E471E150B8D002D6942 /* AFNetworkActivityIndicatorManager.m */,
-				04468E481E150B8D002D6942 /* UIActivityIndicatorView+AFNetworking.h */,
-				04468E491E150B8D002D6942 /* UIActivityIndicatorView+AFNetworking.m */,
-				04468E4A1E150B8D002D6942 /* UIButton+AFNetworking.h */,
-				04468E4B1E150B8D002D6942 /* UIButton+AFNetworking.m */,
-				04468E4C1E150B8D002D6942 /* UIImage+AFNetworking.h */,
-				04468E4D1E150B8D002D6942 /* UIImageView+AFNetworking.h */,
-				04468E4E1E150B8D002D6942 /* UIImageView+AFNetworking.m */,
-				04468E4F1E150B8D002D6942 /* UIKit+AFNetworking.h */,
-				04468E501E150B8D002D6942 /* UIProgressView+AFNetworking.h */,
-				04468E511E150B8D002D6942 /* UIProgressView+AFNetworking.m */,
-				04468E521E150B8D002D6942 /* UIRefreshControl+AFNetworking.h */,
-				04468E531E150B8D002D6942 /* UIRefreshControl+AFNetworking.m */,
-				04468E541E150B8D002D6942 /* UIWebView+AFNetworking.h */,
-				04468E551E150B8D002D6942 /* UIWebView+AFNetworking.m */,
-			);
-			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
 		0450CD3A1E02982E0080F6F7 /* Other */ = {
@@ -457,6 +379,8 @@
 				048103221DF9065C00FE7C0F /* CQPayedDemoTests */,
 				0481032D1DF9065C00FE7C0F /* CQPayedDemoUITests */,
 				048103071DF9065B00FE7C0F /* Products */,
+				954F43E3EDFCFAFF642E7751 /* Pods */,
+				633487E0EC5127BB86627A46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -571,6 +495,28 @@
 				04468E311E150796002D6942 /* PrefixHeader.pch */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		048D53611E164A0F00A2588F /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				048D533B1E16404E00A2588F /* CQBaseModel.h */,
+				048D533C1E16404E00A2588F /* CQBaseModel.m */,
+				048D533E1E16409800A2588F /* CQContentModel.h */,
+				048D533F1E16409800A2588F /* CQContentModel.m */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
+		048D53621E164A2600A2588F /* LayoutModel */ = {
+			isa = PBXGroup;
+			children = (
+				048D53631E164A5800A2588F /* CQBaseLayoutModel.h */,
+				048D53641E164A5800A2588F /* CQBaseLayoutModel.m */,
+				048D53661E164AD300A2588F /* CQContentLayoutModel.h */,
+				048D53671E164AD300A2588F /* CQContentLayoutModel.m */,
+			);
+			name = LayoutModel;
 			sourceTree = "<group>";
 		};
 		048F89651E08D06800BD7485 /* Player */ = {
@@ -725,6 +671,23 @@
 			path = CoreText;
 			sourceTree = "<group>";
 		};
+		633487E0EC5127BB86627A46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1591E47FC17EF5AB4A7AA418 /* libPods-CQPayedDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		954F43E3EDFCFAFF642E7751 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAE9B1454CC1775B89BF801A /* Pods-CQPayedDemo.debug.xcconfig */,
+				8D29177CD856F5B1BB9199C9 /* Pods-CQPayedDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -732,9 +695,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 048103331DF9065C00FE7C0F /* Build configuration list for PBXNativeTarget "CQPayedDemo" */;
 			buildPhases = (
+				E58F9198DCE23B9279F9A1A1 /* [CP] Check Pods Manifest.lock */,
 				048103021DF9065B00FE7C0F /* Sources */,
 				048103031DF9065B00FE7C0F /* Frameworks */,
 				048103041DF9065B00FE7C0F /* Resources */,
+				2BF696168886669B398D6EB5 /* [CP] Embed Pods Frameworks */,
+				79F0D9D10B53230C5C2C6159 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -873,27 +839,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2BF696168886669B398D6EB5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CQPayedDemo/Pods-CQPayedDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79F0D9D10B53230C5C2C6159 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CQPayedDemo/Pods-CQPayedDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E58F9198DCE23B9279F9A1A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		048103021DF9065B00FE7C0F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04468E621E150B8D002D6942 /* UIProgressView+AFNetworking.m in Sources */,
 				0444BD571E13CD1C002CC25E /* CQPlayerManager.m in Sources */,
 				0453E6471DFE831500DD68E1 /* CQHeaderView.m in Sources */,
-				04468E601E150B8D002D6942 /* UIButton+AFNetworking.m in Sources */,
-				04468E581E150B8D002D6942 /* AFSecurityPolicy.m in Sources */,
 				04061C771E02452C008F65AC /* CQPhoneNumController.m in Sources */,
 				0453E64C1DFE832A00DD68E1 /* CQAppsDataManager.m in Sources */,
-				04468E5C1E150B8D002D6942 /* AFAutoPurgingImageCache.m in Sources */,
 				04F875BF1E03931900D25907 /* UIView+Frame.m in Sources */,
 				04A4F0141E07B431001596B2 /* CQCoreTextLinkData.m in Sources */,
+				048D533D1E16404E00A2588F /* CQBaseModel.m in Sources */,
 				04A4F0271E07D59D001596B2 /* CQBigImageView.m in Sources */,
-				04468E631E150B8D002D6942 /* UIRefreshControl+AFNetworking.m in Sources */,
 				04F875C21E03E5B000D25907 /* CQPhoneHeaderView.m in Sources */,
 				0481035C1DF94BCC00FE7C0F /* CQHeader.m in Sources */,
 				04A4F0171E07B450001596B2 /* CQCTFrameParser.m in Sources */,
-				04468E5F1E150B8D002D6942 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				04061C821E026F82008F65AC /* CQPhoneNumModel.m in Sources */,
 				04A4F00D1E07B40F001596B2 /* CQCoreTextUtils.m in Sources */,
 				0453E64D1DFE832A00DD68E1 /* CQAppsModel.m in Sources */,
@@ -902,7 +911,7 @@
 				04A4F0221E07B4B4001596B2 /* CQWebViewController.m in Sources */,
 				04061C7F1E02640E008F65AC /* CQLoadPhoneNumber.m in Sources */,
 				048F89681E08D09300BD7485 /* CQPlayerController.m in Sources */,
-				04468E5D1E150B8D002D6942 /* AFImageDownloader.m in Sources */,
+				048D53651E164A5800A2588F /* CQBaseLayoutModel.m in Sources */,
 				0450CD391E028C3D0080F6F7 /* CQPhoneNumberCell.m in Sources */,
 				0481030E1DF9065C00FE7C0F /* CQAppDelegate.m in Sources */,
 				0453E6441DFE831500DD68E1 /* CQAppsCell.m in Sources */,
@@ -913,30 +922,24 @@
 				04468E671E150BFF002D6942 /* CQDownloadData.m in Sources */,
 				04468E6A1E150E7E002D6942 /* CQAFSessionManager.m in Sources */,
 				04A3414E1E014BDA006D1AF3 /* CQDynamicMenueView.m in Sources */,
-				04468E611E150B8D002D6942 /* UIImageView+AFNetworking.m in Sources */,
 				0453E6341DFE82E900DD68E1 /* CQMainController.m in Sources */,
-				04468E561E150B8D002D6942 /* AFHTTPSessionManager.m in Sources */,
 				04136EDD1E138C7E00580967 /* CQMusicBarController.m in Sources */,
 				048F896F1E08D1B400BD7485 /* CQPlayerView.m in Sources */,
-				04468E591E150B8D002D6942 /* AFURLRequestSerialization.m in Sources */,
 				04A4F0131E07B431001596B2 /* CQCoreTextImageData.m in Sources */,
 				04A4F00E1E07B40F001596B2 /* UIImage+CQExtra.m in Sources */,
 				0450CD3D1E0298500080F6F7 /* NSString+CQUtil.m in Sources */,
+				048D53401E16409800A2588F /* CQContentModel.m in Sources */,
 				04468E291E14FCD8002D6942 /* CQRecommendController.m in Sources */,
 				04A4F0081E07B3EC001596B2 /* CQMagnifierView.m in Sources */,
 				048F89741E08E15300BD7485 /* CQTopView.m in Sources */,
-				04468E5B1E150B8D002D6942 /* AFURLSessionManager.m in Sources */,
 				048F89771E08E15F00BD7485 /* CQBottomView.m in Sources */,
-				04468E571E150B8D002D6942 /* AFNetworkReachabilityManager.m in Sources */,
 				0453E6451DFE831500DD68E1 /* CQAppsView.m in Sources */,
 				0450CD401E029B5F0080F6F7 /* CQContactSorted.m in Sources */,
 				04468E2E1E1500B1002D6942 /* CQMajorController.m in Sources */,
 				04A4F01A1E07B472001596B2 /* CQCoreTextData.m in Sources */,
 				0453E63B1DFE82FD00DD68E1 /* CQAppsFlowLayout.m in Sources */,
-				04468E5E1E150B8D002D6942 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				04468E641E150B8D002D6942 /* UIWebView+AFNetworking.m in Sources */,
+				048D53681E164AD300A2588F /* CQContentLayoutModel.m in Sources */,
 				0453E6511DFE836300DD68E1 /* CQDynamicViewController.m in Sources */,
-				04468E5A1E150B8D002D6942 /* AFURLResponseSerialization.m in Sources */,
 				04A4F0041E07B3B9001596B2 /* CQDisplayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1082,6 +1085,7 @@
 		};
 		048103341DF9065C00FE7C0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAE9B1454CC1775B89BF801A /* Pods-CQPayedDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y63K5QYE9U;
@@ -1096,6 +1100,7 @@
 		};
 		048103351DF9065C00FE7C0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D29177CD856F5B1BB9199C9 /* Pods-CQPayedDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y63K5QYE9U;
