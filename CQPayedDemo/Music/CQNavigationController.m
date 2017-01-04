@@ -1,23 +1,22 @@
 //
-//  CQRecommendController.m
+//  CQNavigationController.m
 //  CQPayedDemo
 //
-//  Created by mac on 16/12/29.
-//  Copyright © 2016年 wwdx. All rights reserved.
+//  Created by mac on 17/1/3.
+//  Copyright © 2017年 wwdx. All rights reserved.
 //
 
-#import "CQRecommendController.h"
+#import "CQNavigationController.h"
 
-@interface CQRecommendController ()
+@interface CQNavigationController ()
 
 @end
 
-@implementation CQRecommendController
+@implementation CQNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

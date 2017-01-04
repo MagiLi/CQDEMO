@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UIView+Frame.h"
 #import "CQDownloadData.h"
+#import "CQAnimationManager.h"
 #import "MJExtension.h"
 
 #define Theme_Color [UIColor colorWithRed:237.0 / 255.0 green:170.0 / 255.0 blue:20.0 / 255.0 alpha:1.0]
@@ -16,6 +17,8 @@
 
 #define kScreen_W [UIScreen mainScreen].bounds.size.width
 #define kScreen_H [UIScreen mainScreen].bounds.size.height
+#define kBar_H 49.0
+#define kNav_H 64.0
 
 #define kCurrent_Version [[UIDevice currentDevice].systemVersion floatValue]
 

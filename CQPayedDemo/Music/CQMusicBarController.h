@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CQMusicBarController : UITabBarController
+@interface CQMusicBarController : UIViewController
 
 @end

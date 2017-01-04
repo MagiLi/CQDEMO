@@ -7,10 +7,17 @@
 //
 
 #import "CQMusicBarController.h"
-#import "CQMajorController.h"
-#import "CQRecommendController.h"
+//#import "CQMajorController.h"
+//#import "CQRecommendController.h"
+#import "CQVideoController.h"
+#import "CQTabBar.h"
 
-@interface CQMusicBarController ()
+@interface CQMusicBarController ()<CQTabBarDelegate>
+
+@property(nonatomic,strong)UIScrollView *scrollView;
+
+@property(nonatomic,strong)CQTabBar *customeTabBar;
+
 
 @end
 
@@ -18,37 +25,55 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view addSubview:self.scrollView];
+    [self.view addSubview:self.customeTabBar];
+
     
-    UIStoryboard *majorSB = [UIStoryboard storyboardWithName:@"CQMajorController" bundle:[NSBundle mainBundle]];
-    CQMajorController *majorVC = majorSB.instantiateInitialViewController;
-    UINavigationController *majorNav = [[UINavigationController alloc] initWithRootViewController:majorVC];
-    majorNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"推荐" image:[UIImage imageNamed:@"majorBar_Normal"] selectedImage:[UIImage imageNamed:@"majorBar_Selected"]];
-    
-    UIStoryboard *recommendSB = [UIStoryboard storyboardWithName:@"CQRecommendController" bundle:[NSBundle mainBundle]];
-    CQRecommendController *recommendVC = recommendSB.instantiateInitialViewController;
-    UINavigationController *recommendNav = [[UINavigationController alloc] initWithRootViewController:recommendVC];
-    recommendNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"主页" image:[UIImage imageNamed:@"recommendBar_Normal"] selectedImage:[UIImage imageNamed:@"recommendBar_Selected"]];
-    self.viewControllers = @[majorNav, recommendNav];
-    
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:RGBCOLOR(87, 173, 104, 1.0f), NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
-    [[UITabBar appearance] setBarTintColor:RGBCOLOR(237.0, 180.0, 20.0, 1.0)];
+    [self setupSubViewControllersWithTitle:@"推荐" name:@"CQMajorController" image:@"majorBar_Normal" selectedImage:@"majorBar_Selected" tag:0];
+    [self.customeTabBar addTabBarCenterItemWithImage:@"play_Normal"];
+    [self setupSubViewControllersWithTitle:@"主页" name:@"CQRecommendController" image:@"recommendBar_Normal" selectedImage:@"recommendBar_Selected" tag:1];
+}
+- (void)setupSubViewControllersWithTitle:(NSString *)title name:(NSString *)name image:(NSString *)image selectedImage:(NSString *)selectedImage tag:(NSInteger)tag {
+    UIStoryboard *SB = [UIStoryboard storyboardWithName:name bundle:[NSBundle mainBundle]];
+    UIViewController *viewController = SB.instantiateInitialViewController;
+    viewController.view.frame = CGRectMake(tag*kScreen_W, 0, kScreen_W, kScreen_H - kNav_H - kBar_H);
+    [self.customeTabBar addTabBarItemWithImage:image selectedImage:selectedImage title:title];
+    [self.scrollView addSubview:viewController.view];
+    [self addChildViewController:viewController];
+
 }
 
+#pragma mark -
+#pragma mark - CQTabBarDelegate
+- (void)buttonClickedEvents:(UIButton *)sender {
+    self.scrollView.contentOffset = CGPointMake(sender.tag * kScreen_W, -kNav_H);
+}
+- (void)centernButtonClickedEvents:(UIButton *)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CQVideoController" bundle:[NSBundle mainBundle]];
+    CQVideoController *videoVC = sb.instantiateInitialViewController;
+    [self presentViewController:videoVC animated:YES completion:nil];
+}
+
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreen_W, kScreen_H - kBar_H)];
+        _scrollView.scrollEnabled = NO;
+        _scrollView.contentSize = CGSizeMake(kScreen_W * 2, 0);
+    }
+    return _scrollView;
+}
+
+- (CQTabBar *)customeTabBar {
+    if (!_customeTabBar) {
+        _customeTabBar = [[CQTabBar alloc] initWithFrame:CGRectMake(0, kScreen_H - kBar_H, kScreen_W, kBar_H)];
+        _customeTabBar.delegate = self;
+    }
+    return _customeTabBar;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
