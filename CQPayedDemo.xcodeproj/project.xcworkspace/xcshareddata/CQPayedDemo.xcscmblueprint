@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2DC6D61F407EE4262AE34F284589C7734F41BBB1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "595672B195C45BEECBD3B588EF38E58CABBEDC34" : 9223372036854775807,
+    "2DC6D61F407EE4262AE34F284589C7734F41BBB1" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C3E183AD-7849-4F43-A786-A87FF74A1B5E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "595672B195C45BEECBD3B588EF38E58CABBEDC34" : "",
+    "2DC6D61F407EE4262AE34F284589C7734F41BBB1" : "CQDemo\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CQPayedDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CQPayedDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MagiLi\/CQDEMO.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2DC6D61F407EE4262AE34F284589C7734F41BBB1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MagiLi\/CQDEMO.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "595672B195C45BEECBD3B588EF38E58CABBEDC34"
+    }
+  ]
+}
