@@ -221,6 +221,8 @@
     AVURLAsset *urlAsset = [[AVURLAsset alloc] initWithURL:videoUrl options:option];
     self.urlAsset = urlAsset;
     self.playerItem = [AVPlayerItem playerItemWithAsset:urlAsset];
+    
+//    self.playerItem = [AVPlayerItem playerItemWithURL:videoUrl];
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
     [self.playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
     

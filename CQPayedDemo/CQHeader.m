@@ -10,3 +10,4 @@
 
 NSString *const notification_CellBeganEditing = @"notification_CellBeganEditing";
 NSString *const notification_CellStateChange = @"notification_CellStateChange";
+NSString *const notification_BeginPlay = @"notification_BeginPlay";

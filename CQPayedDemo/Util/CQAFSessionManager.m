@@ -21,7 +21,7 @@
         sessionManager = [[CQAFSessionManager alloc] initWithBaseURL:url];
         sessionManager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
         sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
-        sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json",@"text/html",@"text/javascript", nil];
+        sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json",@"text/html",@"text/plain",@"text/javascript", nil];
     });
     return sessionManager;
 }

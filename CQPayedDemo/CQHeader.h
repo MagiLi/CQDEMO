@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "UIView+Frame.h"
+#import "UIImageView+AFNetWorking.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 #import "CQDownloadData.h"
 #import "CQAnimationManager.h"
+#import "CQPlayerManager.h"
 #import "MJExtension.h"
 
 #define Theme_Color [UIColor colorWithRed:237.0 / 255.0 green:170.0 / 255.0 blue:20.0 / 255.0 alpha:1.0]
@@ -27,3 +31,4 @@
 
 extern NSString *const notification_CellBeganEditing;
 extern NSString *const notification_CellStateChange;
+extern NSString *const notification_BeginPlay;

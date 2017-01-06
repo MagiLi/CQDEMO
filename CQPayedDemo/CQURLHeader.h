@@ -9,7 +9,7 @@
 #ifndef CQURLHeader_h
 #define CQURLHeader_h
 
-#define kBaseURL_Path @"http://mobile.ximalaya.com/mobile/discovery/"
+#define kBaseURL_Path @"http://mobile.ximalaya.com/mobile/"
 
 #define kURLVersion @"version":@"4.3.26.2"
 #define kURLDevice @"device":@"ios"

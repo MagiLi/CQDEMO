@@ -6,20 +6,20 @@
 //  Copyright © 2016年 wwdx. All rights reserved.
 //
 
-#import "CQMajorController.h"
-#import "CQContentLayoutModel.h"
+#import "CQRecommendController.h"
+#import "CQTableViewCell.h"
+#import "CQSongListController.h"
 
-@interface CQMajorController ()
+@interface CQRecommendController ()
 @property(nonatomic,strong)CQContentLayoutModel *layoutModel;
 
 @end
 
-@implementation CQMajorController
+@implementation CQRecommendController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"CQTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     __weak typeof(self) weakSelf = self;
     [self.layoutModel getMoreDataCompletionHandle:^(NSError *error) {
         [weakSelf.tableView reloadData];
@@ -37,17 +37,26 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier" forIndexPath:indexPath];
-    cell.backgroundColor = RGBCOLOR(arc4random() % 256, arc4random() % 256, arc4random() % 256, 1.0);
-    return cell;
+    
+    return [CQTableViewCell cellWithTableView:tableView withModel:self.layoutModel withIndexPath:indexPath];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return [self.layoutModel mainTitleForSection:section];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    CQCategoryCotents_L_List *model = self.layoutModel.model.categoryContents.list[indexPath.section].list[indexPath.row];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CQSongListController" bundle:[NSBundle mainBundle]];
+    CQSongListController *listVC = sb.instantiateInitialViewController;
+    listVC.albumId = model.albumId;
+    listVC.oTitle = model.title;
+    [self.navigationController pushViewController:listVC animated:YES];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.0;
+    return 80.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

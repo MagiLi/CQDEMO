@@ -37,6 +37,7 @@
     layer.speed = 0;
 }
 - (void)resumeRotationAnimation:(CALayer *)layer {
+    if (layer.speed == 1) return; // 是否正在旋转
     CFTimeInterval pauseTime = layer.timeOffset;
     CFTimeInterval begin = CACurrentMediaTime() - pauseTime;
     [layer setTimeOffset:0];

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Recommend Controller-->
+        <!--Major Controller-->
         <scene sceneID="mCn-a2-eNe">
             <objects>
-                <viewController id="5AY-DF-AA8" customClass="CQRecommendController" sceneMemberID="viewController">
+                <viewController id="5AY-DF-AA8" customClass="CQMajorController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kwt-Or-hro"/>
                         <viewControllerLayoutGuide type="bottom" id="ysQ-gM-oAT"/>

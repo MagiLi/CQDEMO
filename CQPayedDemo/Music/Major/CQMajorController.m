@@ -6,13 +6,13 @@
 //  Copyright © 2016年 wwdx. All rights reserved.
 //
 
-#import "CQRecommendController.h"
+#import "CQMajorController.h"
 
-@interface CQRecommendController ()
+@interface CQMajorController ()
 
 @end
 
-@implementation CQRecommendController
+@implementation CQMajorController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

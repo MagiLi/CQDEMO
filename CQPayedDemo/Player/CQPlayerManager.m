@@ -44,33 +44,43 @@
 
 - (void)playWithData:(CQVideoModel *)model withIndexPath:(NSIndexPath *)indexPath {
     self.model = model;
-    NSDictionary *option = @{AVURLAssetPreferPreciseDurationAndTimingKey: @(NO)};
-    self.urlAsset = [[AVURLAsset alloc] initWithURL:model.url options:option];
-    self.playerItem = [AVPlayerItem playerItemWithAsset:self.urlAsset];
-    [self.playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+//    NSDictionary *option = @{AVURLAssetPreferPreciseDurationAndTimingKey: @(NO)};
+//    self.urlAsset = [[AVURLAsset alloc] initWithURL:model.url options:option];
+//    self.playerItem = [AVPlayerItem playerItemWithAsset:self.urlAsset];
+//    self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
+//    [self.playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
 
 }
+
+- (void)playWithData:(NSString *)videoStr {
+
+    self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:videoStr]];
+    self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
+    [self.playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+    [self playVideo];
+}
+
 #pragma mark -
 #pragma mark - playVideo
 - (void)playVideo {
-    if (self.playerItem.status == AVPlayerItemStatusReadyToPlay) {
+//    if (self.playerItem.status == AVPlayerItemStatusReadyToPlay) {
         [self.player play];
         self.isPlaying = YES;
-        self.duration = self.urlAsset.duration.value / self.urlAsset.duration.timescale;
+//        self.duration = self.urlAsset.duration.value / self.urlAsset.duration.timescale;
         __weak typeof(self) weakSelf = self;
         [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
             [weakSelf timeStack];
-            
         }];
-    }
+//    }
 }
 - (void)timeStack {
-    
-    if (self.urlAsset.duration.timescale != 0) {
-        float currentTime = CMTimeGetSeconds(self.player.currentTime);
-        if (self.videoBlock) {
-            self.videoBlock(currentTime, self.duration);
-        }
+    NSLog(@"==========%@",self.videoBlock);
+    float currentTime = CMTimeGetSeconds(self.player.currentTime);
+//    if (self.videoBlock) {
+//        self.videoBlock(currentTime, self.duration);
+//    }
+    if ([self.delegate respondsToSelector:@selector(playVideoProgress:duration:)]) {
+        [self.delegate playVideoProgress:currentTime duration:self.duration];
     }
 }
 - (void)playVideoProgress:(void (^)(CGFloat, CGFloat))progressBlock {
@@ -80,6 +90,9 @@
 #pragma mark - loadedTimeRanges
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
+        
+        NSLog(@"loadedTimeRanges");
+        
         // 计算缓冲进度
         NSTimeInterval timeInterval = [self availableDuration];
         CGFloat progress = timeInterval / CMTimeGetSeconds(self.playerItem.duration);

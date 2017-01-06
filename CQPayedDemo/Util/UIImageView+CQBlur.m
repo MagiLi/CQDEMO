@@ -23,7 +23,7 @@
     [filterBrightness setValue:blurImg forKey:kCIInputImageKey];
     [filterBrightness setValue:@(0.1) forKey:kCIInputBrightnessKey];
     [filterBrightness setValue:@(1.0) forKey:kCIInputSaturationKey]; // 饱和度
-    [filterBrightness setValue:@(0.5) forKey:kCIInputContrastKey]; // 对比度
+    [filterBrightness setValue:@(1.0) forKey:kCIInputContrastKey]; // 对比度
     CIImage *brightImg=[filterBrightness outputImage];
     
     CGImageRef cgImage = [context createCGImage:brightImg fromRect:[inputImage extent]];
