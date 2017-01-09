@@ -250,6 +250,7 @@
     [self addSubview:self.topView];
     [self addSubview:self.bottomView];
     [self addSubview:self.indicateView];
+    [self updateLockedScreenMusic];
 }
 
 - (void)layoutSubviews {

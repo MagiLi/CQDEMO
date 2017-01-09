@@ -13,6 +13,8 @@ static NSString *songCellID = @"SongCellID";
 
 @interface CQSongCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+
 + (CQSongCell *)cellWithTableView:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath withModel:(CQSongLayoutModel *)layoutModel;
 
 @end

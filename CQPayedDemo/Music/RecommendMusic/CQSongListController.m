@@ -72,20 +72,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    CQSongCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     CQTracks_List *model = self.layoutModel.songModel.tracks.list[indexPath.row];
 //    NSDictionary *dict = @{@"coverUrl": model.coverSmall, @"musicUrl": model.playUrl64};
-
-//    if ([CQPlayerManager sharedInstance].isPlaying) return;
-//    [[NSNotificationCenter defaultCenter] postNotificationName:notification_BeginPlay object:model.playUrl64];
-    [[CQPlayerManager sharedInstance] playWithData:model.playUrl64];
-    CQCenterView *centerView = [self.navigationController.view.subviews lastObject];
-    centerView.coverUrl = model.coverSmall;
-    if ([[CQAnimationManager sharedInsatnce] existRotationAnimation:centerView.btnLayer]) {
-        [[CQAnimationManager sharedInsatnce] resumeRotationAnimation:centerView.btnLayer];
+    [[CQPlayerManager sharedInstance].imageCovers addObject:cell.iconView.image];
+    [[CQPlayerManager sharedInstance] addSong:model];
+    if ([CQPlayerManager sharedInstance].isPlaying) {
+        
     } else {
-        [[CQAnimationManager sharedInsatnce] startRotationAnimation:centerView.btnLayer duration:10.0];
+        [[CQPlayerManager sharedInstance] playWithData:model];
+        CQCenterView *centerView = [self.navigationController.view.subviews lastObject];
+        centerView.coverUrl = model.coverSmall;
+        if ([[CQAnimationManager sharedInsatnce] existRotationAnimation:centerView.btnLayer]) {
+            [[CQAnimationManager sharedInsatnce] resumeRotationAnimation:centerView.btnLayer];
+        } else {
+            [[CQAnimationManager sharedInsatnce] startRotationAnimation:centerView.btnLayer duration:10.0];
+        }
+        centerView.selected = YES;
     }
-    centerView.selected = YES;
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

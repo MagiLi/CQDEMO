@@ -44,17 +44,6 @@
     
     [self setupSubViewControllersWithTitle:@"推荐" name:@"CQRecommendController" image:@"majorBar_Normal" selectedImage:@"majorBar_Selected" tag:0];
     [self setupSubViewControllersWithTitle:@"主页" name:@"CQMajorController" image:@"recommendBar_Normal" selectedImage:@"recommendBar_Selected" tag:1];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginPlay:) name:notification_BeginPlay object:nil];
-    __weak typeof(self) weakSelf = self;
-//    [[CQPlayerManager sharedInstance] playVideoProgress:^(CGFloat progress, CGFloat duration) {
-//        weakSelf.currentTime.text = [NSString stringWithFormat:@"%f", progress];
-//        weakSelf.durationTime.text = [NSString stringWithFormat:@"%f", duration];
-//    }];
-}
-
-- (void)beginPlay:(NSNotification *)noti {
-    [[CQPlayerManager sharedInstance] playWithData:noti.object];
 }
 
 - (void)setupSubViewControllersWithTitle:(NSString *)title name:(NSString *)name image:(NSString *)image selectedImage:(NSString *)selectedImage tag:(NSInteger)tag {
@@ -75,10 +64,33 @@
         } else {
             [[CQAnimationManager sharedInsatnce] startRotationAnimation:self.centerView.btnLayer duration:10.0];
         }
+        [[CQPlayerManager sharedInstance] play];
     } else {
         [[CQAnimationManager sharedInsatnce] pauseRotationAnimation:self.centerView.btnLayer];
+        [[CQPlayerManager sharedInstance] pause];
     }
     self.centerView.selected = sender.selected;
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+    switch (event.subtype)    {
+        case UIEventSubtypeRemoteControlPlay: // 播放
+            break;
+        case UIEventSubtypeRemoteControlPause: // 暂停
+            break;
+        case UIEventSubtypeRemoteControlNextTrack: // 下一首
+            break;
+        case UIEventSubtypeRemoteControlPreviousTrack: // 上一首
+            break;
+        case UIEventSubtypeRemoteControlTogglePlayPause: // 耳机的播放或暂停
+            break;
+        default:
+            break;
+    }
+    NSLog(@"%ld", (long)event.subtype);
+}
+- (BOOL)canBecomeFirstResponder {
+    return YES;
 }
 #pragma mark -
 #pragma mark - CQTabBarDelegate

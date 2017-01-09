@@ -11,8 +11,6 @@
 
 @interface CQAppDelegate ()
 
-
-
 @end
 
 @implementation CQAppDelegate
