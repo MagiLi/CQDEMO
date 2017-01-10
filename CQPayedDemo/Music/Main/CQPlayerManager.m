@@ -20,8 +20,6 @@ static NSString *status = @"status";
 @property(nonatomic,strong)AVPlayer *player; // 播放器
 
 @property(nonatomic,strong)NSMutableArray *songs;
-
-@property(nonatomic,weak)CQTracks_List *model;
 @property(nonatomic,assign)NSInteger currentIndex;// 正在播放的歌曲的索引
 
 @end
@@ -54,13 +52,19 @@ static NSString *status = @"status";
 #pragma mark -
 #pragma mark - playVideo
 - (void)playWithData:(CQTracks_List *)model {
-    self.model = model;
+    self.currentModel = model;
+//    self.currentImage = 
+    [self playMusic];
+    self.currentIndex = 0;
+}
+
+- (void)playMusic {
     self.isPlaying = YES;
     if (self.playerItem) { // 先判断有没有监听
         [self.playerItem removeObserver:self forKeyPath:loadedTimeRanges];
         [self.playerItem removeObserver:self forKeyPath:status];
     }
-    self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:model.playUrl64]];
+    self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.currentModel.playUrl64]];
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
     [self.playerItem addObserver:self forKeyPath:loadedTimeRanges options:NSKeyValueObservingOptionNew context:nil];// 缓冲进度的监听
     [self.playerItem addObserver:self forKeyPath:status options:NSKeyValueObservingOptionNew context:nil];// 播放状态的监听
@@ -71,44 +75,40 @@ static NSString *status = @"status";
         }
     }];
     [self.player play];
-    self.currentIndex = 0;
 }
 
-- (void)play {
-    [self.player play];
-}
-- (void)pause {
-    [self.player pause];
-}
 #pragma mark -
 #pragma mark - playEndObserVer
 - (void)playerItemDidPlayToEnd:(id)sender {
-    if (self.currentIndex + 1 < self.songs.count) {
+    if (self.currentIndex + 1 < self.songs.count) { // 播放下一首
         self.currentIndex += 1;
-        self.model = self.songs[self.currentIndex];
-        self.isPlaying = YES;
-        if (self.playerItem) { // 先判断有没有监听
-            [self.playerItem removeObserver:self forKeyPath:loadedTimeRanges];
-            [self.playerItem removeObserver:self forKeyPath:status];
-        }
-        self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.model.playUrl64]];
-        self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
-        [self.playerItem addObserver:self forKeyPath:loadedTimeRanges options:NSKeyValueObservingOptionNew context:nil];// 缓冲进度的监听
-        [self.playerItem addObserver:self forKeyPath:status options:NSKeyValueObservingOptionNew context:nil];// 播放状态的监听
-        __weak typeof(self) weakSelf = self;
-        [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
-            if (self.playerItem.status == AVPlayerItemStatusReadyToPlay) {
-                [weakSelf timeStack];
-            }
-        }];
-        [self.player play];
-    } else {
+        [self playOtherVideo];
+    } else { // 所有歌曲播放完毕
         if ([self.delegate respondsToSelector:@selector(currentVideoEnd)]) {
             [self.delegate currentVideoEnd];
         }
+        self.isPlaying = NO;
     }
 }
-
+- (void)playOtherVideo {
+    self.currentModel = self.songs[self.currentIndex];
+    [self playMusic];
+    if ([self.delegate respondsToSelector:@selector(playNextVideoWithModel:)]) {
+        [self.delegate playNextVideoWithModel:self.currentModel];
+    }
+}
+- (void)nextSong {
+    if (self.currentIndex + 1 < self.songs.count) {
+        self.currentIndex += 1;
+        [self playOtherVideo];
+    }
+}
+- (void)lastSong {
+    if (self.currentIndex > 0) {
+        self.currentIndex -= 1;
+        [self playOtherVideo];
+    }
+}
 #pragma mark -
 #pragma mark - playProgress
 - (void)changeVideoProgress:(CGFloat)value {
@@ -176,13 +176,13 @@ static NSString *status = @"status";
     MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
     NSMutableDictionary *info = [NSMutableDictionary dictionary];
     // 专辑名称
-    info[MPMediaItemPropertyAlbumTitle] = self.model.title;
+    info[MPMediaItemPropertyAlbumTitle] = self.currentModel.title;
     // 歌手
-    info[MPMediaItemPropertyArtist] = self.model.nickname;
+    info[MPMediaItemPropertyArtist] = self.currentModel.nickname;
     // 歌曲名称
-    info[MPMediaItemPropertyTitle] = self.model.title;
+    info[MPMediaItemPropertyTitle] = self.currentModel.title;
     // 设置图片
-    info[MPMediaItemPropertyArtwork] = [[MPMediaItemArtwork alloc] initWithImage:self.imageCovers[0]];
+    info[MPMediaItemPropertyArtwork] = [[MPMediaItemArtwork alloc] initWithImage:self.imageCovers[self.currentIndex]];
     // 设置持续时间（歌曲的总时间）
     [info setObject:[NSNumber numberWithFloat:CMTimeGetSeconds(self.playerItem.duration)] forKey:MPMediaItemPropertyPlaybackDuration];
     // 设置当前播放进度
@@ -192,7 +192,12 @@ static NSString *status = @"status";
     center.nowPlayingInfo = info;
     
 }
-
+- (void)play {
+    [self.player play];
+}
+- (void)pause {
+    [self.player pause];
+}
 - (NSMutableArray *)songs {
     if (!_songs) {
         _songs = [NSMutableArray array];

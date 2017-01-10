@@ -7,17 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CQSongModel.h"
 
 @protocol CQVideoControllerDelegate <NSObject>
 
-- (void)playButtonClickedEvents:(UIButton *)sender;
+- (void)playButtonClickedEvents:(BOOL)isSelected;
 
 @end
 
 @interface CQVideoController : UIViewController
 
 @property(nonatomic,assign)BOOL animation;
-@property(nonatomic,weak)UIImage *image;
-
+@property(nonatomic,weak)CQTracks_List *model;
 @property(nonatomic,weak)id<CQVideoControllerDelegate> delegate;
 @end

@@ -30,7 +30,6 @@
     
 }
 - (IBAction)backLastViewController {
-//    [[CQAnimationManager sharedInsatnce] removeRotationAnimation:self.circleImageView.layer];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark -
@@ -49,15 +48,28 @@
 - (void)loadedTimeRangesProgress:(CGFloat)progress {
     [self.progressView setProgress:progress];
 }
+- (void)playNextVideoWithModel:(CQTracks_List *)model {
+    self.titleLab.text = model.title;
+    [self.circleImageView sd_setImageWithURL:[NSURL URLWithString:model.coverLarge] placeholderImage:[UIImage imageNamed:@"backGroundImage"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.backgroundView setBlurImage:image];
+    }];
+}
+
 - (IBAction)sliderProgressDrag:(UISlider *)sender {
     [[CQPlayerManager sharedInstance] changeVideoProgress:sender.value];
+}
+- (IBAction)playNextVideoCilcked:(UIButton *)sender {
+    [[CQPlayerManager sharedInstance] nextSong];
+}
+- (IBAction)playLastVideClicked:(UIButton *)sender {
+    [[CQPlayerManager sharedInstance] lastSong];
 }
 
 - (IBAction)playButtonclicked:(UIButton *)sender {
     sender.selected = !sender.selected;
     [self setupAnimation:sender.selected];
     if ([self.delegate respondsToSelector:@selector(playButtonClickedEvents:)]) {
-        [self.delegate playButtonClickedEvents:sender];
+        [self.delegate playButtonClickedEvents:sender.selected];
     }
 }
 
@@ -83,20 +95,23 @@
     self.circleImageView.layer.cornerRadius = self.circleImageView.width * 0.5;
 }
 - (void)setupVideoUI {
-    UIImage *image = self.image ? self.image : [UIImage imageNamed:@"backGroundImage"];
-    self.circleImageView.image = image;
     self.circleImageView.layer.masksToBounds = YES;
-    self.circleImageView.layer.borderColor = Theme_Color.CGColor;
+    self.circleImageView.layer.borderColor = RGBCOLOR(237.0, 170.0, 20.0, 0.5).CGColor;
     self.circleImageView.layer.borderWidth = 5.0;
-    [self.backgroundView setBlurImage:image];
+    
     [self.progressView setProgress:.0];
     self.playButton.selected = self.animation;
     if (self.animation) {
         [self setupAnimation:YES];
     }
-    self.titleLab.text =
+    self.titleLab.text = self.model.title;
+
+    [self.circleImageView sd_setImageWithURL:[NSURL URLWithString:self.model.coverLarge] placeholderImage:[UIImage imageNamed:@"backGroundImage"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        [self.backgroundView setBlurImage:image];
+        
+    }];
     [CQPlayerManager sharedInstance].delegate = self;
-//    [self.slide setThumbImage:[UIImage imageNamed:@"slider"] forState:UIControlStateNormal];
 }
 
 

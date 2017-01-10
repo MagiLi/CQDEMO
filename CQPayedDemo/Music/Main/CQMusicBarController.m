@@ -55,10 +55,11 @@
     [self addChildViewController:viewController];
 
 }
+
 #pragma mark -
 #pragma mark - CQVideoControllerDelegate
-- (void)playButtonClickedEvents:(UIButton *)sender {
-    if (sender.selected) {
+- (void)playButtonClickedEvents:(BOOL)isSelected {
+    if (isSelected) {
         if ([[CQAnimationManager sharedInsatnce] existRotationAnimation:self.centerView.btnLayer]) {
             [[CQAnimationManager sharedInsatnce] resumeRotationAnimation:self.centerView.btnLayer];
         } else {
@@ -69,14 +70,16 @@
         [[CQAnimationManager sharedInsatnce] pauseRotationAnimation:self.centerView.btnLayer];
         [[CQPlayerManager sharedInstance] pause];
     }
-    self.centerView.selected = sender.selected;
+    self.centerView.selected = isSelected;
 }
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
     switch (event.subtype)    {
         case UIEventSubtypeRemoteControlPlay: // 播放
+            [self playButtonClickedEvents:YES];
             break;
         case UIEventSubtypeRemoteControlPause: // 暂停
+            [self playButtonClickedEvents:NO];
             break;
         case UIEventSubtypeRemoteControlNextTrack: // 下一首
             break;
@@ -87,7 +90,6 @@
         default:
             break;
     }
-    NSLog(@"%ld", (long)event.subtype);
 }
 - (BOOL)canBecomeFirstResponder {
     return YES;
@@ -102,7 +104,7 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CQVideoController" bundle:[NSBundle mainBundle]];
     CQVideoController *videoVC = sb.instantiateInitialViewController;
     videoVC.animation = sender.selected;
-    videoVC.image = sender.currentBackgroundImage;
+    videoVC.model = [CQPlayerManager sharedInstance].currentModel;
     videoVC.delegate = self;
     [viewController presentViewController:videoVC animated:YES completion:nil];
 }

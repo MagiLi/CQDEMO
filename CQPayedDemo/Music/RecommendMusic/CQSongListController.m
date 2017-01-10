@@ -39,8 +39,6 @@
     self.headerH = 200;
     self.headerView = [[CQSongListHeadView alloc] initWithFrame:CGRectMake(0, 0, kScreen_W, self.headerH)];
     self.tableView.tableHeaderView = self.headerView;
-//    self.headerView = headerView;
-    
     __weak typeof(self) weakSelf = self;
     [self.layoutModel getMoreDataCompletionHandle:^(NSError *error) {
         self.headerView.model = self.layoutModel.songModel.album;
@@ -75,7 +73,6 @@
 
     CQSongCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     CQTracks_List *model = self.layoutModel.songModel.tracks.list[indexPath.row];
-//    NSDictionary *dict = @{@"coverUrl": model.coverSmall, @"musicUrl": model.playUrl64};
     [[CQPlayerManager sharedInstance].imageCovers addObject:cell.iconView.image];
     [[CQPlayerManager sharedInstance] addSong:model];
     if ([CQPlayerManager sharedInstance].isPlaying) {

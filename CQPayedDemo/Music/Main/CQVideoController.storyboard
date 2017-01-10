@@ -78,16 +78,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eky-SK-bFU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eky-SK-bFU" userLabel="nextVideo">
                                 <rect key="frame" x="258" y="505" width="26" height="26"/>
                                 <state key="normal" image="nextMusic"/>
+                                <connections>
+                                    <action selector="playNextVideoCilcked:" destination="m3L-Pt-Bnb" eventType="touchUpInside" id="Ene-wh-kZr"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roy-x5-lYp">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roy-x5-lYp" userLabel="lastVideo">
                                 <rect key="frame" x="92" y="505" width="26" height="26"/>
                                 <state key="normal" image="lastMusic"/>
+                                <connections>
+                                    <action selector="playLastVideClicked:" destination="m3L-Pt-Bnb" eventType="touchUpInside" id="p4Y-jT-q7a"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ba-R3-rpT">
-                                <rect key="frame" x="167" y="60" width="42" height="21"/>
+                                <rect key="frame" x="167" y="50" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="eGu-Wl-dT3"/>
                                 </constraints>
@@ -108,7 +114,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GQi-hc-8wO" firstAttribute="centerX" secondItem="4kv-hM-eEV" secondAttribute="centerX" id="05e-6b-Gs0"/>
-                            <constraint firstItem="8ba-R3-rpT" firstAttribute="top" secondItem="GQi-hc-8wO" secondAttribute="bottom" constant="10" id="1rv-yj-GGG"/>
+                            <constraint firstItem="8ba-R3-rpT" firstAttribute="top" secondItem="GQi-hc-8wO" secondAttribute="bottom" id="1rv-yj-GGG"/>
                             <constraint firstItem="V82-eA-S89" firstAttribute="centerY" secondItem="4kv-hM-eEV" secondAttribute="centerY" constant="-50" id="4Gx-Q4-9Ab"/>
                             <constraint firstItem="8ba-R3-rpT" firstAttribute="centerX" secondItem="4kv-hM-eEV" secondAttribute="centerX" id="4hA-wF-Jpf"/>
                             <constraint firstItem="yeH-tc-hTe" firstAttribute="top" secondItem="oOj-JY-p06" secondAttribute="bottom" constant="15" id="64q-gP-XjC"/>
