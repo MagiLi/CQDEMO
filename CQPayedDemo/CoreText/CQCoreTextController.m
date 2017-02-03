@@ -24,6 +24,13 @@ static CGFloat margin = 10.0;
 
 @implementation CQCoreTextController
 
+/*
+ * 1.拿到属性字符串attributeString
+ * 2.设置属性字符串的属性（包括delegate）⭐️⭐️⭐️⭐️⭐️
+ * 3.根据属性字符串拿到CTFrame
+ * 4.绘制
+ */
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -42,9 +49,9 @@ static CGFloat margin = 10.0;
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"TempData.plist" ofType:nil];
     CQCoreTextData *data = [CQCTFrameParser parseTemplateFile:path config:[CQCTFrameParserConfig sharedInstance]];
-    // 传递数据给CTDisplayView，然后绘制内容
+    // 传递数据给CTDisplayView
     self.ctView.data = data;
-    // 设置CTDisplayView的高度
+    // 设置CTDisplayView的高度，绘制内容
     self.ctView.height = data.height;
     
     scrollView.contentSize = CGSizeMake(0, data.height + margin*2.0);

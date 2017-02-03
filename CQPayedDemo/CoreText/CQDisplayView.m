@@ -24,7 +24,7 @@ NSString *const CQDisplayViewLinkPressedNotification = @"CQDisplayViewLinkPresse
 @implementation CQDisplayView
 {
     NSRange _selectedRange;
-    NSArray *_pathArray;
+    NSArray *_pathArray; // 长按时赋值，进行绘制。tap时置为nil取消绘制
     
     CGRect _leftRect;
     CGRect _rightRect;
@@ -194,9 +194,8 @@ NSString *const CQDisplayViewLinkPressedNotification = @"CQDisplayViewLinkPresse
 }
 -(void)drawDotWithLeft:(CGRect)Left right:(CGRect)right
 {
-    if (CGRectEqualToRect(CGRectZero, Left) || (CGRectEqualToRect(CGRectZero, right))){
-        return;
-    }
+    if (CGRectEqualToRect(CGRectZero, Left) || (CGRectEqualToRect(CGRectZero, right))) return;
+ 
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGMutablePathRef _path = CGPathCreateMutable();
     [[UIColor blueColor] setFill];

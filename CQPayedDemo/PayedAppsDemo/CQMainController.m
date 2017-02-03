@@ -13,6 +13,7 @@
 #import "CQCoreTextController.h"
 #import "CQPlayerController.h"
 #import "CQMusicBarController.h"
+#import "CQCollectionViewController.h"
 
 @interface CQMainController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -64,6 +65,9 @@
         CQMusicBarController *barVC = [sb instantiateInitialViewController];
         [self.navigationController pushViewController:barVC animated:YES];
 
+    } else if ([string isEqualToString:@"collectionView"]) {
+        CQCollectionViewController *colVC = [[CQCollectionViewController alloc] init];
+        [self.navigationController pushViewController:colVC animated:YES];
     }
 }
 
@@ -87,7 +91,7 @@
 
 - (NSArray *)array {
     if (!_array) {
-        _array = @[@[@"支付宝"],@[@"Dynamic"],@[@"手机通讯录"],@[@"CoreText"],@[@"Player", @"音乐🎵"]];
+        _array = @[@[@"支付宝"],@[@"Dynamic"],@[@"手机通讯录"],@[@"CoreText"],@[@"Player", @"音乐🎵"], @[@"collectionView"]];
     }
     return _array;
 }

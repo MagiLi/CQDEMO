@@ -142,8 +142,7 @@ static CGFloat widthCallback(void * __nullable refCon) {
                     imageData.name = dict[@"name"];
                     imageData.imageAlignment = [dict[@"width"] floatValue] > 100.0;
                     imageData.width = config.width;
-                    // 占位字符所在的位置
-                    imageData.position = [result length];
+                    imageData.position = [result length];// 占位字符所在的位置
                     [imageArray addObject:imageData];
                     // 创建空白占位符，并且设置它的CTRunDelegate信息
                     NSAttributedString *as = [self parseImageDataFromNSDictionary:dict config:config];
