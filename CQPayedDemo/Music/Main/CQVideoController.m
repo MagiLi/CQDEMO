@@ -41,8 +41,8 @@
     NSInteger durMin = (NSInteger)duration / 60;
     NSInteger durSec = (NSInteger)duration % 60;
     
-    self.currentTime.text = [NSString stringWithFormat:@"%02d:%02d", currentMin, currentSec];
-    self.durationTime.text = [NSString stringWithFormat:@"%02d:%02d", durMin, durSec];
+    self.currentTime.text = [NSString stringWithFormat:@"%02ld:%02ld", (long)currentMin, (long)currentSec];
+    self.durationTime.text = [NSString stringWithFormat:@"%02ld:%02ld", (long)durMin, (long)durSec];
     self.slide.value = progress / duration;
 }
 - (void)loadedTimeRangesProgress:(CGFloat)progress {

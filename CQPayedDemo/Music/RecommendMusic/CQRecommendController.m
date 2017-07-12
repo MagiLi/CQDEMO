@@ -19,11 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    CQLog(@"--CQRecommendController--");
     [self.tableView registerNib:[UINib nibWithNibName:@"CQTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     __weak typeof(self) weakSelf = self;
     [self.layoutModel getMoreDataCompletionHandle:^(NSError *error) {
         [weakSelf.tableView reloadData];
     }];
+    
 }
 
 #pragma mark - Table view data source

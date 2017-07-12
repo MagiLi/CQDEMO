@@ -29,6 +29,16 @@
 #define ARRAY_CLIP @"<{|*|}>"
 #define SUB_ARRAY_CLIP @"<{*|*}>"
 
+#ifdef DEBUG
+
+#define CQLog(...) NSLog(@"%s %d \n %@ \n\n", __func__, __LINE__, [NSString stringWithFormat:__VA_ARGS__])
+
+#else
+
+#define CQLog(...)
+
+#endif
+
 extern NSString *const notification_CellBeganEditing;
 extern NSString *const notification_CellStateChange;
 extern NSString *const notification_BeginPlay;

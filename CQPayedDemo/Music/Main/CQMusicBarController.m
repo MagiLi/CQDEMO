@@ -47,10 +47,10 @@
 }
 
 - (void)setupSubViewControllersWithTitle:(NSString *)title name:(NSString *)name image:(NSString *)image selectedImage:(NSString *)selectedImage tag:(NSInteger)tag {
+    [self.customeTabBar addTabBarItemWithImage:image selectedImage:selectedImage title:title];
     UIStoryboard *SB = [UIStoryboard storyboardWithName:name bundle:[NSBundle mainBundle]];
     UIViewController *viewController = SB.instantiateInitialViewController;
     viewController.view.frame = CGRectMake(tag*kScreen_W, 0, kScreen_W, kScreen_H - kNav_H - kBar_H);
-    [self.customeTabBar addTabBarItemWithImage:image selectedImage:selectedImage title:title];
     [self.scrollView addSubview:viewController.view];
     [self addChildViewController:viewController];
 

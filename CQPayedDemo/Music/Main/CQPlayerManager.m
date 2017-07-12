@@ -112,7 +112,6 @@ static NSString *status = @"status";
 #pragma mark -
 #pragma mark - playProgress
 - (void)changeVideoProgress:(CGFloat)value {
-
     if (self.playerItem.status == AVPlayerStatusReadyToPlay) {
         CMTime dragedCMTime = CMTimeMake(floorf(self.duration * value), 1);
         //CMTime dragedCMTime = CMTimeMakeWithSeconds(sender.value, self.playerItem.duration.timescale);
