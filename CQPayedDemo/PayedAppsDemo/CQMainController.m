@@ -13,6 +13,7 @@
 #import "CQCoreTextController.h"
 #import "CQPlayerController.h"
 #import "CQMusicBarController.h"
+#import "CQTextToVideoController.h"
 #import "CQCollectionViewController.h"
 
 @interface CQMainController ()<UITableViewDelegate, UITableViewDataSource>
@@ -63,6 +64,10 @@
         CQMusicBarController *barVC = [sb instantiateInitialViewController];
         [self.navigationController pushViewController:barVC animated:YES];
 
+    } else if ([string isEqualToString:@"文字转语音"]) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CQTextToVideoController" bundle:[NSBundle mainBundle]];
+        CQTextToVideoController *textToVideoVC = [sb instantiateInitialViewController];
+        [self.navigationController pushViewController:textToVideoVC animated:YES];
     } else if ([string isEqualToString:@"collectionView"]) {
         CQCollectionViewController *colVC = [[CQCollectionViewController alloc] init];
         [self.navigationController pushViewController:colVC animated:YES];
@@ -89,7 +94,7 @@
 
 - (NSArray *)array {
     if (!_array) {
-        _array = @[@[@"支付宝"],@[@"Dynamic"],@[@"手机通讯录"],@[@"CoreText"],@[@"Player", @"音乐🎵"], @[@"collectionView"]];
+        _array = @[@[@"支付宝"],@[@"Dynamic"],@[@"手机通讯录"],@[@"CoreText"],@[@"Player", @"音乐🎵", @"文字转语音"], @[@"collectionView"]];
     }
     return _array;
 }

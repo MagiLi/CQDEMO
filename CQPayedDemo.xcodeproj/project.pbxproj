@@ -103,6 +103,9 @@
 		04EBCFB01E1F787B00D50729 /* CQCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBCFAF1E1F787B00D50729 /* CQCenterView.m */; };
 		04F875BF1E03931900D25907 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F875BE1E03931900D25907 /* UIView+Frame.m */; };
 		04F875C21E03E5B000D25907 /* CQPhoneHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F875C11E03E5B000D25907 /* CQPhoneHeaderView.m */; };
+		34CCBE431F1F3F7F00FEF04D /* CQTextToVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CCBE421F1F3F7F00FEF04D /* CQTextToVideoController.m */; };
+		34CCBE451F1F3F9400FEF04D /* CQTextToVideoController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CCBE441F1F3F9400FEF04D /* CQTextToVideoController.storyboard */; };
+		34CCBE471F1F475500FEF04D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34CCBE461F1F475500FEF04D /* AVFoundation.framework */; };
 		A974070AE76F1655FF2CA8D5 /* libPods-CQPayedDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1591E47FC17EF5AB4A7AA418 /* libPods-CQPayedDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -300,6 +303,10 @@
 		04F875C01E03E5B000D25907 /* CQPhoneHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPhoneHeaderView.h; sourceTree = "<group>"; };
 		04F875C11E03E5B000D25907 /* CQPhoneHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPhoneHeaderView.m; sourceTree = "<group>"; };
 		1591E47FC17EF5AB4A7AA418 /* libPods-CQPayedDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CQPayedDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34CCBE411F1F3F7F00FEF04D /* CQTextToVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQTextToVideoController.h; sourceTree = "<group>"; };
+		34CCBE421F1F3F7F00FEF04D /* CQTextToVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQTextToVideoController.m; sourceTree = "<group>"; };
+		34CCBE441F1F3F9400FEF04D /* CQTextToVideoController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CQTextToVideoController.storyboard; sourceTree = "<group>"; };
+		34CCBE461F1F475500FEF04D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8D29177CD856F5B1BB9199C9 /* Pods-CQPayedDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CQPayedDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CQPayedDemo/Pods-CQPayedDemo.release.xcconfig"; sourceTree = "<group>"; };
 		DAE9B1454CC1775B89BF801A /* Pods-CQPayedDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CQPayedDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CQPayedDemo/Pods-CQPayedDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -309,6 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34CCBE471F1F475500FEF04D /* AVFoundation.framework in Frameworks */,
 				A974070AE76F1655FF2CA8D5 /* libPods-CQPayedDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -730,6 +738,9 @@
 				048F89661E08D09300BD7485 /* CQPlayerController.h */,
 				048F89671E08D09300BD7485 /* CQPlayerController.m */,
 				048F89701E08D1E300BD7485 /* CQPlayerController.storyboard */,
+				34CCBE411F1F3F7F00FEF04D /* CQTextToVideoController.h */,
+				34CCBE421F1F3F7F00FEF04D /* CQTextToVideoController.m */,
+				34CCBE441F1F3F9400FEF04D /* CQTextToVideoController.storyboard */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -938,6 +949,7 @@
 		633487E0EC5127BB86627A46 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34CCBE461F1F475500FEF04D /* AVFoundation.framework */,
 				1591E47FC17EF5AB4A7AA418 /* libPods-CQPayedDemo.a */,
 			);
 			name = Frameworks;
@@ -1023,7 +1035,7 @@
 				TargetAttributes = {
 					048103051DF9065B00FE7C0F = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = Y63K5QYE9U;
+						DevelopmentTeam = U8A26JGV9K;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1074,6 +1086,7 @@
 				04A341461E014702006D1AF3 /* CQDynamicViewController.storyboard in Resources */,
 				04D89E361E1DFC8300870A26 /* CQVideoController.storyboard in Resources */,
 				048103191DF9065C00FE7C0F /* CQLaunchScreen.storyboard in Resources */,
+				34CCBE451F1F3F9400FEF04D /* CQTextToVideoController.storyboard in Resources */,
 				04A4EFF91E07A88D001596B2 /* AppDataList.plist in Resources */,
 				048103161DF9065C00FE7C0F /* Assets.xcassets in Resources */,
 				04D89E3D1E1DFC8F00870A26 /* CQMusicBarController.storyboard in Resources */,
@@ -1204,6 +1217,7 @@
 				0453E63A1DFE82FD00DD68E1 /* CQAppsController.m in Sources */,
 				042B27221E441BF800B5EE6E /* CQCollectionViewCellH.m in Sources */,
 				0453E6461DFE831500DD68E1 /* CQFooterView.m in Sources */,
+				34CCBE431F1F3F7F00FEF04D /* CQTextToVideoController.m in Sources */,
 				0481030B1DF9065C00FE7C0F /* main.m in Sources */,
 				04EBCFB01E1F787B00D50729 /* CQCenterView.m in Sources */,
 				04468E1E1E14EF3C002D6942 /* CQVideoModel.m in Sources */,
@@ -1383,7 +1397,7 @@
 			baseConfigurationReference = DAE9B1454CC1775B89BF801A /* Pods-CQPayedDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y63K5QYE9U;
+				DEVELOPMENT_TEAM = U8A26JGV9K;
 				GCC_PREFIX_HEADER = CQPayedDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = CQPayedDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1398,7 +1412,7 @@
 			baseConfigurationReference = 8D29177CD856F5B1BB9199C9 /* Pods-CQPayedDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y63K5QYE9U;
+				DEVELOPMENT_TEAM = U8A26JGV9K;
 				GCC_PREFIX_HEADER = CQPayedDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = CQPayedDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

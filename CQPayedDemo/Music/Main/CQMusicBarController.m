@@ -41,7 +41,6 @@
     [self.view addSubview:self.scrollView];
     [self.view addSubview:self.customeTabBar];
     [self.navigationController.view addSubview:self.centerView];
-    
     [self setupSubViewControllersWithTitle:@"推荐" name:@"CQRecommendController" image:@"majorBar_Normal" selectedImage:@"majorBar_Selected" tag:0];
     [self setupSubViewControllersWithTitle:@"主页" name:@"CQMajorController" image:@"recommendBar_Normal" selectedImage:@"recommendBar_Selected" tag:1];
 }
@@ -139,6 +138,7 @@
 }
 
 - (void)dealloc {
+    CQLog(@"-------------");
     [self.centerView removeFromSuperview];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
