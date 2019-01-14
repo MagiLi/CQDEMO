@@ -46,6 +46,7 @@
 		0453E6541DFE83B700DD68E1 /* CQMainController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0453E6521DFE83B700DD68E1 /* CQMainController.storyboard */; };
 		047B78D51E232B2400CAD6D5 /* CQPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B78D41E232B2400CAD6D5 /* CQPlayerManager.m */; };
 		047D23DC21EC6F7F0009858A /* CQWaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D23DB21EC6F7F0009858A /* CQWaterFlowLayout.m */; };
+		047D23DF21EC886E0009858A /* LPOrderProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D23DE21EC886C0009858A /* LPOrderProgressView.m */; };
 		0481030B1DF9065C00FE7C0F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481030A1DF9065C00FE7C0F /* main.m */; };
 		0481030E1DF9065C00FE7C0F /* CQAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481030D1DF9065C00FE7C0F /* CQAppDelegate.m */; };
 		048103161DF9065C00FE7C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048103151DF9065C00FE7C0F /* Assets.xcassets */; };
@@ -203,6 +204,8 @@
 		047B78D41E232B2400CAD6D5 /* CQPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPlayerManager.m; sourceTree = "<group>"; };
 		047D23DA21EC6F7F0009858A /* CQWaterFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQWaterFlowLayout.h; sourceTree = "<group>"; };
 		047D23DB21EC6F7F0009858A /* CQWaterFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQWaterFlowLayout.m; sourceTree = "<group>"; };
+		047D23DD21EC88690009858A /* LPOrderProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPOrderProgressView.h; sourceTree = "<group>"; };
+		047D23DE21EC886C0009858A /* LPOrderProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPOrderProgressView.m; sourceTree = "<group>"; };
 		048103061DF9065B00FE7C0F /* CQPayedDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CQPayedDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0481030A1DF9065C00FE7C0F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0481030C1DF9065C00FE7C0F /* CQAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQAppDelegate.h; sourceTree = "<group>"; };
@@ -402,6 +405,8 @@
 				042B27181E441BD900B5EE6E /* CQCollectionViewH */,
 				042B273F1E441C6E00B5EE6E /* CQCollectionViewController.h */,
 				042B27401E441C6E00B5EE6E /* CQCollectionViewController.m */,
+				047D23DD21EC88690009858A /* LPOrderProgressView.h */,
+				047D23DE21EC886C0009858A /* LPOrderProgressView.m */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -1221,6 +1226,7 @@
 				04D89E431E1DFC9E00870A26 /* CQButton.m in Sources */,
 				0453E63A1DFE82FD00DD68E1 /* CQAppsController.m in Sources */,
 				042B27221E441BF800B5EE6E /* CQCollectionViewCellH.m in Sources */,
+				047D23DF21EC886E0009858A /* LPOrderProgressView.m in Sources */,
 				0453E6461DFE831500DD68E1 /* CQFooterView.m in Sources */,
 				34CCBE431F1F3F7F00FEF04D /* CQTextToVideoController.m in Sources */,
 				0481030B1DF9065C00FE7C0F /* main.m in Sources */,

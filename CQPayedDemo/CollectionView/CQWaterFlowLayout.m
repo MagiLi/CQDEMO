@@ -63,12 +63,6 @@ inline void layoutInit(CQWaterFlowLayout *layout) {
     layout->_contentHeight = 0.0;
     layout.sectionInset = UIEdgeInsetsZero;
 }
-//
-//-(void)awakeFromNib
-//{
-//    [super awakeFromNib];
-//    layoutInit(self);
-//}
 
 -(void)setColumnNumber:(NSInteger)columnNumber {
     if (_columnHeightSize < columnNumber) {
@@ -113,8 +107,7 @@ inline void layoutInit(CQWaterFlowLayout *layout) {
 }
 
 /*此方法在当前线程计算布局*/
--(NSMutableArray *)calculateLayoutFromIndex:(NSInteger)startIndex
-{
+-(NSMutableArray *)calculateLayoutFromIndex:(NSInteger)startIndex {
     printf("\n开始计算布局 %f",CFAbsoluteTimeGetCurrent());
     if (startIndex == 0) {
         for (int i = 0; i != _columnNumber; i++) {
@@ -136,26 +129,26 @@ inline void layoutInit(CQWaterFlowLayout *layout) {
             else{
                 height = width * _heightWidthRatio;
             }
-            //计算当前cell的布局位置。
-            NSInteger currentColumn = 0;
-            CGFloat currentTop = _perColumnHeights[0];
-            //获取当前最小高度
+            //遍历每一列, 获取最矮的列和高度
+            NSInteger shortestColumn = 0;// 最矮的列默认 第0列
+            CGFloat shortestColumnHeight = _perColumnHeights[shortestColumn];// 最矮的列的高度
             for (int a = 0; a != _columnNumber; a++) {
-                if (currentTop > _perColumnHeights[a]) {
-                    currentTop = _perColumnHeights[a];
-                    currentColumn = a;
+                if (shortestColumnHeight > _perColumnHeights[a]) {
+                    shortestColumnHeight = _perColumnHeights[a];
+                    shortestColumn = a;
                 }
             }
-            _rectsForItems[i] = CGRectMake(self.sectionInset.left + (_horizontalMargin + width) * currentColumn , currentTop,width,height);
-            //刷新当前列的高度
-            _perColumnHeights[currentColumn] = currentTop + height  + _verticalMargin;
-            printf("\n i %ld %f",(long)i,_perColumnHeights[currentColumn]);
+            //计算当前item的frame
+            _rectsForItems[i] = CGRectMake(self.sectionInset.left + (_horizontalMargin + width) * shortestColumn , shortestColumnHeight,width,height);
+            //刷新最矮的列的高度
+            _perColumnHeights[shortestColumn] = shortestColumnHeight + height  + _verticalMargin;
+            printf("\n i %ld %f",(long)i,_perColumnHeights[shortestColumn]);
         }
+        //遍历每一列, 获取最高的列的高度
         for (int i = 0; i != _columnNumber; i++) {
             if (_perColumnHeights[i] > _contentHeight) {
                 _contentHeight = _perColumnHeights[i];
             }
-            printf("\n i %d %f",i,_perColumnHeights[i]);
         }
         printf("\n _contentHeight %f",_contentHeight);
         //将对应的布局信息填写到 UICollectionViewLayoutAttributes 对象当中。
@@ -230,8 +223,7 @@ inline void layoutInit(CQWaterFlowLayout *layout) {
     }
 }
 
--(void)reloadData
-{
+-(void)reloadData {
     [self.collectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     //    [self.collectionView relo]
 }

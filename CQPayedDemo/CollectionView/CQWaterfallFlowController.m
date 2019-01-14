@@ -65,7 +65,7 @@ static NSString * const reuseIdentifier = @"CellWaterfall";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CQWaterfallFlowCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    cell.titleLab.text = [NSString stringWithFormat:@"%ld", (long)indexPath.item];
     
     return cell;
 }

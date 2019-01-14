@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CQWaterfallFlowCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
 
 @end

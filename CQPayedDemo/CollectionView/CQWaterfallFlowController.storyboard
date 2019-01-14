@@ -34,15 +34,28 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3R-Lo-Ons">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3g8-NQ-JVd">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" red="0.3411764706" green="0.67843137249999996" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="S3R-Lo-Ons" firstAttribute="top" secondItem="K5o-al-11b" secondAttribute="top" id="FgQ-PI-hv0"/>
                                     <constraint firstItem="S3R-Lo-Ons" firstAttribute="leading" secondItem="K5o-al-11b" secondAttribute="leading" id="GKh-ky-PzH"/>
+                                    <constraint firstAttribute="trailing" secondItem="3g8-NQ-JVd" secondAttribute="trailing" id="Gks-H9-11b"/>
                                     <constraint firstAttribute="trailing" secondItem="S3R-Lo-Ons" secondAttribute="trailing" id="Gl8-t7-vSz"/>
+                                    <constraint firstItem="3g8-NQ-JVd" firstAttribute="leading" secondItem="K5o-al-11b" secondAttribute="leading" id="RSE-WZ-ojv"/>
                                     <constraint firstAttribute="bottom" secondItem="S3R-Lo-Ons" secondAttribute="bottom" id="Vvj-lq-FL6"/>
+                                    <constraint firstAttribute="bottom" secondItem="3g8-NQ-JVd" secondAttribute="bottom" id="bW5-1j-HSK"/>
+                                    <constraint firstItem="3g8-NQ-JVd" firstAttribute="top" secondItem="K5o-al-11b" secondAttribute="top" id="yar-75-ZqH"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="titleLab" destination="3g8-NQ-JVd" id="PqB-8T-iCg"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
