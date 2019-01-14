@@ -8,8 +8,10 @@
 
 #import "CQWaterfallFlowController.h"
 #import "CQWaterfallFlowCell.h"
+#import "CQWaterFlowLayout.h"
 
-@interface CQWaterfallFlowController ()
+@interface CQWaterfallFlowController ()<UICollectionViewDelegate,UICollectionViewDataSource,CQWaterFlowLayoutDelegate>
+@property (weak, nonatomic) IBOutlet CQWaterFlowLayout *flowLayout;
 
 @end
 
@@ -17,16 +19,27 @@
 
 static NSString * const reuseIdentifier = @"CellWaterfall";
 
+- (void)refreshData {
+    [self.flowLayout refresh];
+}
+- (void)loadMoreData {
+    
+    [self.flowLayout addItemsAtIndex:self.flowLayout.numberOfItems addedItemsCount:10];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(refreshData)];
+    UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadMoreData)];
+    self.navigationItem.rightBarButtonItems = @[item1,item2];
     
-    // Register cell classes
-//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    // Do any additional setup after loading the view.
+    self.flowLayout.numberOfItems = 10;
+    self.flowLayout.delegate = self;
+    self.flowLayout.columnNumber = 4;
+    self.flowLayout.verticalMargin = 5.0;
+    self.flowLayout.horizontalMargin = 10.0;
+    self.flowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    [self.flowLayout calculateLayoutFromIndex:0 reloadAfterCalculated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,16 +47,9 @@ static NSString * const reuseIdentifier = @"CellWaterfall";
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(CGFloat)heightWidthRatioForItemAtIndex:(NSInteger)index{
+    return ((rand() % 10) + 1) * 0.3;
 }
-*/
-
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -53,7 +59,7 @@ static NSString * const reuseIdentifier = @"CellWaterfall";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
-    return 10;
+    return self.flowLayout.numberOfItems;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,35 +70,5 @@ static NSString * const reuseIdentifier = @"CellWaterfall";
     return cell;
 }
 
-#pragma mark <UICollectionViewDelegate>
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

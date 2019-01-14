@@ -45,6 +45,7 @@
 		0453E6511DFE836300DD68E1 /* CQDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0453E6501DFE836300DD68E1 /* CQDynamicViewController.m */; };
 		0453E6541DFE83B700DD68E1 /* CQMainController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0453E6521DFE83B700DD68E1 /* CQMainController.storyboard */; };
 		047B78D51E232B2400CAD6D5 /* CQPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B78D41E232B2400CAD6D5 /* CQPlayerManager.m */; };
+		047D23DC21EC6F7F0009858A /* CQWaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D23DB21EC6F7F0009858A /* CQWaterFlowLayout.m */; };
 		0481030B1DF9065C00FE7C0F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481030A1DF9065C00FE7C0F /* main.m */; };
 		0481030E1DF9065C00FE7C0F /* CQAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481030D1DF9065C00FE7C0F /* CQAppDelegate.m */; };
 		048103161DF9065C00FE7C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048103151DF9065C00FE7C0F /* Assets.xcassets */; };
@@ -200,6 +201,8 @@
 		0453E6531DFE83B700DD68E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CQMainController.storyboard; sourceTree = "<group>"; };
 		047B78D31E232B2400CAD6D5 /* CQPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPlayerManager.h; sourceTree = "<group>"; };
 		047B78D41E232B2400CAD6D5 /* CQPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPlayerManager.m; sourceTree = "<group>"; };
+		047D23DA21EC6F7F0009858A /* CQWaterFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQWaterFlowLayout.h; sourceTree = "<group>"; };
+		047D23DB21EC6F7F0009858A /* CQWaterFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQWaterFlowLayout.m; sourceTree = "<group>"; };
 		048103061DF9065B00FE7C0F /* CQPayedDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CQPayedDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0481030A1DF9065C00FE7C0F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0481030C1DF9065C00FE7C0F /* CQAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQAppDelegate.h; sourceTree = "<group>"; };
@@ -443,6 +446,8 @@
 				042B27381E441C2A00B5EE6E /* CQWaterfallFlowCell.m */,
 				042B27391E441C2A00B5EE6E /* CQWaterfallLayout.h */,
 				042B273A1E441C2A00B5EE6E /* CQWaterfallLayout.m */,
+				047D23DA21EC6F7F0009858A /* CQWaterFlowLayout.h */,
+				047D23DB21EC6F7F0009858A /* CQWaterFlowLayout.m */,
 			);
 			name = CQWaterfallFlow;
 			sourceTree = "<group>";
@@ -1246,6 +1251,7 @@
 				04D89E3E1E1DFC8F00870A26 /* CQNavigationController.m in Sources */,
 				04D89E581E1E0E3500870A26 /* CQSongCell.m in Sources */,
 				04D89E611E1E313E00870A26 /* CQSongLayoutModel.m in Sources */,
+				047D23DC21EC6F7F0009858A /* CQWaterFlowLayout.m in Sources */,
 				0453E6511DFE836300DD68E1 /* CQDynamicViewController.m in Sources */,
 				04A4F0041E07B3B9001596B2 /* CQDisplayView.m in Sources */,
 				042B27201E441BF800B5EE6E /* CQCellHFlowLayout.m in Sources */,
