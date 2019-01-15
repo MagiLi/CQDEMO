@@ -17,6 +17,7 @@
 @property(nonatomic,assign)CGFloat headerH;
 @property(nonatomic,strong)CQSongLayoutModel *layoutModel;
 
+@property (nonatomic, assign) BOOL clearNav;// 记录导航条是否是透明
 
 @end
 
@@ -24,15 +25,25 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+//    设置导航条透明
+//    [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    if (!self.clearNav && self.tableView.contentOffset.y < self.headerH) {
+        self.clearNav = YES;
+        UIView *backView = [self.navigationController.navigationBar valueForKey:@"backgroundView"];
+        [backView setGradientBackgroundWithColors:@[[UIColor clearColor]] locations:nil startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1, 0)];
+    }
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:nil];
+//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:nil];
+    self.clearNav = NO;
+    UIView *backView = [self.navigationController.navigationBar valueForKey:@"backgroundView"];
+    [backView setGradientBackgroundWithColors:@[ThemeColor_Left,ThemeColor_Right] locations:nil startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1, 0)];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -93,8 +104,18 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.clearNav && scrollView.contentOffset.y > self.headerH) {
+        self.clearNav = NO;
+        UIView *backView = [self.navigationController.navigationBar valueForKey:@"backgroundView"];
+        [backView setGradientBackgroundWithColors:@[ThemeColor_Left,ThemeColor_Right] locations:nil startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1, 0)];
+    } else if (!self.clearNav && scrollView.contentOffset.y < self.headerH) {
+        self.clearNav = YES;
+        UIView *backView = [self.navigationController.navigationBar valueForKey:@"backgroundView"];
+        [backView setGradientBackgroundWithColors:@[[UIColor clearColor]] locations:nil startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1, 0)];
+    }
     
     if (scrollView.contentOffset.y < 0) {
+        
         CGFloat scale = (fabs(scrollView.contentOffset.y ) + self.headerH) / self.headerH;
         
         CATransform3D transformScale3D = CATransform3DMakeScale(scale, scale, 1.0);
@@ -105,6 +126,7 @@
         scrollIndicatorInsets.top = fabs(scrollView.contentOffset.y) + self.headerH;
         scrollView.scrollIndicatorInsets = scrollIndicatorInsets;
     } else {
+        
         self.headerView.imageView.layer.transform = CATransform3DIdentity;
         
         if (scrollView.scrollIndicatorInsets.top != self.headerH) {

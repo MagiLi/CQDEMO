@@ -8,7 +8,7 @@
 
 #import "CQAppDelegate.h"
 #import "CQMainController.h"
-
+#import "CQMainNavController.h"
 @interface CQAppDelegate ()
 
 @end
@@ -19,7 +19,7 @@
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     [self.window makeKeyAndVisible];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CQMainController" bundle:[NSBundle mainBundle]];
-    UINavigationController *nav = [sb instantiateInitialViewController];
+    CQMainNavController *nav = [sb instantiateInitialViewController];
     [self.window setRootViewController:nav];
 
     return YES;
