@@ -86,10 +86,12 @@
     CQSongCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     CQTracks_List *model = self.layoutModel.songModel.tracks.list[indexPath.row];
     [[CQPlayerManager sharedInstance].imageCovers addObject:cell.iconView.image];
-    [[CQPlayerManager sharedInstance] addSong:model];
+//    [[CQPlayerManager sharedInstance] addSong:model];
     if ([CQPlayerManager sharedInstance].isPlaying) {
         
     } else {
+        [CQPlayerManager sharedInstance].playList = self.layoutModel.songModel.tracks.list;
+        [CQPlayerManager sharedInstance].currentIndex = indexPath.row;
         [[CQPlayerManager sharedInstance] playWithData:model];
         CQCenterView *centerView = [self.navigationController.view.subviews lastObject];
         centerView.coverUrl = model.coverSmall;

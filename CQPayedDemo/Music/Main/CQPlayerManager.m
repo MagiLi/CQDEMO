@@ -19,8 +19,8 @@ static NSString *status = @"status";
 @property(nonatomic,strong)AVPlayerItem *playerItem; // 播放资源
 @property(nonatomic,strong)AVPlayer *player; // 播放器
 
-@property(nonatomic,strong)NSMutableArray *songs;
-@property(nonatomic,assign)NSInteger currentIndex;// 正在播放的歌曲的索引
+//@property(nonatomic,strong)NSMutableArray *songs;
+
 
 @end
 
@@ -46,16 +46,15 @@ static NSString *status = @"status";
     }
     return self;
 }
-- (void)addSong:(CQTracks_List *)model {
-    [self.songs addObject:model];
-}
+//- (void)addSong:(CQTracks_List *)model {
+//    [self.songs addObject:model];
+//}
 #pragma mark -
 #pragma mark - playVideo
 - (void)playWithData:(CQTracks_List *)model {
     self.currentModel = model;
 //    self.currentImage = 
     [self playMusic];
-    self.currentIndex = 0;
 }
 
 - (void)playMusic {
@@ -64,6 +63,7 @@ static NSString *status = @"status";
         [self.playerItem removeObserver:self forKeyPath:loadedTimeRanges];
         [self.playerItem removeObserver:self forKeyPath:status];
     }
+//    self.urlAsset = [[AVURLAsset alloc] initWithURL:[NSURL URLWithString:self.currentModel.playUrl64] options:<#(nullable NSDictionary<NSString *,id> *)#>]
     self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.currentModel.playUrl64]];
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
     [self.playerItem addObserver:self forKeyPath:loadedTimeRanges options:NSKeyValueObservingOptionNew context:nil];// 缓冲进度的监听
@@ -80,7 +80,7 @@ static NSString *status = @"status";
 #pragma mark -
 #pragma mark - playEndObserVer
 - (void)playerItemDidPlayToEnd:(id)sender {
-    if (self.currentIndex + 1 < self.songs.count) { // 播放下一首
+    if (self.currentIndex + 1 < self.playList.count) { // 播放下一首
         self.currentIndex += 1;
         [self playOtherVideo];
     } else { // 所有歌曲播放完毕
@@ -91,14 +91,14 @@ static NSString *status = @"status";
     }
 }
 - (void)playOtherVideo {
-    self.currentModel = self.songs[self.currentIndex];
+    self.currentModel = self.playList[self.currentIndex];
     [self playMusic];
     if ([self.delegate respondsToSelector:@selector(playNextVideoWithModel:)]) {
         [self.delegate playNextVideoWithModel:self.currentModel];
     }
 }
 - (void)nextSong {
-    if (self.currentIndex + 1 < self.songs.count) {
+    if (self.currentIndex + 1 < self.playList.count) {
         self.currentIndex += 1;
         [self playOtherVideo];
     }
@@ -125,9 +125,7 @@ static NSString *status = @"status";
 
 }
 - (void)timeStack {
-
     float currentTime = CMTimeGetSeconds(self.player.currentTime);
-    
     if ([self.delegate respondsToSelector:@selector(playVideoProgress:duration:)]) {
         [self.delegate playVideoProgress:currentTime duration:self.duration];
     }
@@ -196,12 +194,12 @@ static NSString *status = @"status";
 - (void)pause {
     [self.player pause];
 }
-- (NSMutableArray *)songs {
-    if (!_songs) {
-        _songs = [NSMutableArray array];
-    }
-    return _songs;
-}
+//- (NSMutableArray *)songs {
+//    if (!_songs) {
+//        _songs = [NSMutableArray array];
+//    }
+//    return _songs;
+//}
 - (NSMutableArray *)imageCovers {
     if (!_imageCovers) {
         _imageCovers = [NSMutableArray array];

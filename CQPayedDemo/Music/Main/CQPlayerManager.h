@@ -18,11 +18,12 @@
 @end
 
 @interface CQPlayerManager : NSObject
-
+@property (nonatomic, strong) NSArray <CQTracks_List *>*playList;
 @property(nonatomic,assign)BOOL isPlaying;  // 是否正在播放
 @property(nonatomic,assign)CGFloat duration; // 总时长
 @property(nonatomic,strong)NSMutableArray *imageCovers; // 锁屏时的图片
 @property(nonatomic,strong)CQTracks_List *currentModel; // 当前model
+@property(nonatomic,assign)NSInteger currentIndex;// 正在播放的歌曲的索引
 @property(nonatomic,strong)UIImage *currentImage; // 当前图片
 
 + (instancetype)sharedInstance;
@@ -31,7 +32,7 @@
 - (void)pause;
 // 播放进度的改变
 - (void)changeVideoProgress:(CGFloat)value;
-- (void)addSong:(CQTracks_List *)model;
+//- (void)addSong:(CQTracks_List *)model;
 - (void)lastSong;
 - (void)nextSong;
 
