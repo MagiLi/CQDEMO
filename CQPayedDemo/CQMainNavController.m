@@ -21,6 +21,7 @@
     [backView setGradientBackgroundWithColors:@[ThemeColor_Left,ThemeColor_Right] locations:nil startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1, 0)];
     [self.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setTintColor:[UIColor whiteColor]];
 }
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.viewControllers.count > 0) {
