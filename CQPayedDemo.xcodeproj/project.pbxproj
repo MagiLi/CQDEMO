@@ -30,6 +30,7 @@
 		042FFFA321ED6F55009BEE06 /* CQAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FFF9F21ED6F55009BEE06 /* CQAnimationManager.m */; };
 		042FFFA721ED6F5A009BEE06 /* UIImageView+CQBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FFFA621ED6F5A009BEE06 /* UIImageView+CQBlur.m */; };
 		042FFFAA21ED6FA1009BEE06 /* UIImage+CQExtern.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FFFA921ED6FA1009BEE06 /* UIImage+CQExtern.m */; };
+		042FFFB021EDB03C009BEE06 /* UIView+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FFFAE21EDB03B009BEE06 /* UIView+Gradient.m */; };
 		04468E1E1E14EF3C002D6942 /* CQVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04468E1D1E14EF3C002D6942 /* CQVideoModel.m */; };
 		0450CD391E028C3D0080F6F7 /* CQPhoneNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0450CD381E028C3D0080F6F7 /* CQPhoneNumberCell.m */; };
 		0450CD3D1E0298500080F6F7 /* NSString+CQUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0450CD3C1E0298500080F6F7 /* NSString+CQUtil.m */; };
@@ -172,6 +173,8 @@
 		042FFFA621ED6F5A009BEE06 /* UIImageView+CQBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CQBlur.m"; sourceTree = "<group>"; };
 		042FFFA821ED6FA1009BEE06 /* UIImage+CQExtern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CQExtern.h"; sourceTree = "<group>"; };
 		042FFFA921ED6FA1009BEE06 /* UIImage+CQExtern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CQExtern.m"; sourceTree = "<group>"; };
+		042FFFAE21EDB03B009BEE06 /* UIView+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Gradient.m"; sourceTree = "<group>"; };
+		042FFFAF21EDB03C009BEE06 /* UIView+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Gradient.h"; sourceTree = "<group>"; };
 		04468E1C1E14EF3C002D6942 /* CQVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQVideoModel.h; sourceTree = "<group>"; };
 		04468E1D1E14EF3C002D6942 /* CQVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQVideoModel.m; sourceTree = "<group>"; };
 		04468E311E150796002D6942 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -476,6 +479,8 @@
 		042FFFA421ED6F5A009BEE06 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				042FFFAF21EDB03C009BEE06 /* UIView+Gradient.h */,
+				042FFFAE21EDB03B009BEE06 /* UIView+Gradient.m */,
 				042FFFA821ED6FA1009BEE06 /* UIImage+CQExtern.h */,
 				042FFFA921ED6FA1009BEE06 /* UIImage+CQExtern.m */,
 				04F875BD1E03931900D25907 /* UIView+Frame.h */,
@@ -1247,6 +1252,7 @@
 				0453E6441DFE831500DD68E1 /* CQAppsCell.m in Sources */,
 				042B27311E441C1300B5EE6E /* CQCycleLayout.m in Sources */,
 				04D89E431E1DFC9E00870A26 /* CQButton.m in Sources */,
+				042FFFB021EDB03C009BEE06 /* UIView+Gradient.m in Sources */,
 				0453E63A1DFE82FD00DD68E1 /* CQAppsController.m in Sources */,
 				042B27221E441BF800B5EE6E /* CQCollectionViewCellH.m in Sources */,
 				047D23DF21EC886E0009858A /* LPOrderProgressView.m in Sources */,

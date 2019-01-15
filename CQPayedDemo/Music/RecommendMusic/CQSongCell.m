@@ -30,7 +30,7 @@
     _model = model;
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.coverSmall] placeholderImage:[UIImage imageNamed:@"app_add"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
-            self.iconView.image = [UIImage cq_blurredImageWithImage:image andBlurAmount:1.0];
+            self.iconView.image = [UIImage cq_blurredImageWithImage:image andBlurAmount:2.0];
         }
     }];
 

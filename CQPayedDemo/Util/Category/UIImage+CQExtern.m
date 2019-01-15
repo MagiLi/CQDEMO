@@ -361,7 +361,7 @@
 }
 
 - (instancetype)cq_blurredImage:(CGFloat)blurAmount {
-    if (blurAmount < 0.0 || blurAmount > 2.0) {
+    if (blurAmount < 0.0 || blurAmount > 3.0) {
         blurAmount = 0.5;
     }
     

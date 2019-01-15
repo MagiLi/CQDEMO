@@ -15,4 +15,6 @@
 
 #import "CQHeader.h"
 #import "UIImage+CQExtern.h"
+#import "UIView+Gradient.h"
+
 #endif /* PrefixHeader_pch */

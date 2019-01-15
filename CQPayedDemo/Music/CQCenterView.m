@@ -17,10 +17,10 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = RGBCOLOR(237.0, 180.0, 20.0, 1.0);
+        self.backgroundColor = Theme_Color;
         self.layer.cornerRadius = self.width * 0.5;
         self.layer.masksToBounds = YES;
-        self.layer.borderColor = RGBCOLOR(237.0, 180.0, 20.0, 1.0).CGColor;
+        self.layer.borderColor = Theme_Color.CGColor;
         self.layer.borderWidth = 2.0;
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
         [btn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];

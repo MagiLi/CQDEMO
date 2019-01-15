@@ -25,10 +25,11 @@
  *  @param bounds       UIImage的bounds
  *  @param colors       渐变色数组，可以设置两种颜色
  *  @param gradientType 渐变的方式：0--->从上到下   1--->从左到右
+ *  @param radius       圆角
  *
  *  @return 渐变色的UIImage
  */
-- (UIImage*)gradientImageWithBounds:(CGRect)bounds andColors:(NSArray*)colors andGradientType:(int)gradientType;
+- (UIImage*)gradientImageWithBounds:(CGRect)bounds andColors:(NSArray*)colors andGradientType:(int)gradientType cornerRadius:(BOOL)radius;
 /**
  *  拉伸图片
  *

@@ -50,8 +50,10 @@
 }
 - (void)playNextVideoWithModel:(CQTracks_List *)model {
     self.titleLab.text = model.title;
+    __weak typeof(self) weakSelf = self;
     [self.circleImageView sd_setImageWithURL:[NSURL URLWithString:model.coverLarge] placeholderImage:[UIImage imageNamed:@"backGroundImage"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        [self.backgroundView setBlurImage:image];
+//        [weakSelf.backgroundView setBlurImage:image];
+        weakSelf.backgroundView.image = [UIImage cq_blurredImageWithImage:image andBlurAmount:3.0];//方式二
     }];
 }
 
