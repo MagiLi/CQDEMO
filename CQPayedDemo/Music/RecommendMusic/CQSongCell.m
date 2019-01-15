@@ -28,7 +28,11 @@
 
 - (void)setModel:(CQTracks_List *)model {
     _model = model;
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.coverSmall] placeholderImage:[UIImage imageNamed:@"app_add"]];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.coverSmall] placeholderImage:[UIImage imageNamed:@"app_add"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            self.iconView.image = [UIImage cq_blurredImageWithImage:image andBlurAmount:1.0];
+        }
+    }];
 
     self.titleLab.text = model.title;
     self.detailLab.text = [NSString stringWithFormat:@"作者：%@", model.nickname];

@@ -14,5 +14,5 @@
 #import "CQURLHeader.h"
 
 #import "CQHeader.h"
-
+#import "UIImage+CQExtern.h"
 #endif /* PrefixHeader_pch */

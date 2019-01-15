@@ -3,7 +3,7 @@
 //  ReadWhats
 //
 //  Created by mac on 16/11/1.
-//  Copyright © 2016年 高永强. All rights reserved.
+//  Copyright © 2016年 . All rights reserved.
 //
 
 #import "UIImageView+CQBlur.h"

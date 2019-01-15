@@ -44,7 +44,8 @@
         self.headerView.model = self.layoutModel.songModel.album;
         NSURL *url = [NSURL URLWithString:self.layoutModel.songModel.album.coverLarge];
         [weakSelf.headerView.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"UMS_qzone_icon"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            [weakSelf.headerView.imageView setBlurImage:image];
+//            [weakSelf.headerView.imageView setBlurImage:image];// 方式一
+            weakSelf.headerView.imageView.image = [UIImage cq_blurredImageWithImage:image andBlurAmount:2.0];//方式二
         }];
         [weakSelf.tableView reloadData];
     }];

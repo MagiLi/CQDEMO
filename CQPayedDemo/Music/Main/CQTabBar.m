@@ -31,7 +31,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = RGBCOLOR(237.0, 180.0, 20.0, 1.0);
+        self.backgroundColor = Theme_Color;
         [self addSubview:self.contentView];
         [self.contentView.layer addSublayer:self.line];
     }

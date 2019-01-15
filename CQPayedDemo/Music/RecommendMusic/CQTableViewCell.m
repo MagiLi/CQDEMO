@@ -28,7 +28,11 @@
 
 - (void)setCateModel:(CQCategoryCotents_L_List *)cateModel {
     _cateModel = cateModel;
-    [self.iconView setImageWithURL:[NSURL URLWithString:cateModel.coverMiddle] placeholderImage:[UIImage imageNamed:@"UMS_qzone_icon"]];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:cateModel.coverMiddle] placeholderImage:[UIImage imageNamed:@"UMS_qzone_icon"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            self.iconView.image = [UIImage cq_captureCircleImageWithImage:image andBorderWith:1.0 andBorderColor:Theme_Color];
+        }
+    }];
     self.titleLab.text = cateModel.title;
     self.detailTitleLab.text = cateModel.intro;
     if (cateModel.playsCounts > 10000) {
@@ -40,10 +44,10 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.iconView.layer.cornerRadius = self.iconView.width * 0.5;
-    self.iconView.layer.masksToBounds = YES;
-    self.iconView.layer.borderColor = Theme_Color.CGColor;
-    self.iconView.layer.borderWidth = 1.0;
+//    self.iconView.layer.cornerRadius = self.iconView.width * 0.5;
+//    self.iconView.layer.masksToBounds = YES;
+//    self.iconView.layer.borderColor = Theme_Color.CGColor;
+//    self.iconView.layer.borderWidth = 1.0;
 }
 
 - (void)awakeFromNib {

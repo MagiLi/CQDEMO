@@ -16,8 +16,15 @@
 #import "CQPlayerManager.h"
 #import "MJExtension.h"
 
-#define Theme_Color [UIColor colorWithRed:237.0 / 255.0 green:170.0 / 255.0 blue:20.0 / 255.0 alpha:1.0]
+#define ThemeColor_Left CQColorFromRGB(0xFFAB00)//渐变色左侧
+#define ThemeColor_Right CQColorFromRGB(0xFF7D01)// 渐变色右侧
+//#define ThemeColor     CQColorFromRGB(0xFF7D01)
+#define ThemeGrayColor     CQColorFromRGB(188.0,188.0,188.0)
+#define ThemePlaceholderBGColor     CQColorFromRGB(239.0,223.0,201.0)
+#define ThemeBackgroundColor     CQColorFromRGB(0xF6F6F6)
+#define Theme_Color CQColorFromRGB(0xFF7D01)
 #define RGBCOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:a]
+#define CQColorFromRGB(rgbValue)       [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #define kScreen_W [UIScreen mainScreen].bounds.size.width
 #define kScreen_H [UIScreen mainScreen].bounds.size.height
