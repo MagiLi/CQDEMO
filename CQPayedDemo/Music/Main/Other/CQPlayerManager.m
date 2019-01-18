@@ -161,6 +161,7 @@ static NSString *status = @"status";
         }
     }
 }
+
 - (NSTimeInterval)availableDuration {
     CMTimeRange timeRange = [self.playerItem.loadedTimeRanges.firstObject CMTimeRangeValue];// 获取缓冲区域
     float startSeconds = CMTimeGetSeconds(timeRange.start);

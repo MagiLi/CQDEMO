@@ -18,6 +18,7 @@ typedef void(^PlayCompleteBlock)(NSError *error);
 @optional
 
 /**
+ 通知代理因为缓冲资源耗尽暂停播放
  Tells the delegate the player is suspended because of the buffer is empty.
 
  @param player The AVPlayer object informing the delegate of this event.
@@ -26,6 +27,7 @@ typedef void(^PlayCompleteBlock)(NSError *error);
 
 
 /**
+ 通知代理播放器准备继续播放
  Tells the delegate the player is ready to continue to playback.
 
  @param player The AVPlayer object informing the delegate of this event.
@@ -36,79 +38,37 @@ typedef void(^PlayCompleteBlock)(NSError *error);
 
 @interface CQAudioPlayer : NSObject
 
-/**
- The object that acts as the delegate of the player.
- The delegate must adopt the XTAudioPlayerDelegate protocol. The delegate is not retained.
- */
 @property (nonatomic,weak) id<CQAudioPlayerDelegate> delegate;
 
-/**
- Configure properties for player,such as AVAudioSessionCategory, rotate angle for playerLayer etc.
- */
+// 播放器的配置属性
 @property (nonatomic,strong) CQPlayerConfiguration *config;
 
-
-/**
- Initialized a player.
-
- @return An single instance player.
- */
 + (instancetype _Nonnull )sharePlayer;
-
-
-/**
- Playback an audio with an url string which can be a url for a media file, or a path for a media file in sandbox or boundle, and set cache path for the media file, the playCompleteBlock will be executed when complete the play.
-
- @param urlStr Url for a media file, or a path for a media file in sandbox or boundle
- @param cachePath Cache path for the media file, if you set it nil, the file will cache in a default path
- @param playCompleteBlock The block to execute after the play has been end. If the play is fail to end, there is a error in the block
+/*
+ @param urlStr 音频资源的链接或者本地缓存路径
+ @param cachePath 指定缓存路径,如果为空则默认缓存路径
+ @param playCompleteBlock 结束播放时的回调,如果结束失败则返回错误信息
  */
 - (void)playWithUrlStr:(nonnull NSString *)urlStr cachePath:(nullable NSString *)cachePath completion:(PlayCompleteBlock)playCompleteBlock;
 
 
-/**
- Playback a video with an visible layer.
-
- @param urlStr Url for a media file, or a path for a media file in sandbox or boundle
- @param cachePath Cache path for the media file, if you set it nil, the file will cache in a default path
- @param videoFrame The frame for the visible layer
- @param bgView The super view for the visible layer
- @param playCompleteBlock The block to execute after the play has been end. If the play is fail to end, there is a error in the block
+/*
+ @param urlStr 视频资源的链接或者本地缓存路径
+ @param cachePath 指定缓存路径,如果为空则默认缓存路径
+ @param videoFrame 播放容器的frame
+ @param bgView 播放容器view
+ @param playCompleteBlock 结束播放时的回调,如果结束失败则返回错误信息
  */
 - (void)playWithUrlStr:(nonnull NSString *)urlStr cachePath:(nullable NSString *)cachePath videoFrame:(CGRect)videoFrame inView:(UIView *)bgView completion:(PlayCompleteBlock)playCompleteBlock;
 
-
-/**
- Playback a video by AVPlayerViewController.
-
- @param urlStr Url for a media file, or a path for a media file in sandbox or boundle
- @param cachePath Cache path for the media file, if you set it nil, the file will cache in a default path
- @param playCompleteBlock The block to execute after the play has been end. If the play is fail to end, there is a error in the block
- @return An AVPlayerViewController object which playback this video
- */
+//使用系统AVPlayerViewController
 - (AVPlayerViewController *)playByPlayerVCWithUrlStr:(nonnull NSString *)urlStr cachePath:(nullable NSString *)cachePath completion:(PlayCompleteBlock)playCompleteBlock;
 
-/**
- Cotinue playback of the current item.
- */
-- (void)restart;
+- (void)restart;//重新播放
+- (void)pause;//暂停播放
 
-/**
- Pauses playback of the current item.
- */
-- (void)pause;
-
-/**
- Cancel playback of the current item and all the remaining network requests of the current item.
- */
+//取消当前播放和当前播放的所有剩余网络请求的播放。
 - (void)cancel;
-
-/**
- 完全销毁Player，释放掉XTAudioPlayer所占用的全部内存，如非特殊需要，不建议使用。
- */
-
-/**
- Completely destroy the Player, free up all the memory occupied by the XTAudioPlayer. If not special needs, it is not recommended.
- */
+//完全销毁Player，释放掉CQAudioPlayer所占用的全部内存，如非特殊需要，不建议使用。
 - (void)completeDealloc;
 @end

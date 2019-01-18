@@ -8,7 +8,7 @@
 
 #import "CQDataManager.h"
 
-static NSString *playerDirectory = @"XTAudioPlayer";
+static NSString *playerDirectory = @"CQAudioPlayer";
 static NSString *currentUrlStr;
 
 @interface CQDataManager ()
@@ -45,7 +45,7 @@ static NSString *currentUrlStr;
 }
 
 #pragma mark - Public API
-
+// 获取资源缓存路径
 + (NSString *)checkCachedWithUrl:(NSString *)urlStr {
     
     if ([urlStr hasPrefix:@"/var"] || [urlStr hasPrefix:@"/Users"]) {

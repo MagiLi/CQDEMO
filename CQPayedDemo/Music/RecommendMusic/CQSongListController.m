@@ -31,11 +31,8 @@
 }
 
 -(void)activeToContinueWithPlayer:(AVPlayer *)player{
-    //The player is ready to continue...
-    /**
-     It is not recommended to continue play the player immediately, because this selector will be called when the player only buffer a little data, so this selector will be called very frequently.
-     Therefore it is recommended to play the player after buffering several seconds.
-     */
+    //准备继续播放
+    //建议缓冲几秒好再播放,如果立即播放可能会卡顿
     dispatch_after(dispatch_time(self.lastSuspendTime, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [player play];
     });

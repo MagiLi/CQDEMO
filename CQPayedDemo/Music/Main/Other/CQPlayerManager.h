@@ -35,4 +35,15 @@
 - (void)nextSong;
 
 @property(nonatomic,weak)id<CQPlayerManagerDelegate> delegate;
+
+/*
+ //CMTime是以分数的形式表示时间，value表示分子，timescale表示分母，flags是位掩码，表示时间的指定状态。
+ typedef struct{
+ CMTimeValue    value;     // 帧数
+ CMTimeScale    timescale;  // 帧率（影片每秒有几帧）
+ CMTimeFlags    flags;
+ CMTimeEpoch    epoch;
+ } CMTime;
+*/
+
 @end

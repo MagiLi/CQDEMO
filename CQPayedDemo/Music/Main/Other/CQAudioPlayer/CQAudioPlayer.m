@@ -12,15 +12,15 @@
 #import "CQRangeManager.h"
 #import "CQDownloader.h"
 
+//playbackBufferEmpty:缓冲媒体资源是否播放完的监听key
+#define PlaybackBufferEmpty_Key @"playbackBufferEmpty"
+// 指示该项是否可能在不停止的情况下播放。
+#define PlaybackLikelyToKeepUp_Key @"playbackLikelyToKeepUp"
+static NSString *CQCustomScheme = @"CQShow";
 static CQAudioPlayer *audioPlayer = nil;
 static dispatch_once_t onceToken;
-static NSString *CQCustomScheme = @"CQShow";
 
-@interface CQAudioPlayer ()
-<
-AVAssetResourceLoaderDelegate,
-CQDataManagerDelegate
->
+@interface CQAudioPlayer () <AVAssetResourceLoaderDelegate,CQDataManagerDelegate>
 
 @property (nonatomic,copy) NSString *originalUrlStr;
 @property (nonatomic,strong) AVPlayer *player;
@@ -39,26 +39,13 @@ CQDataManagerDelegate
 
 @implementation CQAudioPlayer
 
--(CQPlayerConfiguration *)config{
-    if (!_config) {
-        _config = [CQPlayerConfiguration new];
-    }
-    return _config;
-}
-
 #pragma mark - 生命周期
 + (instancetype)sharePlayer {
-    
     dispatch_once(&onceToken, ^{
-        audioPlayer = [CQAudioPlayer new];
+        audioPlayer = [[self alloc] init];
     });
     return audioPlayer;
 }
-
--(void)dealloc{
-    NSLog(@"[CQAudioPlayer]%@:%s",self,__func__);
-}
-
 - (void)playWithUrlStr:(nonnull NSString *)urlStr cachePath:(nullable NSString *)cachePath completion:(PlayCompleteBlock)playCompleteBlock{
     
     [self cancel];
@@ -66,9 +53,9 @@ CQDataManagerDelegate
     self.originalUrlStr = urlStr;
     
     NSError *error;
-    [[AVAudioSession sharedInstance] setCategory:self.config.audioSessionCategory?self.config.audioSessionCategory:AVAudioSessionCategoryPlayback error:&error];
+    [[AVAudioSession sharedInstance] setCategory:self.config.audioSessionCategory ? self.config.audioSessionCategory : AVAudioSessionCategoryPlayback error:&error];
     if (error) {
-        NSLog(@"[CQAudioPlayer]%s:%@",__func__,error);
+        CQLog(@"%@", error);
     }
     
     NSString *filePath;
@@ -78,18 +65,15 @@ CQDataManagerDelegate
         fileExist = ([CQDataManager checkCachedWithFilePath:cachePath] != nil);
     }else{
         filePath = [CQDataManager checkCachedWithUrl:urlStr];
-        fileExist = ([CQDataManager checkCachedWithUrl:urlStr] != nil);
+        fileExist = (filePath != nil);
     }
     self.fileExist = fileExist;
     
     if (fileExist) {
         
         AVURLAsset *asset = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:filePath] options:nil];
-        
         AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
-
         AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
-
         self.player = player;
         [player play];
         
@@ -107,8 +91,8 @@ CQDataManagerDelegate
             //为asset.resourceLoader设置代理对象
             [asset.resourceLoader setDelegate:self queue:dispatch_get_main_queue()];
             AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
-            [playerItem addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
-            [playerItem addObserver:self forKeyPath:@"playbackLikelyToKeepUp" options:NSKeyValueObservingOptionNew context:nil];
+            [playerItem addObserver:self forKeyPath:PlaybackBufferEmpty_Key options:NSKeyValueObservingOptionNew context:nil];
+            [playerItem addObserver:self forKeyPath:PlaybackLikelyToKeepUp_Key options:NSKeyValueObservingOptionNew context:nil];
             
             AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
             self.player = player;
@@ -157,7 +141,7 @@ CQDataManagerDelegate
     [self playWithUrlStr:urlStr cachePath:cachePath completion:playCompleteBlock];
     
     if (self.player) {
-        AVPlayerViewController *playerVC = [AVPlayerViewController new];
+        AVPlayerViewController *playerVC = [[AVPlayerViewController alloc] init];
         playerVC.player = self.player;
         return playerVC;
     }
@@ -173,9 +157,9 @@ CQDataManagerDelegate
 }
 
 - (void)cancel {
-    if (!self.fileExist) {
-        [self.player.currentItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
-        [self.player.currentItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
+    if (!self.fileExist) {// currentItem 的所有监听都要移除
+        [self.player.currentItem removeObserver:self forKeyPath:PlaybackBufferEmpty_Key];
+        [self.player.currentItem removeObserver:self forKeyPath:PlaybackLikelyToKeepUp_Key];
     }
     
     self.player = nil;
@@ -267,15 +251,16 @@ CQDataManagerDelegate
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
 
-    if ([keyPath isEqualToString:@"playbackBufferEmpty"]) {
+    if ([keyPath isEqualToString:PlaybackBufferEmpty_Key]) {
         AVPlayerItem *playerItem = (AVPlayerItem *)object;
+        //playbackBufferEmpty:表示所有缓冲媒体资源已经播放完，并且播放将暂停或结束
         if (playerItem.playbackBufferEmpty) {
             if ([self.delegate respondsToSelector:@selector(suspendForLoadingDataWithPlayer:)]) {
                 self.buffering = YES;
                 [self.delegate suspendForLoadingDataWithPlayer:self.player];
             }
         }
-    }else if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"]){
+    }else if ([keyPath isEqualToString:PlaybackLikelyToKeepUp_Key]){
         if ([self.delegate respondsToSelector:@selector(activeToContinueWithPlayer:)] && self.buffering) {
             self.buffering = NO;
             [self.delegate activeToContinueWithPlayer:self.player];
@@ -285,7 +270,7 @@ CQDataManagerDelegate
 
 #pragma mark - 逻辑方法
 - (void)handleLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest{
-    NSLog(@"loadingRequest.dataRequest: %@", loadingRequest.dataRequest);
+    CQLog(@"loadingRequest.dataRequest: %@", loadingRequest.dataRequest);
     //取消上一个requestsAllDataToEndOfResource的请求
     if (loadingRequest.dataRequest.requestsAllDataToEndOfResource) {// 所有数据请求完成
         if (self.lastToEndDownloader) {
@@ -319,9 +304,7 @@ CQDataManagerDelegate
     if (loadingRequest.dataRequest.requestsAllDataToEndOfResource) {
         self.lastToEndDownloader = downloader;
     }else{
-        if (!self.nonToEndDownloaderArray) {//对于不是requestsAllDataToEndOfResource的请求也要收集，在取消当前请求时要一并取消掉
-            self.nonToEndDownloaderArray = [NSMutableArray array];
-        }
+        //对于不是requestsAllDataToEndOfResource的请求也要收集，在取消当前请求时要一并取消掉
         [self.nonToEndDownloaderArray addObject:downloader];
     }
     
@@ -340,5 +323,19 @@ CQDataManagerDelegate
 
     return useUrl;
 }
-
+-(CQPlayerConfiguration *)config{
+    if (!_config) {
+        _config = [CQPlayerConfiguration new];
+    }
+    return _config;
+}
+- (NSMutableArray *)nonToEndDownloaderArray {
+    if (!_nonToEndDownloaderArray) {
+        _nonToEndDownloaderArray = [NSMutableArray array];
+    }
+    return _nonToEndDownloaderArray;
+}
+-(void)dealloc{
+    NSLog(@"[CQAudioPlayer]%@:%s",self,__func__);
+}
 @end
