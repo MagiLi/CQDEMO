@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UILabel *currentTime;
 @property (weak, nonatomic) IBOutlet UILabel *durationTime;
+@property (weak, nonatomic) IBOutlet UIButton *orderBtn;
 
 @end
 
@@ -26,12 +27,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
     [self setupVideoUI];
-    
 }
 - (IBAction)backLastViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)orderButtonClicked:(UIButton *)sender {
+//    [CQPlayerManager sharedInstance]
+    
 }
 #pragma mark -
 #pragma mark - CQPlayerManagerDelegate

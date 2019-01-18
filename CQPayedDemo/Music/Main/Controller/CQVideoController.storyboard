@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="m3L-Pt-Bnb">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="m3L-Pt-Bnb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQi-hc-8wO">
-                                <rect key="frame" x="162" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="162.5" y="20" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Dcs-ja-ieG"/>
                                     <constraint firstAttribute="width" constant="50" id="bkx-bq-BXe"/>
@@ -48,7 +46,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeH-tc-hTe">
-                                <rect key="frame" x="148" y="478" width="80" height="80"/>
+                                <rect key="frame" x="147.5" y="478" width="80" height="80"/>
                                 <state key="normal" image="bigPlay"/>
                                 <state key="selected" image="bigStop"/>
                                 <connections>
@@ -79,21 +77,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eky-SK-bFU" userLabel="nextVideo">
-                                <rect key="frame" x="258" y="505" width="26" height="26"/>
+                                <rect key="frame" x="257.5" y="505" width="26" height="26"/>
                                 <state key="normal" image="nextMusic"/>
                                 <connections>
                                     <action selector="playNextVideoCilcked:" destination="m3L-Pt-Bnb" eventType="touchUpInside" id="Ene-wh-kZr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roy-x5-lYp" userLabel="lastVideo">
-                                <rect key="frame" x="92" y="505" width="26" height="26"/>
+                                <rect key="frame" x="91.5" y="505" width="26" height="26"/>
                                 <state key="normal" image="lastMusic"/>
                                 <connections>
                                     <action selector="playLastVideClicked:" destination="m3L-Pt-Bnb" eventType="touchUpInside" id="p4Y-jT-q7a"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ba-R3-rpT">
-                                <rect key="frame" x="167" y="50" width="42" height="21"/>
+                                <rect key="frame" x="166.5" y="70" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="eGu-Wl-dT3"/>
                                 </constraints>
@@ -110,6 +108,20 @@
                                     <action selector="sliderProgressDrag:" destination="m3L-Pt-Bnb" eventType="valueChanged" id="ErD-ED-LpT"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBD-Db-GOc">
+                                <rect key="frame" x="137.5" y="627" width="100" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ReI-Pd-gwY"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZSo-uW-rc6"/>
+                                </constraints>
+                                <state key="normal" title="顺序播放">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="orderButtonClicked:" destination="m3L-Pt-Bnb" eventType="touchUpInside" id="TH2-AR-VPp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -130,6 +142,7 @@
                             <constraint firstItem="d3y-dc-9QY" firstAttribute="top" secondItem="rSg-KQ-O51" secondAttribute="bottom" id="Vgj-mC-Gxh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="V82-eA-S89" secondAttribute="trailing" constant="30" id="Yar-TQ-Vz1"/>
                             <constraint firstItem="oOj-JY-p06" firstAttribute="centerY" secondItem="Myu-Cx-nKX" secondAttribute="centerY" constant="-1" id="ZV5-DU-SfP"/>
+                            <constraint firstItem="d3y-dc-9QY" firstAttribute="top" secondItem="sBD-Db-GOc" secondAttribute="bottom" id="aTY-qy-4A5"/>
                             <constraint firstItem="qS9-TN-L52" firstAttribute="leading" secondItem="4kv-hM-eEV" secondAttribute="leading" id="bpg-gt-sSX"/>
                             <constraint firstItem="yeH-tc-hTe" firstAttribute="leading" secondItem="roy-x5-lYp" secondAttribute="trailing" constant="30" id="eBk-Et-s1Z"/>
                             <constraint firstItem="roy-x5-lYp" firstAttribute="centerY" secondItem="yeH-tc-hTe" secondAttribute="centerY" id="gi8-km-OXN"/>
@@ -138,6 +151,7 @@
                             <constraint firstAttribute="trailing" secondItem="rSg-KQ-O51" secondAttribute="trailing" id="pZZ-2Q-uqc"/>
                             <constraint firstItem="GQi-hc-8wO" firstAttribute="top" secondItem="4kv-hM-eEV" secondAttribute="topMargin" id="pfH-NZ-7iN"/>
                             <constraint firstItem="oOj-JY-p06" firstAttribute="leading" secondItem="qS9-TN-L52" secondAttribute="trailing" id="t53-Bd-jyl"/>
+                            <constraint firstItem="sBD-Db-GOc" firstAttribute="centerX" secondItem="4kv-hM-eEV" secondAttribute="centerX" id="u7y-7u-YyD"/>
                             <constraint firstAttribute="trailing" secondItem="eMy-QD-efG" secondAttribute="trailing" id="w97-KF-KvF"/>
                             <constraint firstItem="rSg-KQ-O51" firstAttribute="leading" secondItem="4kv-hM-eEV" secondAttribute="leading" id="yz1-7W-VIb"/>
                         </constraints>
@@ -147,6 +161,7 @@
                         <outlet property="circleImageView" destination="V82-eA-S89" id="UQT-ML-KIt"/>
                         <outlet property="currentTime" destination="qS9-TN-L52" id="ZIT-DE-k0O"/>
                         <outlet property="durationTime" destination="eMy-QD-efG" id="8Ul-MT-H2l"/>
+                        <outlet property="orderBtn" destination="sBD-Db-GOc" id="Uxc-l6-1bI"/>
                         <outlet property="playButton" destination="yeH-tc-hTe" id="yuP-Uc-d5X"/>
                         <outlet property="progressView" destination="Myu-Cx-nKX" id="Xlp-Ai-7WW"/>
                         <outlet property="slide" destination="oOj-JY-p06" id="bAK-UB-kDH"/>
@@ -155,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXY-Mg-w0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-591" y="-285"/>
+            <point key="canvasLocation" x="-591.20000000000005" y="-285.60719640179911"/>
         </scene>
     </scenes>
     <resources>

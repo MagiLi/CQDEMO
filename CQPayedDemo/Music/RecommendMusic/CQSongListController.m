@@ -98,22 +98,22 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     CQTracks_List *model = self.layoutModel.songModel.tracks.list[indexPath.row];
 
-//    [CQPlayerManager sharedInstance].playList = self.layoutModel.songModel.tracks.list;
-//    [CQPlayerManager sharedInstance].currentIndex = indexPath.row;
-//    [[CQPlayerManager sharedInstance] playWithData:model];
-//    CQCenterView *centerView = [self.navigationController.view.subviews lastObject];
-//    centerView.coverUrl = model.coverSmall;
-//    if ([[CQAnimationManager sharedInsatnce] existRotationAnimation:centerView.btnLayer]) {
-//        [[CQAnimationManager sharedInsatnce] resumeRotationAnimation:centerView.btnLayer];
-//    } else {
-//        [[CQAnimationManager sharedInsatnce] startRotationAnimation:centerView.btnLayer duration:10.0];
-//    }
-//    centerView.selected = YES;
+    [CQPlayerManager sharedInstance].playList = self.layoutModel.songModel.tracks.list;
+    [CQPlayerManager sharedInstance].currentIndex = indexPath.row;
+    [[CQPlayerManager sharedInstance] playWithData:model];
+    CQCenterView *centerView = [self.navigationController.view.subviews lastObject];
+    centerView.coverUrl = model.coverSmall;
+    if ([[CQAnimationManager sharedInsatnce] existRotationAnimation:centerView.btnLayer]) {
+        [[CQAnimationManager sharedInsatnce] resumeRotationAnimation:centerView.btnLayer];
+    } else {
+        [[CQAnimationManager sharedInsatnce] startRotationAnimation:centerView.btnLayer duration:10.0];
+    }
+    centerView.selected = YES;
     
-    [CQAudioPlayer sharePlayer].delegate = self;
-    AVPlayerViewController *playerVC = [[CQAudioPlayer sharePlayer] playByPlayerVCWithUrlStr:model.playUrl64 cachePath:nil completion:nil];
-
-    [self presentViewController:playerVC animated:NO completion:nil];
+//    [CQAudioPlayer sharePlayer].delegate = self;
+//    AVPlayerViewController *playerVC = [[CQAudioPlayer sharePlayer] playByPlayerVCWithUrlStr:model.playUrl64 cachePath:nil completion:nil];
+//
+//    [self presentViewController:playerVC animated:NO completion:nil];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

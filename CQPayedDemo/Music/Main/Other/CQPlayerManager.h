@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "CQSongModel.h"
 
+typedef enum : NSUInteger {
+    CQPlayerOrderTypeSequence    = 0,// 顺序播放
+    CQPlayerOrderTypeRandom      = 1,// 随机播放
+    CQPlayerOrderTypeSingleCycle = 2,// 单曲循环
+} CQPlayerOrderType;
+
 @protocol CQPlayerManagerDelegate <NSObject>
 @optional
 - (void)playVideoProgress:(CGFloat)progress duration:(CGFloat)duration; // 播放进度
@@ -24,6 +30,7 @@
 @property(nonatomic,strong)CQTracks_List *currentModel; // 当前model
 @property(nonatomic,assign)NSInteger currentIndex;// 正在播放的歌曲的索引
 @property(nonatomic,strong)UIImage *currentImage; // 当前图片
+@property (nonatomic, assign) CQPlayerOrderType orderType;// 播放顺序
 
 + (instancetype)sharedInstance;
 - (void)playWithData:(CQTracks_List *)model;
