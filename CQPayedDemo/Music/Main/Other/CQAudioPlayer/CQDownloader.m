@@ -1,33 +1,33 @@
 //
-//  XTDownloader.m
+//  CQDownloader.m
 //  LoadingAndSinging
 //
-//  Created by XTShow on 2018/2/13.
-//  Copyright © 2018年 XTShow. All rights reserved.
+//  Created by CQShow on 2018/2/13.
+//  Copyright © 2018年 CQShow. All rights reserved.
 //
 
-#import "XTDownloader.h"
-#import "XTRangeModel.h"
+#import "CQDownloader.h"
+#import "CQRangeModel.h"
 #import <MobileCoreServices/MobileCoreServices.h>
-#import "XTRangeManager.h"
+#import "CQRangeManager.h"
 
-@interface XTDownloader ()
+@interface CQDownloader ()
 <
 NSURLSessionDelegate
 >
 
 @property (nonatomic,strong) NSMutableArray *rangeModelArray;
 @property (nonatomic,copy) NSString *urlScheme;
-@property (nonatomic,strong) XTRangeModel *currentRangeModel;
-@property (nonatomic,strong) XTDataManager *dataManager;
+@property (nonatomic,strong) CQRangeModel *currentRangeModel;
+@property (nonatomic,strong) CQDataManager *dataManager;
 @property (nonatomic,strong) NSURLSession *URLSession;
 @property (nonatomic,strong) NSURLSessionDataTask *dataTask;
 @property (nonatomic,assign) NSUInteger receivedDataLength;
 @end
 
-@implementation XTDownloader
+@implementation CQDownloader
 
-- (instancetype)initWithLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest RangeModelArray:(NSMutableArray *)rangeModelArray UrlScheme:(NSString *)urlScheme InDataManager:(XTDataManager *)dataManager {
+- (instancetype)initWithLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest RangeModelArray:(NSMutableArray *)rangeModelArray UrlScheme:(NSString *)urlScheme InDataManager:(CQDataManager *)dataManager {
     self = [super init];
     if (self) {
         self.loadingRequest = loadingRequest;
@@ -43,12 +43,12 @@ NSURLSessionDelegate
 
     if (rangeModelArray.count > 0) {
         
-        XTRangeModel *rangeModel = rangeModelArray.firstObject;
+        CQRangeModel *rangeModel = rangeModelArray.firstObject;
         self.currentRangeModel = rangeModel;
         self.receivedDataLength = 0;
         [rangeModelArray removeObjectAtIndex:0];
         
-        if (rangeModel.requestType == XTRequestFromCache) {//本地已缓存，直接从沙盒中读取
+        if (rangeModel.requestType == CQRequestFromCache) {//本地已缓存，直接从沙盒中读取
             
             NSRange cacheRange = rangeModel.requestRange;
             NSData *cacheData = [self.dataManager readCacheDataInRange:cacheRange];
@@ -105,7 +105,7 @@ NSURLSessionDelegate
     if (!error) {
         [self handleLoadingRequest:self.loadingRequest ByRangeModelArray:self.rangeModelArray];
     }else{
-        NSLog(@"[XTAudioPlayer]%s:%@",__func__,error);
+        NSLog(@"[CQAudioPlayer]%s:%@",__func__,error);
     }
 }
 
@@ -140,7 +140,7 @@ NSURLSessionDelegate
 - (void)handleReceiveData:(NSData *)data {
     NSRange cacheRange = NSMakeRange(self.currentRangeModel.requestRange.location + self.receivedDataLength, data.length);
     [self.dataManager addCacheData:data ForRange:cacheRange];
-    [[XTRangeManager shareRangeManager] addCacheRange:cacheRange];
+    [[CQRangeManager shareRangeManager] addCacheRange:cacheRange];
     self.receivedDataLength += data.length;
     [self.loadingRequest.dataRequest respondWithData:data];
 }

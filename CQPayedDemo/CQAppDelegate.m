@@ -9,6 +9,7 @@
 #import "CQAppDelegate.h"
 #import "CQMainController.h"
 #import "CQMainNavController.h"
+#import "CQPlayerManager.h"
 @interface CQAppDelegate ()
 
 @end
@@ -23,6 +24,39 @@
     [self.window setRootViewController:nav];
 
     return YES;
+}
+//UIEventSubtypeNone                              = 0,//触摸事件的亚类型
+//
+//UIEventSubtypeMotionShake                       = 1,//摇晃
+//
+//UIEventSubtypeRemoteControlPlay                 = 100,//播放
+//UIEventSubtypeRemoteControlPause                = 101,//暂停
+//UIEventSubtypeRemoteControlStop                 = 102,//停止
+//UIEventSubtypeRemoteControlTogglePlayPause      = 103,//播放和暂停切换
+//UIEventSubtypeRemoteControlNextTrack            = 104,//下一首
+//UIEventSubtypeRemoteControlPreviousTrack        = 105,//上一首
+//UIEventSubtypeRemoteControlBeginSeekingBackward = 106,//开始后退
+//UIEventSubtypeRemoteControlEndSeekingBackward   = 107,//结束后退
+//UIEventSubtypeRemoteControlBeginSeekingForward  = 108,//开始快进
+//UIEventSubtypeRemoteControlEndSeekingForward    = 109,//结束快进
+#pragma mark - UIApplicationDelegate
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event{
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlPlay:
+            [[CQPlayerManager sharedInstance] play];
+            break;
+        case UIEventSubtypeRemoteControlPause:
+            [[CQPlayerManager sharedInstance] pause];
+            break;
+        case UIEventSubtypeRemoteControlNextTrack:
+            [[CQPlayerManager sharedInstance] nextSong];
+            break;
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            [[CQPlayerManager sharedInstance] lastSong];
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

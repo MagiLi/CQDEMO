@@ -20,8 +20,8 @@ static NSString *status = @"status";
 @property(nonatomic,strong)AVPlayer *player; // 播放器
 
 //@property(nonatomic,strong)NSMutableArray *songs;
-
-
+@property (nonatomic, strong) UIImageView *iconImageView;
+@property (nonatomic, strong) NSMutableDictionary *lockScreenData;
 @end
 
 @implementation CQPlayerManager
@@ -46,14 +46,11 @@ static NSString *status = @"status";
     }
     return self;
 }
-//- (void)addSong:(CQTracks_List *)model {
-//    [self.songs addObject:model];
-//}
+
 #pragma mark -
 #pragma mark - playVideo
 - (void)playWithData:(CQTracks_List *)model {
     self.currentModel = model;
-//    self.currentImage = 
     [self playMusic];
 }
 
@@ -94,6 +91,7 @@ static NSString *status = @"status";
 - (void)playOtherVideo {
     self.currentModel = self.playList[self.currentIndex];
     [self playMusic];
+//    [self updateLockedScreenMusic];
     if ([self.delegate respondsToSelector:@selector(playNextVideoWithModel:)]) {
         [self.delegate playNextVideoWithModel:self.currentModel];
     }
@@ -101,14 +99,18 @@ static NSString *status = @"status";
 - (void)nextSong {
     if (self.currentIndex + 1 < self.playList.count) {
         self.currentIndex += 1;
-        [self playOtherVideo];
+    } else {
+        self.currentIndex = 0;
     }
+    [self playOtherVideo];
 }
 - (void)lastSong {
     if (self.currentIndex > 0) {
         self.currentIndex -= 1;
-        [self playOtherVideo];
+    } else {
+        self.currentIndex = self.playList.count - 1;
     }
+    [self playOtherVideo];
 }
 #pragma mark -
 #pragma mark - playProgress
@@ -168,25 +170,27 @@ static NSString *status = @"status";
 }
 #pragma mark - 锁屏时候的设置，效果需要在真机上才可以看到
 - (void)updateLockedScreenMusic{
-    
     // 播放信息中心
     MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
-    NSMutableDictionary *info = [NSMutableDictionary dictionary];
     // 专辑名称
-    info[MPMediaItemPropertyAlbumTitle] = self.currentModel.title;
+    self.lockScreenData[MPMediaItemPropertyAlbumTitle] = self.currentModel.title;
     // 歌手
-    info[MPMediaItemPropertyArtist] = self.currentModel.nickname;
+    self.lockScreenData[MPMediaItemPropertyArtist] = self.currentModel.nickname;
     // 歌曲名称
-    info[MPMediaItemPropertyTitle] = self.currentModel.title;
+    self.lockScreenData[MPMediaItemPropertyTitle] = self.currentModel.title;
     // 设置图片
-    info[MPMediaItemPropertyArtwork] = [[MPMediaItemArtwork alloc] initWithImage:self.imageCovers[self.currentIndex]];
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:self.currentModel.coverSmall] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.lockScreenData[MPMediaItemPropertyArtwork] = [[MPMediaItemArtwork alloc] initWithImage:image];
+        center.nowPlayingInfo = self.lockScreenData;
+    }];
+    
     // 设置持续时间（歌曲的总时间）
-    [info setObject:[NSNumber numberWithFloat:CMTimeGetSeconds(self.playerItem.duration)] forKey:MPMediaItemPropertyPlaybackDuration];
+    [self.lockScreenData setObject:[NSNumber numberWithFloat:CMTimeGetSeconds(self.playerItem.duration)] forKey:MPMediaItemPropertyPlaybackDuration];
     // 设置当前播放进度
-    [info setObject:[NSNumber numberWithFloat:CMTimeGetSeconds([self.playerItem currentTime])] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+    [self.lockScreenData setObject:[NSNumber numberWithFloat:CMTimeGetSeconds([self.playerItem currentTime])] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
     
     // 切换播放信息
-    center.nowPlayingInfo = info;
+    center.nowPlayingInfo = self.lockScreenData;
     
 }
 - (void)play {
@@ -195,19 +199,18 @@ static NSString *status = @"status";
 - (void)pause {
     [self.player pause];
 }
-//- (NSMutableArray *)songs {
-//    if (!_songs) {
-//        _songs = [NSMutableArray array];
-//    }
-//    return _songs;
-//}
-- (NSMutableArray *)imageCovers {
-    if (!_imageCovers) {
-        _imageCovers = [NSMutableArray array];
+- (NSMutableDictionary *)lockScreenData {
+    if (!_lockScreenData) {
+        _lockScreenData = [NSMutableDictionary dictionary];
     }
-    return _imageCovers;
+    return _lockScreenData;
 }
-
+- (UIImageView *)iconImageView {
+    if (!_iconImageView) {
+        _iconImageView = [[UIImageView alloc] init];
+    }
+    return _iconImageView;
+}
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

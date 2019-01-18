@@ -10,19 +10,36 @@
 #import "CQSongListHeadView.h"
 #import "CQSongCell.h"
 #import "CQCenterView.h"
+#import "CQAudioPlayer.h"
 
-@interface CQSongListController ()
+@interface CQSongListController ()<CQAudioPlayerDelegate>
 
 @property(nonatomic,strong)CQSongListHeadView *headerView;
 @property(nonatomic,assign)CGFloat headerH;
 @property(nonatomic,strong)CQSongLayoutModel *layoutModel;
 
 @property (nonatomic, assign) BOOL clearNav;// 记录导航条是否是透明
-
+@property (nonatomic,assign) NSTimeInterval lastSuspendTime;
 @end
 
 @implementation CQSongListController
+#pragma mark - CQAudioPlayerDelegate
+-(void)suspendForLoadingDataWithPlayer:(AVPlayer *)player{
+    //Do something when the player is suspended for loading data...
+    NSTimeInterval currentTime = [[NSDate date] timeIntervalSinceNow];
+    self.lastSuspendTime = currentTime;
+}
 
+-(void)activeToContinueWithPlayer:(AVPlayer *)player{
+    //The player is ready to continue...
+    /**
+     It is not recommended to continue play the player immediately, because this selector will be called when the player only buffer a little data, so this selector will be called very frequently.
+     Therefore it is recommended to play the player after buffering several seconds.
+     */
+    dispatch_after(dispatch_time(self.lastSuspendTime, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [player play];
+    });
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 //    设置导航条透明
@@ -82,27 +99,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    CQSongCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     CQTracks_List *model = self.layoutModel.songModel.tracks.list[indexPath.row];
-    [[CQPlayerManager sharedInstance].imageCovers addObject:cell.iconView.image];
-//    [[CQPlayerManager sharedInstance] addSong:model];
-    if ([CQPlayerManager sharedInstance].isPlaying) {
-        
-    } else {
-        [CQPlayerManager sharedInstance].playList = self.layoutModel.songModel.tracks.list;
-        [CQPlayerManager sharedInstance].currentIndex = indexPath.row;
-        [[CQPlayerManager sharedInstance] playWithData:model];
-        CQCenterView *centerView = [self.navigationController.view.subviews lastObject];
-        centerView.coverUrl = model.coverSmall;
-        if ([[CQAnimationManager sharedInsatnce] existRotationAnimation:centerView.btnLayer]) {
-            [[CQAnimationManager sharedInsatnce] resumeRotationAnimation:centerView.btnLayer];
-        } else {
-            [[CQAnimationManager sharedInsatnce] startRotationAnimation:centerView.btnLayer duration:10.0];
-        }
-        centerView.selected = YES;
-    }
+
+//    [CQPlayerManager sharedInstance].playList = self.layoutModel.songModel.tracks.list;
+//    [CQPlayerManager sharedInstance].currentIndex = indexPath.row;
+//    [[CQPlayerManager sharedInstance] playWithData:model];
+//    CQCenterView *centerView = [self.navigationController.view.subviews lastObject];
+//    centerView.coverUrl = model.coverSmall;
+//    if ([[CQAnimationManager sharedInsatnce] existRotationAnimation:centerView.btnLayer]) {
+//        [[CQAnimationManager sharedInsatnce] resumeRotationAnimation:centerView.btnLayer];
+//    } else {
+//        [[CQAnimationManager sharedInsatnce] startRotationAnimation:centerView.btnLayer duration:10.0];
+//    }
+//    centerView.selected = YES;
     
+    [CQAudioPlayer sharePlayer].delegate = self;
+    AVPlayerViewController *playerVC = [[CQAudioPlayer sharePlayer] playByPlayerVCWithUrlStr:model.playUrl64 cachePath:nil completion:nil];
+
+    [self presentViewController:playerVC animated:NO completion:nil];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

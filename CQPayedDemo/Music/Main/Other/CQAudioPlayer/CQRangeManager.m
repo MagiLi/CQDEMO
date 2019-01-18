@@ -1,18 +1,18 @@
 //
-//  XTRangeManager.m
+//  CQRangeManager.m
 //  LoadingAndSinging
 //
-//  Created by XTShow on 2018/2/13.
-//  Copyright © 2018年 XTShow. All rights reserved.
+//  Created by CQShow on 2018/2/13.
+//  Copyright © 2018年 CQShow. All rights reserved.
 //
 
-#import "XTRangeManager.h"
-#import "XTRangeModel.h"
+#import "CQRangeManager.h"
+#import "CQRangeModel.h"
 
-static XTRangeManager *rangeManger;
+static CQRangeManager *rangeManger;
 static dispatch_once_t onceToken;
 
-@interface XTRangeManager ()
+@interface CQRangeManager ()
 /**
  已缓存的data的range的数组
  */
@@ -20,13 +20,13 @@ static dispatch_once_t onceToken;
 @property (nonatomic,copy) NSString *url;
 @end
 
-@implementation XTRangeManager
+@implementation CQRangeManager
 
 #pragma mark - 初始化
 + (instancetype)shareRangeManager {
     
     dispatch_once(&onceToken, ^{
-        rangeManger = [[XTRangeManager alloc] init];
+        rangeManger = [[CQRangeManager alloc] init];
     });
     
     return rangeManger;
@@ -56,7 +56,7 @@ static dispatch_once_t onceToken;
     NSMutableArray *rangModelArray = [NSMutableArray array];
     
     if (self.cachedRangeArray.count == 0) {
-        XTRangeModel *model = [[XTRangeModel alloc] initWithRequestType:XTRequestFromNet RequestRange:requestRange];
+        CQRangeModel *model = [[CQRangeModel alloc] initWithRequestType:CQRequestFromNet RequestRange:requestRange];
         [rangModelArray addObject:model];
     }else{
         //先处理loadingRequest和本地缓存有交集的部分
@@ -65,14 +65,14 @@ static dispatch_once_t onceToken;
             NSRange cacheRange = [obj rangeValue];
             NSRange intersectionRange = NSIntersectionRange(cacheRange, requestRange);
             if (intersectionRange.length > 0) {
-                XTRangeModel *model = [[XTRangeModel alloc] initWithRequestType:XTRequestFromCache RequestRange:intersectionRange];
+                CQRangeModel *model = [[CQRangeModel alloc] initWithRequestType:CQRequestFromCache RequestRange:intersectionRange];
                 [cachedModelArray addObject:model];
             }
         }];
         
         //围绕交集，进行需要网络请求的range的拆解
         if (cachedModelArray.count == 0) {
-            XTRangeModel *model = [[XTRangeModel alloc] initWithRequestType:XTRequestFromNet RequestRange:requestRange];
+            CQRangeModel *model = [[CQRangeModel alloc] initWithRequestType:CQRequestFromNet RequestRange:requestRange];
             [rangModelArray addObject:model];
         }else{
             
@@ -80,10 +80,10 @@ static dispatch_once_t onceToken;
                 
                 if (idx == 0) {
                     
-                    XTRangeModel *firstRangeModel = cachedModelArray[0];
+                    CQRangeModel *firstRangeModel = cachedModelArray[0];
                     if (firstRangeModel.requestRange.location > requestRange.location) {//在第一个cacheRange前还有一部分需要net请求
                         
-                        XTRangeModel *model = [[XTRangeModel alloc] initWithRequestType:XTRequestFromNet RequestRange:NSMakeRange(requestRange.location, firstRangeModel.requestRange.location - requestRange.location)];
+                        CQRangeModel *model = [[CQRangeModel alloc] initWithRequestType:CQRequestFromNet RequestRange:NSMakeRange(requestRange.location, firstRangeModel.requestRange.location - requestRange.location)];
                         
                         [rangModelArray addObject:model];
                     }
@@ -91,12 +91,12 @@ static dispatch_once_t onceToken;
                     
                 }else{
                     //除了首尾可能存在的两个（小于首个cachedModel 和 大于最后一个cachedModel）range，其他range都应该是夹在两个cachedModel之间的range，在此处处理
-                    XTRangeModel *lastCachedRangeModel = cachedModelArray[idx - 1];
-                    XTRangeModel *currentCachedRangeModel = cachedModelArray[idx];
+                    CQRangeModel *lastCachedRangeModel = cachedModelArray[idx - 1];
+                    CQRangeModel *currentCachedRangeModel = cachedModelArray[idx];
                     
                     NSUInteger startOffst = lastCachedRangeModel.requestRange.location + lastCachedRangeModel.requestRange.length;
                     
-                    XTRangeModel *model = [[XTRangeModel alloc] initWithRequestType:XTRequestFromNet RequestRange:NSMakeRange(startOffst, currentCachedRangeModel.requestRange.location - startOffst)];
+                    CQRangeModel *model = [[CQRangeModel alloc] initWithRequestType:CQRequestFromNet RequestRange:NSMakeRange(startOffst, currentCachedRangeModel.requestRange.location - startOffst)];
                     
                     [rangModelArray addObject:model];
                     [rangModelArray addObject:currentCachedRangeModel];
@@ -104,12 +104,12 @@ static dispatch_once_t onceToken;
                 
                 if (idx == cachedModelArray.count - 1) {//最后一个cachedRange后面可能还有一段需要网络请求
                     
-                    XTRangeModel *lastRangeModel = cachedModelArray.lastObject;
+                    CQRangeModel *lastRangeModel = cachedModelArray.lastObject;
                     if (requestRange.location + requestRange.length > lastRangeModel.requestRange.location + lastRangeModel.requestRange.length) {
 
                         NSUInteger lastCacheRangeModelEndOffset = lastRangeModel.requestRange.location + lastRangeModel.requestRange.length;
                         
-                        XTRangeModel *model = [[XTRangeModel alloc] initWithRequestType:XTRequestFromNet RequestRange:NSMakeRange(lastCacheRangeModelEndOffset, requestRange.location + requestRange.length - lastCacheRangeModelEndOffset)];
+                        CQRangeModel *model = [[CQRangeModel alloc] initWithRequestType:CQRequestFromNet RequestRange:NSMakeRange(lastCacheRangeModelEndOffset, requestRange.location + requestRange.length - lastCacheRangeModelEndOffset)];
                         [rangModelArray addObject:model];
                     }
                 }
@@ -194,11 +194,11 @@ static dispatch_once_t onceToken;
                             BOOL hasHandle = NO;
                             
                             if (idx + 1 < self.cachedRangeArray.count) {//如果当前cacheRange不是self.cachedRangeArray中的最后一个元素时（保证cachedRangeArray中有下一位）
-                                NSRange nextRange = [self.cachedRangeArray[idx + 1] rangeValue];
-                                if (newRange.location + newRange.length == nextRange.location) {//正好newRange的尾又与下一个的头相接（最多只能与两个cachedRange首尾相接，因为newRange和此时的所有cacheRange都没有交集，第一个循环处理已经把有交集的都合并了）
+                                NSRange neCQRange = [self.cachedRangeArray[idx + 1] rangeValue];
+                                if (newRange.location + newRange.length == neCQRange.location) {//正好newRange的尾又与下一个的头相接（最多只能与两个cachedRange首尾相接，因为newRange和此时的所有cacheRange都没有交集，第一个循环处理已经把有交集的都合并了）
 
                                     hasHandle = YES;
-                                    [self.cachedRangeArray replaceObjectAtIndex:idx withObject:[NSValue valueWithRange:NSMakeRange(cacheRange.location, cacheRange.length + newRange.length + nextRange.length)]];
+                                    [self.cachedRangeArray replaceObjectAtIndex:idx withObject:[NSValue valueWithRange:NSMakeRange(cacheRange.location, cacheRange.length + newRange.length + neCQRange.length)]];
                                     [shouldRemoveArray addObject:self.cachedRangeArray[idx + 1]];
                                 }
                             }

@@ -1,5 +1,5 @@
 //
-//  XTRangeManager.h
+//  CQRangeManager.h
 //  LoadingAndSinging
 //
 //  Created by XTShow on 2018/2/13.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface XTRangeManager : NSObject
+@interface CQRangeManager : NSObject
 
 /**
  初始化方法

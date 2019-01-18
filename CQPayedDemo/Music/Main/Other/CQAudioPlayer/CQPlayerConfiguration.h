@@ -1,5 +1,5 @@
 //
-//  XTPlayerConfiguration.h
+//  CQPlayerConfiguration.h
 //  LoadingAndSinging
 //
 //  Created by XTShow on 2018/5/8.
@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface XTPlayerConfiguration : NSObject
+@interface CQPlayerConfiguration : NSObject
 
 /**
  The Category of AVAudioSession, default is AVAudioSessionCategoryPlayback.

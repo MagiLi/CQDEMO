@@ -1,5 +1,5 @@
 //
-//  XTDataManager.h
+//  CQDataManager.h
 //  LoadingAndSinging
 //
 //  Created by XTShow on 2018/2/13.
@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol XTDataManagerDelegate<NSObject>
+@protocol CQDataManagerDelegate<NSObject>
 
 @optional
 -(void)fileDownloadAndSaveSuccess;
 
 @end
 
-@interface XTDataManager : NSObject
+@interface CQDataManager : NSObject
 
-@property (nonatomic,weak) id<XTDataManagerDelegate> delegate;
+@property (nonatomic,weak) id<CQDataManagerDelegate> delegate;
 
 @property (nonatomic,assign) NSUInteger contentLength;
 

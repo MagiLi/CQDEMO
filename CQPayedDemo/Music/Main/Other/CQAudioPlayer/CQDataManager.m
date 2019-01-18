@@ -1,17 +1,17 @@
 //
-//  XTDataManager.m
+//  CQDataManager.m
 //  LoadingAndSinging
 //
 //  Created by XTShow on 2018/2/13.
 //  Copyright © 2018年 XTShow. All rights reserved.
 //
 
-#import "XTDataManager.h"
+#import "CQDataManager.h"
 
 static NSString *playerDirectory = @"XTAudioPlayer";
 static NSString *currentUrlStr;
 
-@interface XTDataManager ()
+@interface CQDataManager ()
 
 @property (nonatomic,copy) NSString *tmpPath;
 @property (nonatomic,copy) NSString *cachePath;
@@ -21,7 +21,7 @@ static NSString *currentUrlStr;
 @property (nonatomic,assign) NSUInteger cachedDataLength;
 @end
 
-@implementation XTDataManager
+@implementation CQDataManager
 
 #pragma mark - 初始化
 

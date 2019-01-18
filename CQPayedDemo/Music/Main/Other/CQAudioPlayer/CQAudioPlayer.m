@@ -1,32 +1,32 @@
 //
-//  XTAudioPlayer.m
+//  CQAudioPlayer.m
 //  LoadingAndSinging
 //
-//  Created by XTShow on 2018/2/9.
-//  Copyright © 2018年 XTShow. All rights reserved.
+//  Created by CQShow on 2018/2/9.
+//  Copyright © 2018年 CQShow. All rights reserved.
 //
 
-#import "XTAudioPlayer.h"
+#import "CQAudioPlayer.h"
 #import <AVFoundation/AVFoundation.h>
-#import "XTDataManager.h"
-#import "XTRangeManager.h"
-#import "XTDownloader.h"
+#import "CQDataManager.h"
+#import "CQRangeManager.h"
+#import "CQDownloader.h"
 
-static XTAudioPlayer *audioPlayer = nil;
+static CQAudioPlayer *audioPlayer = nil;
 static dispatch_once_t onceToken;
-static NSString *XTCustomScheme = @"XTShow";
+static NSString *CQCustomScheme = @"CQShow";
 
-@interface XTAudioPlayer ()
+@interface CQAudioPlayer ()
 <
 AVAssetResourceLoaderDelegate,
-XTDataManagerDelegate
+CQDataManagerDelegate
 >
 
 @property (nonatomic,copy) NSString *originalUrlStr;
 @property (nonatomic,strong) AVPlayer *player;
 @property (nonatomic,strong) AVPlayerLayer *playerLayer;
-@property (nonatomic,strong) XTDataManager *dataManager;
-@property (nonatomic,strong) XTDownloader *lastToEndDownloader;
+@property (nonatomic,strong) CQDataManager *dataManager;
+@property (nonatomic,strong) CQDownloader *lastToEndDownloader;
 @property (nonatomic,strong) NSMutableArray *nonToEndDownloaderArray;
 @property (nonatomic,copy) PlayCompleteBlock playCompleteBlock;
 @property (nonatomic,assign) BOOL addedNoti;
@@ -37,11 +37,11 @@ XTDataManagerDelegate
 
 @end
 
-@implementation XTAudioPlayer
+@implementation CQAudioPlayer
 
--(XTPlayerConfiguration *)config{
+-(CQPlayerConfiguration *)config{
     if (!_config) {
-        _config = [XTPlayerConfiguration new];
+        _config = [CQPlayerConfiguration new];
     }
     return _config;
 }
@@ -50,13 +50,13 @@ XTDataManagerDelegate
 + (instancetype)sharePlayer {
     
     dispatch_once(&onceToken, ^{
-        audioPlayer = [XTAudioPlayer new];
+        audioPlayer = [CQAudioPlayer new];
     });
     return audioPlayer;
 }
 
 -(void)dealloc{
-    NSLog(@"[XTAudioPlayer]%@:%s",self,__func__);
+    NSLog(@"[CQAudioPlayer]%@:%s",self,__func__);
 }
 
 - (void)playWithUrlStr:(nonnull NSString *)urlStr cachePath:(nullable NSString *)cachePath completion:(PlayCompleteBlock)playCompleteBlock{
@@ -68,17 +68,17 @@ XTDataManagerDelegate
     NSError *error;
     [[AVAudioSession sharedInstance] setCategory:self.config.audioSessionCategory?self.config.audioSessionCategory:AVAudioSessionCategoryPlayback error:&error];
     if (error) {
-        NSLog(@"[XTAudioPlayer]%s:%@",__func__,error);
+        NSLog(@"[CQAudioPlayer]%s:%@",__func__,error);
     }
     
     NSString *filePath;
     BOOL fileExist;
     if (cachePath) {
         filePath = cachePath;
-        fileExist = ([XTDataManager checkCachedWithFilePath:cachePath] != nil);
+        fileExist = ([CQDataManager checkCachedWithFilePath:cachePath] != nil);
     }else{
-        filePath = [XTDataManager checkCachedWithUrl:urlStr];
-        fileExist = ([XTDataManager checkCachedWithUrl:urlStr] != nil);
+        filePath = [CQDataManager checkCachedWithUrl:urlStr];
+        fileExist = ([CQDataManager checkCachedWithUrl:urlStr] != nil);
     }
     self.fileExist = fileExist;
     
@@ -95,7 +95,7 @@ XTDataManagerDelegate
         
     }else{
         
-        XTDataManager *dataManager = [[XTDataManager alloc] initWithUrlStr:urlStr cachePath:filePath];
+        CQDataManager *dataManager = [[CQDataManager alloc] initWithUrlStr:urlStr cachePath:filePath];
         dataManager.delegate = self;
         
         if (dataManager) {
@@ -184,14 +184,14 @@ XTDataManagerDelegate
     self.dataManager = nil;
     [self.lastToEndDownloader cancel];
     self.lastToEndDownloader = nil;
-    for (XTDownloader *downloader in self.nonToEndDownloaderArray) {
+    for (CQDownloader *downloader in self.nonToEndDownloaderArray) {
         [downloader cancel];
     }
 }
 
 - (void)completeDealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [XTRangeManager completeDealloc];
+    [CQRangeManager completeDealloc];
     onceToken = 0;
     audioPlayer = nil;
 }
@@ -230,7 +230,7 @@ XTDataManagerDelegate
     return YES;
 }
 
-#pragma mark - XTDataManagerDelegate
+#pragma mark - CQDataManagerDelegate
 -(void)fileDownloadAndSaveSuccess{
     if (!self.fileExist) {
         self.fileCacheComplete = YES;
@@ -308,13 +308,13 @@ XTDataManagerDelegate
         }
     }
     
-    XTRangeManager *rangeManager = [XTRangeManager shareRangeManager];
+    CQRangeManager *rangeManager = [CQRangeManager shareRangeManager];
     //将当前loadingRequest根据本地是否已缓存拆分成本多个rangeModel
     NSMutableArray *rangeModelArray = [rangeManager calculateRangeModelArrayForLoadingRequest:loadingRequest];
     
     NSString *urlScheme = [NSURL URLWithString:self.originalUrlStr].scheme;
     //根据loadingRequest和rangeModel进行下载和数据回调
-    XTDownloader *downloader = [[XTDownloader alloc] initWithLoadingRequest:loadingRequest RangeModelArray:rangeModelArray UrlScheme:urlScheme InDataManager:self.dataManager];
+    CQDownloader *downloader = [[CQDownloader alloc] initWithLoadingRequest:loadingRequest RangeModelArray:rangeModelArray UrlScheme:urlScheme InDataManager:self.dataManager];
     
     if (loadingRequest.dataRequest.requestsAllDataToEndOfResource) {
         self.lastToEndDownloader = downloader;
@@ -336,7 +336,7 @@ XTDataManagerDelegate
     
     NSURL *originalUrl = [NSURL URLWithString:urlStr];
     
-    NSURL *useUrl = [NSURL URLWithString:[urlStr stringByReplacingOccurrencesOfString:originalUrl.scheme withString:XTCustomScheme]];
+    NSURL *useUrl = [NSURL URLWithString:[urlStr stringByReplacingOccurrencesOfString:originalUrl.scheme withString:CQCustomScheme]];
 
     return useUrl;
 }

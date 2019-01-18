@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "XTPlayerConfiguration.h"
+#import "CQPlayerConfiguration.h"
 #import <AVKit/AVKit.h>
 
 typedef void(^PlayCompleteBlock)(NSError *error);
 
-@protocol XTAudioPlayerDelegate<NSObject>
+@protocol CQAudioPlayerDelegate<NSObject>
 
 @optional
 
@@ -34,18 +34,18 @@ typedef void(^PlayCompleteBlock)(NSError *error);
 
 @end
 
-@interface XTAudioPlayer : NSObject
+@interface CQAudioPlayer : NSObject
 
 /**
  The object that acts as the delegate of the player.
  The delegate must adopt the XTAudioPlayerDelegate protocol. The delegate is not retained.
  */
-@property (nonatomic,weak) id<XTAudioPlayerDelegate> delegate;
+@property (nonatomic,weak) id<CQAudioPlayerDelegate> delegate;
 
 /**
  Configure properties for player,such as AVAudioSessionCategory, rotate angle for playerLayer etc.
  */
-@property (nonatomic,strong) XTPlayerConfiguration *config;
+@property (nonatomic,strong) CQPlayerConfiguration *config;
 
 
 /**

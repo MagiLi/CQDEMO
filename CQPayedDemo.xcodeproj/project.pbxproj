@@ -33,12 +33,12 @@
 		042FFFB021EDB03C009BEE06 /* UIView+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FFFAE21EDB03B009BEE06 /* UIView+Gradient.m */; };
 		042FFFB321EDBA3C009BEE06 /* CQMainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FFFB221EDBA3C009BEE06 /* CQMainNavController.m */; };
 		04451C6C21F1756D00F252C8 /* CQPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C4621F1756C00F252C8 /* CQPlayerManager.m */; };
-		04451C6D21F1756D00F252C8 /* XTRangeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C4821F1756C00F252C8 /* XTRangeManager.m */; };
-		04451C6E21F1756D00F252C8 /* XTPlayerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C4B21F1756D00F252C8 /* XTPlayerConfiguration.m */; };
-		04451C6F21F1756D00F252C8 /* XTAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C4F21F1756D00F252C8 /* XTAudioPlayer.m */; };
-		04451C7021F1756D00F252C8 /* XTDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C5121F1756D00F252C8 /* XTDownloader.m */; };
-		04451C7121F1756D00F252C8 /* XTRangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C5221F1756D00F252C8 /* XTRangeModel.m */; };
-		04451C7221F1756D00F252C8 /* XTDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C5321F1756D00F252C8 /* XTDataManager.m */; };
+		04451C6D21F1756D00F252C8 /* CQRangeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C4821F1756C00F252C8 /* CQRangeManager.m */; };
+		04451C6E21F1756D00F252C8 /* CQPlayerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C4B21F1756D00F252C8 /* CQPlayerConfiguration.m */; };
+		04451C6F21F1756D00F252C8 /* CQAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C4F21F1756D00F252C8 /* CQAudioPlayer.m */; };
+		04451C7021F1756D00F252C8 /* CQDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C5121F1756D00F252C8 /* CQDownloader.m */; };
+		04451C7121F1756D00F252C8 /* CQRangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C5221F1756D00F252C8 /* CQRangeModel.m */; };
+		04451C7221F1756D00F252C8 /* CQDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C5321F1756D00F252C8 /* CQDataManager.m */; };
 		04451C7321F1756D00F252C8 /* CQVideoController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04451C5721F1756D00F252C8 /* CQVideoController.storyboard */; };
 		04451C7421F1756D00F252C8 /* CQMusicBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C5821F1756D00F252C8 /* CQMusicBarController.m */; };
 		04451C7521F1756D00F252C8 /* CQVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04451C5921F1756D00F252C8 /* CQVideoController.m */; };
@@ -184,18 +184,18 @@
 		042FFFB121EDBA3C009BEE06 /* CQMainNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQMainNavController.h; sourceTree = "<group>"; };
 		042FFFB221EDBA3C009BEE06 /* CQMainNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQMainNavController.m; sourceTree = "<group>"; };
 		04451C4621F1756C00F252C8 /* CQPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPlayerManager.m; sourceTree = "<group>"; };
-		04451C4821F1756C00F252C8 /* XTRangeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTRangeManager.m; sourceTree = "<group>"; };
-		04451C4921F1756C00F252C8 /* XTAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTAudioPlayer.h; sourceTree = "<group>"; };
-		04451C4A21F1756D00F252C8 /* XTDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTDownloader.h; sourceTree = "<group>"; };
-		04451C4B21F1756D00F252C8 /* XTPlayerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTPlayerConfiguration.m; sourceTree = "<group>"; };
-		04451C4C21F1756D00F252C8 /* XTDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTDataManager.h; sourceTree = "<group>"; };
-		04451C4D21F1756D00F252C8 /* XTRangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTRangeModel.h; sourceTree = "<group>"; };
-		04451C4E21F1756D00F252C8 /* XTRangeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTRangeManager.h; sourceTree = "<group>"; };
-		04451C4F21F1756D00F252C8 /* XTAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTAudioPlayer.m; sourceTree = "<group>"; };
-		04451C5021F1756D00F252C8 /* XTPlayerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTPlayerConfiguration.h; sourceTree = "<group>"; };
-		04451C5121F1756D00F252C8 /* XTDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTDownloader.m; sourceTree = "<group>"; };
-		04451C5221F1756D00F252C8 /* XTRangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTRangeModel.m; sourceTree = "<group>"; };
-		04451C5321F1756D00F252C8 /* XTDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTDataManager.m; sourceTree = "<group>"; };
+		04451C4821F1756C00F252C8 /* CQRangeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQRangeManager.m; sourceTree = "<group>"; };
+		04451C4921F1756C00F252C8 /* CQAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQAudioPlayer.h; sourceTree = "<group>"; };
+		04451C4A21F1756D00F252C8 /* CQDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQDownloader.h; sourceTree = "<group>"; };
+		04451C4B21F1756D00F252C8 /* CQPlayerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPlayerConfiguration.m; sourceTree = "<group>"; };
+		04451C4C21F1756D00F252C8 /* CQDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQDataManager.h; sourceTree = "<group>"; };
+		04451C4D21F1756D00F252C8 /* CQRangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQRangeModel.h; sourceTree = "<group>"; };
+		04451C4E21F1756D00F252C8 /* CQRangeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQRangeManager.h; sourceTree = "<group>"; };
+		04451C4F21F1756D00F252C8 /* CQAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQAudioPlayer.m; sourceTree = "<group>"; };
+		04451C5021F1756D00F252C8 /* CQPlayerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPlayerConfiguration.h; sourceTree = "<group>"; };
+		04451C5121F1756D00F252C8 /* CQDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQDownloader.m; sourceTree = "<group>"; };
+		04451C5221F1756D00F252C8 /* CQRangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQRangeModel.m; sourceTree = "<group>"; };
+		04451C5321F1756D00F252C8 /* CQDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQDataManager.m; sourceTree = "<group>"; };
 		04451C5421F1756D00F252C8 /* CQPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPlayerManager.h; sourceTree = "<group>"; };
 		04451C5621F1756D00F252C8 /* CQVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQVideoController.h; sourceTree = "<group>"; };
 		04451C5721F1756D00F252C8 /* CQVideoController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CQVideoController.storyboard; sourceTree = "<group>"; };
@@ -533,18 +533,18 @@
 		04451C4721F1756C00F252C8 /* CQAudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				04451C4E21F1756D00F252C8 /* XTRangeManager.h */,
-				04451C4821F1756C00F252C8 /* XTRangeManager.m */,
-				04451C4921F1756C00F252C8 /* XTAudioPlayer.h */,
-				04451C4F21F1756D00F252C8 /* XTAudioPlayer.m */,
-				04451C5021F1756D00F252C8 /* XTPlayerConfiguration.h */,
-				04451C4B21F1756D00F252C8 /* XTPlayerConfiguration.m */,
-				04451C4A21F1756D00F252C8 /* XTDownloader.h */,
-				04451C5121F1756D00F252C8 /* XTDownloader.m */,
-				04451C4D21F1756D00F252C8 /* XTRangeModel.h */,
-				04451C5221F1756D00F252C8 /* XTRangeModel.m */,
-				04451C4C21F1756D00F252C8 /* XTDataManager.h */,
-				04451C5321F1756D00F252C8 /* XTDataManager.m */,
+				04451C4E21F1756D00F252C8 /* CQRangeManager.h */,
+				04451C4821F1756C00F252C8 /* CQRangeManager.m */,
+				04451C4921F1756C00F252C8 /* CQAudioPlayer.h */,
+				04451C4F21F1756D00F252C8 /* CQAudioPlayer.m */,
+				04451C5021F1756D00F252C8 /* CQPlayerConfiguration.h */,
+				04451C4B21F1756D00F252C8 /* CQPlayerConfiguration.m */,
+				04451C4A21F1756D00F252C8 /* CQDownloader.h */,
+				04451C5121F1756D00F252C8 /* CQDownloader.m */,
+				04451C4D21F1756D00F252C8 /* CQRangeModel.h */,
+				04451C5221F1756D00F252C8 /* CQRangeModel.m */,
+				04451C4C21F1756D00F252C8 /* CQDataManager.h */,
+				04451C5321F1756D00F252C8 /* CQDataManager.m */,
 			);
 			path = CQAudioPlayer;
 			sourceTree = "<group>";
@@ -553,11 +553,11 @@
 			isa = PBXGroup;
 			children = (
 				04451C5621F1756D00F252C8 /* CQVideoController.h */,
-				04451C5721F1756D00F252C8 /* CQVideoController.storyboard */,
-				04451C5821F1756D00F252C8 /* CQMusicBarController.m */,
 				04451C5921F1756D00F252C8 /* CQVideoController.m */,
-				04451C5A21F1756D00F252C8 /* CQMusicBarController.storyboard */,
+				04451C5721F1756D00F252C8 /* CQVideoController.storyboard */,
 				04451C5B21F1756D00F252C8 /* CQMusicBarController.h */,
+				04451C5821F1756D00F252C8 /* CQMusicBarController.m */,
+				04451C5A21F1756D00F252C8 /* CQMusicBarController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1236,10 +1236,10 @@
 				042B27211E441BF800B5EE6E /* CQCollectionHController.m in Sources */,
 				042FFFB321EDBA3C009BEE06 /* CQMainNavController.m in Sources */,
 				042B272F1E441C1300B5EE6E /* CQCollectionViewCell.m in Sources */,
-				04451C6F21F1756D00F252C8 /* XTAudioPlayer.m in Sources */,
+				04451C6F21F1756D00F252C8 /* CQAudioPlayer.m in Sources */,
 				0453E6471DFE831500DD68E1 /* CQHeaderView.m in Sources */,
 				04061C771E02452C008F65AC /* CQPhoneNumController.m in Sources */,
-				04451C6D21F1756D00F252C8 /* XTRangeManager.m in Sources */,
+				04451C6D21F1756D00F252C8 /* CQRangeManager.m in Sources */,
 				04451C7521F1756D00F252C8 /* CQVideoController.m in Sources */,
 				0453E64C1DFE832A00DD68E1 /* CQAppsDataManager.m in Sources */,
 				04F875BF1E03931900D25907 /* UIView+Frame.m in Sources */,
@@ -1271,7 +1271,7 @@
 				0481030E1DF9065C00FE7C0F /* CQAppDelegate.m in Sources */,
 				042B27411E441C6E00B5EE6E /* CQCollectionViewController.m in Sources */,
 				04D89E261E1DFB6000870A26 /* CQRecommendController.m in Sources */,
-				04451C7121F1756D00F252C8 /* XTRangeModel.m in Sources */,
+				04451C7121F1756D00F252C8 /* CQRangeModel.m in Sources */,
 				0453E6441DFE831500DD68E1 /* CQAppsCell.m in Sources */,
 				042B27311E441C1300B5EE6E /* CQCycleLayout.m in Sources */,
 				042FFFB021EDB03C009BEE06 /* UIView+Gradient.m in Sources */,
@@ -1303,8 +1303,8 @@
 				04451C7D21F1756D00F252C8 /* CQCenterView.m in Sources */,
 				0450CD401E029B5F0080F6F7 /* CQContactSorted.m in Sources */,
 				04A4F01A1E07B472001596B2 /* CQCoreTextData.m in Sources */,
-				04451C7021F1756D00F252C8 /* XTDownloader.m in Sources */,
-				04451C7221F1756D00F252C8 /* XTDataManager.m in Sources */,
+				04451C7021F1756D00F252C8 /* CQDownloader.m in Sources */,
+				04451C7221F1756D00F252C8 /* CQDataManager.m in Sources */,
 				0453E63B1DFE82FD00DD68E1 /* CQAppsFlowLayout.m in Sources */,
 				04D89E581E1E0E3500870A26 /* CQSongCell.m in Sources */,
 				04D89E611E1E313E00870A26 /* CQSongLayoutModel.m in Sources */,
@@ -1313,7 +1313,7 @@
 				04A4F0041E07B3B9001596B2 /* CQDisplayView.m in Sources */,
 				042B27201E441BF800B5EE6E /* CQCellHFlowLayout.m in Sources */,
 				04451C6C21F1756D00F252C8 /* CQPlayerManager.m in Sources */,
-				04451C6E21F1756D00F252C8 /* XTPlayerConfiguration.m in Sources */,
+				04451C6E21F1756D00F252C8 /* CQPlayerConfiguration.m in Sources */,
 				042FFFA321ED6F55009BEE06 /* CQAnimationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
