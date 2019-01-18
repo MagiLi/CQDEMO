@@ -66,6 +66,7 @@ static NSString *status = @"status";
 //    self.urlAsset = [[AVURLAsset alloc] initWithURL:[NSURL URLWithString:self.currentModel.playUrl64] options:<#(nullable NSDictionary<NSString *,id> *)#>]
     self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.currentModel.playUrl64]];
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
+//    self.player.automaticallyWaitsToMinimizeStalling = NO;
     [self.playerItem addObserver:self forKeyPath:loadedTimeRanges options:NSKeyValueObservingOptionNew context:nil];// 缓冲进度的监听
     [self.playerItem addObserver:self forKeyPath:status options:NSKeyValueObservingOptionNew context:nil];// 播放状态的监听
     __weak typeof(self) weakSelf = self;
