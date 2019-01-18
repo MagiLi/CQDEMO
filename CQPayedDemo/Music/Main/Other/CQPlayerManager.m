@@ -78,15 +78,23 @@ static NSString *status = @"status";
 #pragma mark -
 #pragma mark - playEndObserVer
 - (void)playerItemDidPlayToEnd:(id)sender {
-    if (self.currentIndex + 1 < self.playList.count) { // 播放下一首
-        self.currentIndex += 1;
-        [self playOtherVideo];
-    } else { // 所有歌曲播放完毕
-        if ([self.delegate respondsToSelector:@selector(currentVideoEnd)]) {
-            [self.delegate currentVideoEnd];
+    if (self.orderType == CQPlayerOrderTypeSequence) {
+        if (self.currentIndex + 1 < self.playList.count) { // 播放下一首
+            self.currentIndex += 1;
+            [self playOtherVideo];
+        } else { // 所有歌曲播放完毕
+            self.currentIndex = 0;
+//            if ([self.delegate respondsToSelector:@selector(currentVideoEnd)]) {
+//                [self.delegate currentVideoEnd];
+//            }
+//            self.isPlaying = NO;
         }
-        self.isPlaying = NO;
+    } else if (self.orderType == CQPlayerOrderTypeRandom) {
+        self.currentIndex = arc4random() % self.playList.count;
+    }  else if (self.orderType == CQPlayerOrderTypeSingleCycle) {
+        
     }
+    [self playOtherVideo];
 }
 - (void)playOtherVideo {
     self.currentModel = self.playList[self.currentIndex];
