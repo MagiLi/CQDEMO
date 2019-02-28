@@ -11,6 +11,7 @@
 #import "CQCollectionViewAnimation.h"
 #import "CQWaterfallFlowController.h"
 #import "LPOrderProgressView.h"
+#import "LPHomeController.h"
 
 @interface CQCollectionViewController ()
 @property (nonatomic, strong) LPOrderProgressView *progressView;
@@ -63,7 +64,10 @@
         CQWaterfallFlowController *waterfallVC = sb.instantiateInitialViewController;
         [self.navigationController pushViewController:waterfallVC animated:YES];
     }
-    
+    else if (indexPath.item == 3) {
+        LPHomeController *seeMoreVC = [[LPHomeController alloc] init];
+        [self.navigationController pushViewController:seeMoreVC animated:YES];
+    }
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     [self.progressView setCurrentRoundIndex:3];
@@ -74,7 +78,7 @@
 }
 - (NSArray *)array {
     if (!_array) {
-        _array = @[@"左右滑动",@"堆叠/圆",@"瀑布流"];
+        _array = @[@"左右滑动",@"堆叠/圆",@"瀑布流",@"查看更多"];
     }
     return _array;
 }
