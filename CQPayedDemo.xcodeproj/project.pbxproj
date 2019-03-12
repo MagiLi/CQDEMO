@@ -110,12 +110,11 @@
 		04D89E5B1E1E15FF00870A26 /* CQSongListHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D89E5A1E1E15FF00870A26 /* CQSongListHeadView.m */; };
 		04D89E5E1E1E30F800870A26 /* CQSongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D89E5D1E1E30F800870A26 /* CQSongModel.m */; };
 		04D89E611E1E313E00870A26 /* CQSongLayoutModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D89E601E1E313E00870A26 /* CQSongLayoutModel.m */; };
-		04DE84BA2227E13300B09D5E /* LPHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE84B12227E13200B09D5E /* LPHomeController.m */; };
-		04DE84BB2227E13300B09D5E /* LPHotProductionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE84B42227E13200B09D5E /* LPHotProductionCell.m */; };
-		04DE84BC2227E13300B09D5E /* LPHomeTodayHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE84B82227E13200B09D5E /* LPHomeTodayHotCell.m */; };
-		04DE84BD2227E13300B09D5E /* LPSeeMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE84B92227E13200B09D5E /* LPSeeMoreView.m */; };
 		04DE84C02227E1BE00B09D5E /* LPYBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE84BE2227E1BD00B09D5E /* LPYBaseController.m */; };
 		04DE84C32227E3FF00B09D5E /* UIViewController+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE84C22227E3FF00B09D5E /* UIViewController+CurrentViewController.m */; };
+		04E2787D22374992002EAD3C /* LPHotProductionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E2787722374992002EAD3C /* LPHotProductionCell.m */; };
+		04E2787E22374992002EAD3C /* LPHomeTodayHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E2787B22374992002EAD3C /* LPHomeTodayHotCell.m */; };
+		04E2787F22374992002EAD3C /* LPSeeMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E2787C22374992002EAD3C /* LPSeeMoreView.m */; };
 		04E2DFBD1E1BA1B40016D81C /* backGroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E2DFBC1E1BA1B40016D81C /* backGroundImage.png */; };
 		04F875BF1E03931900D25907 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F875BE1E03931900D25907 /* UIView+Frame.m */; };
 		04F875C21E03E5B000D25907 /* CQPhoneHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F875C11E03E5B000D25907 /* CQPhoneHeaderView.m */; };
@@ -333,18 +332,16 @@
 		04D89E5D1E1E30F800870A26 /* CQSongModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQSongModel.m; sourceTree = "<group>"; };
 		04D89E5F1E1E313E00870A26 /* CQSongLayoutModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQSongLayoutModel.h; sourceTree = "<group>"; };
 		04D89E601E1E313E00870A26 /* CQSongLayoutModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQSongLayoutModel.m; sourceTree = "<group>"; };
-		04DE84B02227E13200B09D5E /* LPHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPHomeController.h; sourceTree = "<group>"; };
-		04DE84B12227E13200B09D5E /* LPHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPHomeController.m; sourceTree = "<group>"; };
-		04DE84B42227E13200B09D5E /* LPHotProductionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPHotProductionCell.m; sourceTree = "<group>"; };
-		04DE84B52227E13200B09D5E /* LPHomeTodayHotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPHomeTodayHotCell.h; sourceTree = "<group>"; };
-		04DE84B62227E13200B09D5E /* LPSeeMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPSeeMoreView.h; sourceTree = "<group>"; };
-		04DE84B72227E13200B09D5E /* LPHotProductionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPHotProductionCell.h; sourceTree = "<group>"; };
-		04DE84B82227E13200B09D5E /* LPHomeTodayHotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPHomeTodayHotCell.m; sourceTree = "<group>"; };
-		04DE84B92227E13200B09D5E /* LPSeeMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPSeeMoreView.m; sourceTree = "<group>"; };
 		04DE84BE2227E1BD00B09D5E /* LPYBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPYBaseController.m; sourceTree = "<group>"; };
 		04DE84BF2227E1BE00B09D5E /* LPYBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPYBaseController.h; sourceTree = "<group>"; };
 		04DE84C12227E3FF00B09D5E /* UIViewController+CurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CurrentViewController.h"; sourceTree = "<group>"; };
 		04DE84C22227E3FF00B09D5E /* UIViewController+CurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CurrentViewController.m"; sourceTree = "<group>"; };
+		04E2787722374992002EAD3C /* LPHotProductionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPHotProductionCell.m; sourceTree = "<group>"; };
+		04E2787822374992002EAD3C /* LPHomeTodayHotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPHomeTodayHotCell.h; sourceTree = "<group>"; };
+		04E2787922374992002EAD3C /* LPSeeMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPSeeMoreView.h; sourceTree = "<group>"; };
+		04E2787A22374992002EAD3C /* LPHotProductionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPHotProductionCell.h; sourceTree = "<group>"; };
+		04E2787B22374992002EAD3C /* LPHomeTodayHotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPHomeTodayHotCell.m; sourceTree = "<group>"; };
+		04E2787C22374992002EAD3C /* LPSeeMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPSeeMoreView.m; sourceTree = "<group>"; };
 		04E2DFBC1E1BA1B40016D81C /* backGroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backGroundImage.png; sourceTree = "<group>"; };
 		04F875BD1E03931900D25907 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		04F875BE1E03931900D25907 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
@@ -442,9 +439,9 @@
 		042B27171E441BA200B5EE6E /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				04E2787522374992002EAD3C /* CQSeeMore */,
 				04DE84BF2227E1BE00B09D5E /* LPYBaseController.h */,
 				04DE84BE2227E1BD00B09D5E /* LPYBaseController.m */,
-				04DE84AE2227E13200B09D5E /* CQSeeMore */,
 				042B27331E441C1F00B5EE6E /* CQWaterfallFlow */,
 				042B27241E441C0100B5EE6E /* CQCollectionViewLayout */,
 				042B27181E441BD900B5EE6E /* CQCollectionViewH */,
@@ -1005,41 +1002,23 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		04DE84AE2227E13200B09D5E /* CQSeeMore */ = {
+		04E2787522374992002EAD3C /* CQSeeMore */ = {
 			isa = PBXGroup;
 			children = (
-				04DE84AF2227E13200B09D5E /* Controller */,
-				04DE84B22227E13200B09D5E /* Model */,
-				04DE84B32227E13200B09D5E /* View */,
+				04E2787622374992002EAD3C /* View */,
 			);
 			path = CQSeeMore;
 			sourceTree = "<group>";
 		};
-		04DE84AF2227E13200B09D5E /* Controller */ = {
+		04E2787622374992002EAD3C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				04DE84B02227E13200B09D5E /* LPHomeController.h */,
-				04DE84B12227E13200B09D5E /* LPHomeController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		04DE84B22227E13200B09D5E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		04DE84B32227E13200B09D5E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				04DE84B42227E13200B09D5E /* LPHotProductionCell.m */,
-				04DE84B52227E13200B09D5E /* LPHomeTodayHotCell.h */,
-				04DE84B62227E13200B09D5E /* LPSeeMoreView.h */,
-				04DE84B72227E13200B09D5E /* LPHotProductionCell.h */,
-				04DE84B82227E13200B09D5E /* LPHomeTodayHotCell.m */,
-				04DE84B92227E13200B09D5E /* LPSeeMoreView.m */,
+				04E2787722374992002EAD3C /* LPHotProductionCell.m */,
+				04E2787822374992002EAD3C /* LPHomeTodayHotCell.h */,
+				04E2787922374992002EAD3C /* LPSeeMoreView.h */,
+				04E2787A22374992002EAD3C /* LPHotProductionCell.h */,
+				04E2787B22374992002EAD3C /* LPHomeTodayHotCell.m */,
+				04E2787C22374992002EAD3C /* LPSeeMoreView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1309,12 +1288,11 @@
 				04451C7B21F1756D00F252C8 /* CQTabBar.m in Sources */,
 				04A4F0141E07B431001596B2 /* CQCoreTextLinkData.m in Sources */,
 				042B27321E441C1300B5EE6E /* CQStackLayout.m in Sources */,
+				04E2787D22374992002EAD3C /* LPHotProductionCell.m in Sources */,
 				04A4F0271E07D59D001596B2 /* CQBigImageView.m in Sources */,
-				04DE84BD2227E13300B09D5E /* LPSeeMoreView.m in Sources */,
 				04451C7821F1756D00F252C8 /* CQBaseModel.m in Sources */,
 				042FFFA221ED6F55009BEE06 /* CQDownloadData.m in Sources */,
 				042B272E1E441C1200B5EE6E /* CQCollectionViewAnimation.m in Sources */,
-				04DE84BB2227E13300B09D5E /* LPHotProductionCell.m in Sources */,
 				04F875C21E03E5B000D25907 /* CQPhoneHeaderView.m in Sources */,
 				0481035C1DF94BCC00FE7C0F /* CQHeader.m in Sources */,
 				04D89E5B1E1E15FF00870A26 /* CQSongListHeadView.m in Sources */,
@@ -1338,7 +1316,6 @@
 				04D89E261E1DFB6000870A26 /* CQRecommendController.m in Sources */,
 				04451C7121F1756D00F252C8 /* CQRangeModel.m in Sources */,
 				0453E6441DFE831500DD68E1 /* CQAppsCell.m in Sources */,
-				04DE84BA2227E13300B09D5E /* LPHomeController.m in Sources */,
 				042B27311E441C1300B5EE6E /* CQCycleLayout.m in Sources */,
 				042FFFB021EDB03C009BEE06 /* UIView+Gradient.m in Sources */,
 				04451C7421F1756D00F252C8 /* CQMusicBarController.m in Sources */,
@@ -1356,13 +1333,13 @@
 				04D89E2C1E1DFBC400870A26 /* CQMajorController.m in Sources */,
 				048F896F1E08D1B400BD7485 /* CQPlayerView.m in Sources */,
 				042FFFA721ED6F5A009BEE06 /* UIImageView+CQBlur.m in Sources */,
-				04DE84BC2227E13300B09D5E /* LPHomeTodayHotCell.m in Sources */,
 				04D89E5E1E1E30F800870A26 /* CQSongModel.m in Sources */,
 				04A4F0131E07B431001596B2 /* CQCoreTextImageData.m in Sources */,
 				04D89E531E1E0CF300870A26 /* CQSongListController.m in Sources */,
 				04DE84C32227E3FF00B09D5E /* UIViewController+CurrentViewController.m in Sources */,
 				04A4F00E1E07B40F001596B2 /* UIImage+CQExtra.m in Sources */,
 				0450CD3D1E0298500080F6F7 /* NSString+CQUtil.m in Sources */,
+				04E2787F22374992002EAD3C /* LPSeeMoreView.m in Sources */,
 				04A4F0081E07B3EC001596B2 /* CQMagnifierView.m in Sources */,
 				042B273D1E441C2A00B5EE6E /* CQWaterfallFlowCell.m in Sources */,
 				048F89741E08E15300BD7485 /* CQTopView.m in Sources */,
@@ -1376,6 +1353,7 @@
 				0453E63B1DFE82FD00DD68E1 /* CQAppsFlowLayout.m in Sources */,
 				04D89E581E1E0E3500870A26 /* CQSongCell.m in Sources */,
 				04D89E611E1E313E00870A26 /* CQSongLayoutModel.m in Sources */,
+				04E2787E22374992002EAD3C /* LPHomeTodayHotCell.m in Sources */,
 				047D23DC21EC6F7F0009858A /* CQWaterFlowLayout.m in Sources */,
 				0453E6511DFE836300DD68E1 /* CQDynamicViewController.m in Sources */,
 				04A4F0041E07B3B9001596B2 /* CQDisplayView.m in Sources */,
