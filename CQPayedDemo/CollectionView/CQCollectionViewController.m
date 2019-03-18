@@ -11,7 +11,6 @@
 #import "CQCollectionViewAnimation.h"
 #import "CQWaterfallFlowController.h"
 #import "LPOrderProgressView.h"
-#import "LPHomeController.h"
 
 @interface CQCollectionViewController ()
 @property (nonatomic, strong) LPOrderProgressView *progressView;
@@ -65,8 +64,7 @@
         [self.navigationController pushViewController:waterfallVC animated:YES];
     }
     else if (indexPath.item == 3) {
-        LPHomeController *seeMoreVC = [[LPHomeController alloc] init];
-        [self.navigationController pushViewController:seeMoreVC animated:YES];
+        
     }
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

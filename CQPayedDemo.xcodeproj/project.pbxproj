@@ -74,6 +74,7 @@
 		048103241DF9065C00FE7C0F /* CQPayedDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048103231DF9065C00FE7C0F /* CQPayedDemoTests.m */; };
 		0481032F1DF9065C00FE7C0F /* CQPayedDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481032E1DF9065C00FE7C0F /* CQPayedDemoUITests.m */; };
 		0481035C1DF94BCC00FE7C0F /* CQHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481035B1DF94BCC00FE7C0F /* CQHeader.m */; };
+		04870267223F86FA00486CD4 /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04870266223F86FA00486CD4 /* FTPopOverMenu.m */; };
 		048F89681E08D09300BD7485 /* CQPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F89671E08D09300BD7485 /* CQPlayerController.m */; };
 		048F896F1E08D1B400BD7485 /* CQPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F896E1E08D1B400BD7485 /* CQPlayerView.m */; };
 		048F89711E08D1E300BD7485 /* CQPlayerController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048F89701E08D1E300BD7485 /* CQPlayerController.storyboard */; };
@@ -271,6 +272,8 @@
 		048103301DF9065C00FE7C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0481035A1DF94BCC00FE7C0F /* CQHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQHeader.h; sourceTree = "<group>"; };
 		0481035B1DF94BCC00FE7C0F /* CQHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQHeader.m; sourceTree = "<group>"; };
+		04870265223F86FA00486CD4 /* FTPopOverMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPopOverMenu.h; sourceTree = "<group>"; };
+		04870266223F86FA00486CD4 /* FTPopOverMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPopOverMenu.m; sourceTree = "<group>"; };
 		048F89661E08D09300BD7485 /* CQPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPlayerController.h; sourceTree = "<group>"; };
 		048F89671E08D09300BD7485 /* CQPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPlayerController.m; sourceTree = "<group>"; };
 		048F896D1E08D1B400BD7485 /* CQPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPlayerView.h; sourceTree = "<group>"; };
@@ -613,6 +616,7 @@
 		04468E321E150B6B002D6942 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				04870264223F86FA00486CD4 /* PopOverMenu */,
 				042FFFA421ED6F5A009BEE06 /* Category */,
 				042FFF9A21ED6F55009BEE06 /* ManagerTools */,
 			);
@@ -776,6 +780,15 @@
 				04468E311E150796002D6942 /* PrefixHeader.pch */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		04870264223F86FA00486CD4 /* PopOverMenu */ = {
+			isa = PBXGroup;
+			children = (
+				04870265223F86FA00486CD4 /* FTPopOverMenu.h */,
+				04870266223F86FA00486CD4 /* FTPopOverMenu.m */,
+			);
+			path = PopOverMenu;
 			sourceTree = "<group>";
 		};
 		048F89651E08D06800BD7485 /* Player */ = {
@@ -1286,6 +1299,7 @@
 				04F875BF1E03931900D25907 /* UIView+Frame.m in Sources */,
 				042FFFA121ED6F55009BEE06 /* CQAFSessionManager.m in Sources */,
 				04451C7B21F1756D00F252C8 /* CQTabBar.m in Sources */,
+				04870267223F86FA00486CD4 /* FTPopOverMenu.m in Sources */,
 				04A4F0141E07B431001596B2 /* CQCoreTextLinkData.m in Sources */,
 				042B27321E441C1300B5EE6E /* CQStackLayout.m in Sources */,
 				04E2787D22374992002EAD3C /* LPHotProductionCell.m in Sources */,

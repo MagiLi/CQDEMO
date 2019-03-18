@@ -30,20 +30,20 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 //    NSLog(@"%f %f",scrollView.contentSize.width,scrollView.contentOffset.x + kScreenWidth);
-    if (scrollView.contentSize.width < kScreenWidth) return;// 内容较少没有更多
+    if (scrollView.contentSize.width < kScreen_W) return;// 内容较少没有更多
     // 查看更多view移动的值value
-    CGFloat value = scrollView.contentOffset.x + kScreenWidth - scrollView.contentSize.width - ItemLineSpacing;
+    CGFloat value = scrollView.contentOffset.x + kScreen_W - scrollView.contentSize.width - ItemLineSpacing;
     if (value > 0) {// 滚动到最后的位置,展示 "查看更多"View
         if (value <= self.moreViewMinWidth) {
-            self.moreView.mj_w = self.moreViewMinWidth;
-            self.moreView.mj_x = kScreenWidth - value;
+            self.moreView.width = self.moreViewMinWidth;
+            self.moreView.x = kScreen_W - value;
         } else {
             if (value <= self.moreViewMaxWidth) {
-                self.moreView.mj_w = value;
+                self.moreView.width = value;
             } else {
-                self.moreView.mj_w = self.moreViewMaxWidth;
+                self.moreView.width = self.moreViewMaxWidth;
             }
-            self.moreView.mj_x = kScreenWidth - self.moreView.mj_w;
+            self.moreView.x = kScreen_W - self.moreView.width;
         }
         if (value > self.moreViewMinWidth + 20) {// +10的目的是为了展示出来一定的弧度再显示"松开查看"
             self.moreView.title = @"松开查看";
@@ -52,14 +52,14 @@
         }
         [self.moreView setNeedsDisplay];
     } else {
-        if (self.moreView.mj_x < kScreenWidth) {
-            self.moreView.mj_x = kScreenWidth;
+        if (self.moreView.x < kScreen_W) {
+            self.moreView.x = kScreen_W;
         }
     }
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if (scrollView.contentSize.width < kScreenWidth) return;// 内容较少没有更多
-    CGFloat value = scrollView.contentOffset.x + kScreenWidth - scrollView.contentSize.width - ItemLineSpacing;
+    if (scrollView.contentSize.width < kScreen_W) return;// 内容较少没有更多
+    CGFloat value = scrollView.contentOffset.x + kScreen_W - scrollView.contentSize.width - ItemLineSpacing;
     if (value > self.moreViewMinWidth + 20) {
         if ([self.delegate respondsToSelector:@selector(seeMoreEvent)]) {
             [self.delegate seeMoreEvent];
@@ -95,7 +95,7 @@
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         layout.minimumLineSpacing = ItemLineSpacing;
         layout.minimumInteritemSpacing = 0;
-        UICollectionView *productionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, LPHomeTodayHotCellH) collectionViewLayout:layout];
+        UICollectionView *productionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreen_W, LPHomeTodayHotCellH) collectionViewLayout:layout];
 //        productionView.pagingEnabled = YES;
         productionView.delegate = self;
         productionView.dataSource = self;
@@ -115,7 +115,7 @@
 }
 - (LPSeeMoreView *)moreView {
     if (!_moreView) {
-        _moreView = [[LPSeeMoreView alloc] initWithFrame:CGRectMake(kScreenWidth, ItemLineSpacing, self.moreViewMinWidth, self.moreViewHeight)];
+        _moreView = [[LPSeeMoreView alloc] initWithFrame:CGRectMake(kScreen_W, ItemLineSpacing, self.moreViewMinWidth, self.moreViewHeight)];
         _moreView.minWidth = self.moreViewMinWidth;
         _moreView.maxWidth = self.moreViewMaxWidth;
 //        _moreView.layer.cornerRadius = 3.0;

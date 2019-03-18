@@ -29,7 +29,7 @@
 #pragma mark - layoutSubviews
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.titleLab.frame = CGRectMake(self.mj_w - SeeMoreLabel_Right, 0, 20.0, self.mj_h);
+    self.titleLab.frame = CGRectMake(self.width - SeeMoreLabel_Right, 0, 20.0, self.height);
 }
 #pragma mark - setupUI
 - (void)setupUI {
@@ -37,8 +37,8 @@
     self.backgroundColor = [UIColor clearColor];
     
     UILabel *titleLab = [[UILabel alloc] init];
-    titleLab.font = [UIFont boldSystemFontOfSize:UITitle2Font];
-    titleLab.textColor = UITitle3Color;
+    titleLab.font = [UIFont boldSystemFontOfSize:12];
+    titleLab.textColor = [UIColor blackColor];
     titleLab.textAlignment = NSTextAlignmentLeft;
     titleLab.text = @"查看更多";
     titleLab.numberOfLines = 0;
@@ -69,7 +69,7 @@
     CGFloat h = x > MarginTop*2.0 ? viewHeight - MarginTop*2.0 : viewHeight - x;
     CGFloat y = (viewHeight - h) * 0.5;
     NSLog(@"height: %f y: %f",h, y);
-    [UIThemeGrayColor set];
+    [Theme_Color set];
     UIBezierPath *path = [UIBezierPath bezierPath];
     path.lineWidth = 1;
     [path moveToPoint:CGPointMake(x, y)];
