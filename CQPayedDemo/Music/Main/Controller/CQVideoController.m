@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UILabel *currentTime;
 @property (weak, nonatomic) IBOutlet UILabel *durationTime;
+@property (weak, nonatomic) IBOutlet UIButton *orderBtn;
 
 @end
 
@@ -27,10 +28,13 @@
     [super viewDidLoad];
 
     [self setupVideoUI];
-    
 }
 - (IBAction)backLastViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)orderButtonClicked:(UIButton *)sender {
+//    [CQPlayerManager sharedInstance]
+    
 }
 #pragma mark -
 #pragma mark - CQPlayerManagerDelegate
@@ -64,7 +68,17 @@
     [[CQPlayerManager sharedInstance] nextSong];
 }
 - (IBAction)playLastVideClicked:(UIButton *)sender {
-    [[CQPlayerManager sharedInstance] lastSong];
+    if ([CQPlayerManager sharedInstance].orderType == CQPlayerOrderTypeSequence) {
+        [CQPlayerManager sharedInstance].orderType = CQPlayerOrderTypeRandom;
+        [sender setTitle:@"随机播放" forState:UIControlStateNormal];
+    } else if ([CQPlayerManager sharedInstance].orderType == CQPlayerOrderTypeRandom) {
+        [CQPlayerManager sharedInstance].orderType = CQPlayerOrderTypeSingleCycle;
+        [sender setTitle:@"单曲循环" forState:UIControlStateNormal];
+    } else if ([CQPlayerManager sharedInstance].orderType == CQPlayerOrderTypeSingleCycle) {
+        [CQPlayerManager sharedInstance].orderType = CQPlayerOrderTypeSequence;
+        [sender setTitle:@"顺序播放" forState:UIControlStateNormal];
+    }
+    
 }
 
 - (IBAction)playButtonclicked:(UIButton *)sender {
