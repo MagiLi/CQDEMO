@@ -1,57 +1,51 @@
 //
-//  CQStudyController.m
+//  CQTableViewController.m
 //  CQPayedDemo
 //
 //  Created by 李超群 on 2019/7/27.
 //  Copyright © 2019 wwdx. All rights reserved.
 //
 
-#import "CQStudyController.h"
-#import "CQRuntimeController.h"
-#import "CQKVOController.h"
-#import "CQStudyCell.h"
+#import "CQTableViewController.h"
 
-@interface CQStudyController ()
+@interface CQTableViewController ()
 
 @end
 
-@implementation CQStudyController
+@implementation CQTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[CQStudyCell class] forCellReuseIdentifier:@"CQStudyCellID"];
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Incomplete implementation, return the number of sections
+    return 0;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete implementation, return the number of rows
+    return 0;
+}
 
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CQStudyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CQStudyCellID" forIndexPath:indexPath];
-    if (indexPath.row == 0) {
-        cell.titleLab.text = @"Runtime";
-    } else if (indexPath.row == 1) {
-        cell.titleLab.text = @"KVO";
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
     return cell;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.0;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        CQRuntimeController *runtimeVC = [[CQRuntimeController alloc] init];
-        [self.navigationController pushViewController:runtimeVC animated:YES];
-    } else if (indexPath.row == 1) {
-        CQKVOController *kvoVC = [[CQKVOController alloc] init];
-        [self.navigationController pushViewController:kvoVC animated:YES];
-    }
-    
-}
+*/
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

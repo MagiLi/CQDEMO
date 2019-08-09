@@ -18,7 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"消息转发机制";
     self.view.backgroundColor = [UIColor whiteColor];
+    
     CQRPerson *person = [[CQRPerson alloc] init];
     [person sendMessage:@"hello"];
     

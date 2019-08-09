@@ -20,17 +20,20 @@
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer
 {
     // Ignore when no view controller is pushed into the navigation stack.
+    // 没有控制器push到导航栈里时 忽略
     if (self.navigationController.viewControllers.count <= 1) {
         return NO;
     }
     
     // Ignore when the active view controller doesn't allow interactive pop.
+    // 最上层控制器禁止pop时 忽略
     UIViewController *topViewController = self.navigationController.viewControllers.lastObject;
     if (topViewController.cq_interactivePopDisabled) {
         return NO;
     }
     
     // Ignore when the beginning location is beyond max allowed initial distance to left edge.
+    // 起始位置超过允许的最大初始距离时 忽略
     CGPoint beginningLocation = [gestureRecognizer locationInView:gestureRecognizer.view];
     CGFloat maxAllowedInitialDistance = topViewController.cq_interactivePopMaxAllowedInitialDistanceToLeftEdge;
     if (maxAllowedInitialDistance > 0 && beginningLocation.x > maxAllowedInitialDistance) {
@@ -38,11 +41,13 @@
     }
     
     // Ignore pan gesture when the navigation controller is currently in transition.
+    // 导航控制器当前处于转换状态时忽略平移姿态。
     if ([[self.navigationController valueForKey:@"_isTransitioning"] boolValue]) {
         return NO;
     }
     
     // Prevent calling the handler when the gesture begins in an opposite direction.
+    // 开始手势是相反方向时阻止调用操作
     CGPoint translation = [gestureRecognizer translationInView:gestureRecognizer.view];
     if (translation.x <= 0) {
         return NO;
@@ -135,9 +140,11 @@ typedef void (^_CQViewControllerWillAppearInjectBlock)(UIViewController *viewCon
     if (![self.interactivePopGestureRecognizer.view.gestureRecognizers containsObject:self.cq_fullscreenPopGestureRecognizer]) {
         
         // Add our own gesture recognizer to where the onboard screen edge pan gesture recognizer is attached to.
+        // 将我们自己的手势识别器添加到屏幕边缘拖动手势识别器所连接的位置。
         [self.interactivePopGestureRecognizer.view addGestureRecognizer:self.cq_fullscreenPopGestureRecognizer];
         
         // Forward the gesture events to the private handler of the onboard gesture recognizer.
+        // 将手势事件转发到onboard手势识别器的私有操作。
         NSArray *internalTargets = [self.interactivePopGestureRecognizer valueForKey:@"targets"];
         id internalTarget = [internalTargets.firstObject valueForKey:@"target"];
         SEL internalAction = NSSelectorFromString(@"handleNavigationTransition:");
@@ -149,6 +156,7 @@ typedef void (^_CQViewControllerWillAppearInjectBlock)(UIViewController *viewCon
     }
     
     // Handle perferred navigation bar appearance.
+    // 处理性能良好的导航栏外观
     [self cq_setupViewControllerBasedNavigationBarAppearanceIfNeeded:viewController];
     
     // Forward to primary implementation.

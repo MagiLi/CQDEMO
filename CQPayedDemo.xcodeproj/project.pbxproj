@@ -119,6 +119,8 @@
 		04E2DFBD1E1BA1B40016D81C /* backGroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E2DFBC1E1BA1B40016D81C /* backGroundImage.png */; };
 		04F875BF1E03931900D25907 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F875BE1E03931900D25907 /* UIView+Frame.m */; };
 		04F875C21E03E5B000D25907 /* CQPhoneHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F875C11E03E5B000D25907 /* CQPhoneHeaderView.m */; };
+		343D235722FAC04100FA36BF /* CQKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343D235622FAC04100FA36BF /* CQKVOController.m */; };
+		343D235A22FAC0BF00FA36BF /* CQKVOCustomized.m in Sources */ = {isa = PBXBuildFile; fileRef = 343D235922FAC0BF00FA36BF /* CQKVOCustomized.m */; };
 		345E4E6622EC9DC300EDD1BE /* CQRGirl.m in Sources */ = {isa = PBXBuildFile; fileRef = 345E4E6522EC9DC300EDD1BE /* CQRGirl.m */; };
 		345E4E6922ECAEE900EDD1BE /* UINavigationController+CQFullScreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 345E4E6822ECAEE900EDD1BE /* UINavigationController+CQFullScreenPopGesture.m */; };
 		34CCBE431F1F3F7F00FEF04D /* CQTextToVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CCBE421F1F3F7F00FEF04D /* CQTextToVideoController.m */; };
@@ -358,6 +360,10 @@
 		04F875C01E03E5B000D25907 /* CQPhoneHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPhoneHeaderView.h; sourceTree = "<group>"; };
 		04F875C11E03E5B000D25907 /* CQPhoneHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPhoneHeaderView.m; sourceTree = "<group>"; };
 		1591E47FC17EF5AB4A7AA418 /* libPods-CQPayedDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CQPayedDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		343D235522FAC04100FA36BF /* CQKVOController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQKVOController.h; sourceTree = "<group>"; };
+		343D235622FAC04100FA36BF /* CQKVOController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQKVOController.m; sourceTree = "<group>"; };
+		343D235822FAC0BF00FA36BF /* CQKVOCustomized.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQKVOCustomized.h; sourceTree = "<group>"; };
+		343D235922FAC0BF00FA36BF /* CQKVOCustomized.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQKVOCustomized.m; sourceTree = "<group>"; };
 		345E4E6422EC9DC300EDD1BE /* CQRGirl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQRGirl.h; sourceTree = "<group>"; };
 		345E4E6522EC9DC300EDD1BE /* CQRGirl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQRGirl.m; sourceTree = "<group>"; };
 		345E4E6722ECAEE900EDD1BE /* UINavigationController+CQFullScreenPopGesture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+CQFullScreenPopGesture.h"; sourceTree = "<group>"; };
@@ -1079,6 +1085,18 @@
 			path = CoreText;
 			sourceTree = "<group>";
 		};
+		343D235422FABFB700FA36BF /* KVO */ = {
+			isa = PBXGroup;
+			children = (
+				343D235522FAC04100FA36BF /* CQKVOController.h */,
+				343D235622FAC04100FA36BF /* CQKVOController.m */,
+				343D235822FAC0BF00FA36BF /* CQKVOCustomized.h */,
+				343D235922FAC0BF00FA36BF /* CQKVOCustomized.m */,
+			);
+			name = KVO;
+			path = Runtime/KVO;
+			sourceTree = "<group>";
+		};
 		34EF422E22EC62F700F17F7F /* Study */ = {
 			isa = PBXGroup;
 			children = (
@@ -1086,6 +1104,7 @@
 				34EF423422EC637E00F17F7F /* CQStudyController.m */,
 				34EF423622EC63B500F17F7F /* CQStudyCell.h */,
 				34EF423722EC63B500F17F7F /* CQStudyCell.m */,
+				343D235422FABFB700FA36BF /* KVO */,
 				34EF422F22EC62F700F17F7F /* Runtime */,
 			);
 			path = Study;
@@ -1383,6 +1402,7 @@
 				0450CD391E028C3D0080F6F7 /* CQPhoneNumberCell.m in Sources */,
 				0481030E1DF9065C00FE7C0F /* CQAppDelegate.m in Sources */,
 				042B27411E441C6E00B5EE6E /* CQCollectionViewController.m in Sources */,
+				343D235A22FAC0BF00FA36BF /* CQKVOCustomized.m in Sources */,
 				04D89E261E1DFB6000870A26 /* CQRecommendController.m in Sources */,
 				04451C7121F1756D00F252C8 /* CQRangeModel.m in Sources */,
 				0453E6441DFE831500DD68E1 /* CQAppsCell.m in Sources */,
@@ -1429,6 +1449,7 @@
 				04E2787E22374992002EAD3C /* LPHomeTodayHotCell.m in Sources */,
 				047D23DC21EC6F7F0009858A /* CQWaterFlowLayout.m in Sources */,
 				0453E6511DFE836300DD68E1 /* CQDynamicViewController.m in Sources */,
+				343D235722FAC04100FA36BF /* CQKVOController.m in Sources */,
 				04A4F0041E07B3B9001596B2 /* CQDisplayView.m in Sources */,
 				042B27201E441BF800B5EE6E /* CQCellHFlowLayout.m in Sources */,
 				04451C6C21F1756D00F252C8 /* CQPlayerManager.m in Sources */,
@@ -1582,6 +1603,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U8A26JGV9K;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = CQPayedDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = CQPayedDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1598,6 +1620,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U8A26JGV9K;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = CQPayedDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = CQPayedDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
