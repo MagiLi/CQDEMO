@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CQKVOCustomized : NSObject
 
 @property(nonatomic,copy)NSString *name;
-- (void)cq_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context;
+- (void)cq_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(nullable void *)context;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -21,23 +21,25 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     CQKVOCustomized *kvoC = [[CQKVOCustomized alloc] init];
-    kvoC.name = @"CQKVOCustomized";
+    kvoC.name = @"liccc";
     self.kvoC = kvoC;
     
     // CQKVOCustomized, 0x1043c24c8
     CQLog(@"%@, %p", object_getClass(kvoC), [kvoC methodForSelector:@selector(setName:)]);
     
 //    [kvoC addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:NULL];
-    [kvoC cq_addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:NULL];
-    self.kvoC.name = @"CQKVOCustomized_changed";
+    [self.kvoC cq_addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:NULL];
+    self.kvoC.name = @"lixxx";
     
     // NSKVONotifying_CQKVOCustomized, 0x1a96a9454
     CQLog(@"%@, %p", object_getClass(kvoC), [kvoC methodForSelector:@selector(setName:)]);
 }
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     
-    CQLog(@"%@", change);
+    CQLog(@"change:%@", change);
 }
+
 /*
 #pragma mark - Navigation
 
