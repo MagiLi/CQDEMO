@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#define LPHomeTodayHotCellH 570.0
+#define LPHomeTodayHotCellH 170.0
 
 NS_ASSUME_NONNULL_BEGIN
 static NSString *LPHomeTodayHotCellID = @"LPHomeTodayHotCellID";

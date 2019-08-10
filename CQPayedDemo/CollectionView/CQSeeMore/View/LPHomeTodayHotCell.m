@@ -11,7 +11,7 @@
 #import "LPSeeMoreView.h"
 
 #define ItemCount 5
-#define ItemWidth 311.0
+#define ItemWidth 111.0
 #define ItemLineSpacing 10.0
 #define ItemTopSpacing 10.0
 #define ItemLefttSpacing 10.0

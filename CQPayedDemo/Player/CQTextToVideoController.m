@@ -12,6 +12,7 @@
 
 @interface CQTextToVideoController ()<AVSpeechSynthesizerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btn;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
@@ -21,6 +22,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.textField.limitLength = @5;
+    self.textField.lenghtBlock = ^{
+        CQLog(@"length:%@", self.textField.text);
+    };
     // Do any additional setup after loading the view.
     UIImage *image = [[UIImage alloc] gradientCornersRadiusImageWithBounds:CGRectMake(0, 0, 100, 40) andColors:@[ThemeColor_Right, ThemeColor_Left]];
     [self.btn setBackgroundImage:image forState:UIControlStateNormal];

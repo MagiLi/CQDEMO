@@ -237,6 +237,7 @@ NSString *const CQDisplayViewLinkPressedNotification = @"CQDisplayViewLinkPresse
         if (image) {
             CGContextDrawImage(context, imageData.imagePosition, image.CGImage);
         }
+        
     }
 }
 

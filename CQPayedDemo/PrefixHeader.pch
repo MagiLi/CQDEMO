@@ -16,6 +16,8 @@
 #import "CQHeader.h"
 #import "UIImage+CQExtern.h"
 #import "UIView+Gradient.h"
+#import "NSString+CQUtil.h"
+#import "UITextField+CQLengthLimit.h"
 #import "UIViewController+CurrentViewController.h"
 
 #endif /* PrefixHeader_pch */

@@ -14,7 +14,6 @@
 
 void setterMethod(id self, SEL _cmd, NSString *name) {
     // 1.调用父类方法
-    // 2.通知观察者调用- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
     struct objc_super superClass = {
         self,
         class_getSuperclass([self class])
@@ -26,8 +25,7 @@ void setterMethod(id self, SEL _cmd, NSString *name) {
     
     // 取出CQKVOCustomized_Person观察者
     id observer = objc_getAssociatedObject(self, (__bridge const void *)@"objc");
-    
-    // 通知观察者，执行通知方法
+    // 2.通知观察者调用- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context// 通知观察者，执行通知方法
     NSString *methodName = NSStringFromSelector(_cmd);
     NSString *key = getValueKey(methodName);
 //    unsigned int count;

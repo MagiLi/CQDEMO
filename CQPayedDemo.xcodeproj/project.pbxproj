@@ -119,6 +119,8 @@
 		04E2DFBD1E1BA1B40016D81C /* backGroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E2DFBC1E1BA1B40016D81C /* backGroundImage.png */; };
 		04F875BF1E03931900D25907 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F875BE1E03931900D25907 /* UIView+Frame.m */; };
 		04F875C21E03E5B000D25907 /* CQPhoneHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F875C11E03E5B000D25907 /* CQPhoneHeaderView.m */; };
+		3406286422FE87A5002091E5 /* CQSeeMoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3406286322FE87A5002091E5 /* CQSeeMoreController.m */; };
+		3406286722FED74C002091E5 /* UITextField+CQLengthLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3406286622FED74C002091E5 /* UITextField+CQLengthLimit.m */; };
 		343D235722FAC04100FA36BF /* CQKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343D235622FAC04100FA36BF /* CQKVOController.m */; };
 		343D235A22FAC0BF00FA36BF /* CQKVOCustomized.m in Sources */ = {isa = PBXBuildFile; fileRef = 343D235922FAC0BF00FA36BF /* CQKVOCustomized.m */; };
 		345E4E6622EC9DC300EDD1BE /* CQRGirl.m in Sources */ = {isa = PBXBuildFile; fileRef = 345E4E6522EC9DC300EDD1BE /* CQRGirl.m */; };
@@ -360,6 +362,10 @@
 		04F875C01E03E5B000D25907 /* CQPhoneHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQPhoneHeaderView.h; sourceTree = "<group>"; };
 		04F875C11E03E5B000D25907 /* CQPhoneHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQPhoneHeaderView.m; sourceTree = "<group>"; };
 		1591E47FC17EF5AB4A7AA418 /* libPods-CQPayedDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CQPayedDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3406286222FE87A5002091E5 /* CQSeeMoreController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQSeeMoreController.h; sourceTree = "<group>"; };
+		3406286322FE87A5002091E5 /* CQSeeMoreController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQSeeMoreController.m; sourceTree = "<group>"; };
+		3406286522FED74C002091E5 /* UITextField+CQLengthLimit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+CQLengthLimit.h"; sourceTree = "<group>"; };
+		3406286622FED74C002091E5 /* UITextField+CQLengthLimit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+CQLengthLimit.m"; sourceTree = "<group>"; };
 		343D235522FAC04100FA36BF /* CQKVOController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQKVOController.h; sourceTree = "<group>"; };
 		343D235622FAC04100FA36BF /* CQKVOController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQKVOController.m; sourceTree = "<group>"; };
 		343D235822FAC0BF00FA36BF /* CQKVOCustomized.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQKVOCustomized.h; sourceTree = "<group>"; };
@@ -557,6 +563,8 @@
 				042FFFA621ED6F5A009BEE06 /* UIImageView+CQBlur.m */,
 				345E4E6722ECAEE900EDD1BE /* UINavigationController+CQFullScreenPopGesture.h */,
 				345E4E6822ECAEE900EDD1BE /* UINavigationController+CQFullScreenPopGesture.m */,
+				3406286522FED74C002091E5 /* UITextField+CQLengthLimit.h */,
+				3406286622FED74C002091E5 /* UITextField+CQLengthLimit.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1049,6 +1057,8 @@
 			isa = PBXGroup;
 			children = (
 				04E2787622374992002EAD3C /* View */,
+				3406286222FE87A5002091E5 /* CQSeeMoreController.h */,
+				3406286322FE87A5002091E5 /* CQSeeMoreController.m */,
 			);
 			path = CQSeeMore;
 			sourceTree = "<group>";
@@ -1056,11 +1066,11 @@
 		04E2787622374992002EAD3C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				04E2787722374992002EAD3C /* LPHotProductionCell.m */,
 				04E2787822374992002EAD3C /* LPHomeTodayHotCell.h */,
-				04E2787922374992002EAD3C /* LPSeeMoreView.h */,
-				04E2787A22374992002EAD3C /* LPHotProductionCell.h */,
 				04E2787B22374992002EAD3C /* LPHomeTodayHotCell.m */,
+				04E2787A22374992002EAD3C /* LPHotProductionCell.h */,
+				04E2787722374992002EAD3C /* LPHotProductionCell.m */,
+				04E2787922374992002EAD3C /* LPSeeMoreView.h */,
 				04E2787C22374992002EAD3C /* LPSeeMoreView.m */,
 			);
 			path = View;
@@ -1420,6 +1430,7 @@
 				34CCBE431F1F3F7F00FEF04D /* CQTextToVideoController.m in Sources */,
 				0481030B1DF9065C00FE7C0F /* main.m in Sources */,
 				04468E1E1E14EF3C002D6942 /* CQVideoModel.m in Sources */,
+				3406286422FE87A5002091E5 /* CQSeeMoreController.m in Sources */,
 				04A3414E1E014BDA006D1AF3 /* CQDynamicMenueView.m in Sources */,
 				0453E6341DFE82E900DD68E1 /* CQMainController.m in Sources */,
 				04D89E2C1E1DFBC400870A26 /* CQMajorController.m in Sources */,
@@ -1451,6 +1462,7 @@
 				0453E6511DFE836300DD68E1 /* CQDynamicViewController.m in Sources */,
 				343D235722FAC04100FA36BF /* CQKVOController.m in Sources */,
 				04A4F0041E07B3B9001596B2 /* CQDisplayView.m in Sources */,
+				3406286722FED74C002091E5 /* UITextField+CQLengthLimit.m in Sources */,
 				042B27201E441BF800B5EE6E /* CQCellHFlowLayout.m in Sources */,
 				04451C6C21F1756D00F252C8 /* CQPlayerManager.m in Sources */,
 				04451C6E21F1756D00F252C8 /* CQPlayerConfiguration.m in Sources */,
