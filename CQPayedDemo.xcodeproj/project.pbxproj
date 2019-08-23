@@ -125,6 +125,7 @@
 		343D235A22FAC0BF00FA36BF /* CQKVOCustomized.m in Sources */ = {isa = PBXBuildFile; fileRef = 343D235922FAC0BF00FA36BF /* CQKVOCustomized.m */; };
 		345E4E6622EC9DC300EDD1BE /* CQRGirl.m in Sources */ = {isa = PBXBuildFile; fileRef = 345E4E6522EC9DC300EDD1BE /* CQRGirl.m */; };
 		345E4E6922ECAEE900EDD1BE /* UINavigationController+CQFullScreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 345E4E6822ECAEE900EDD1BE /* UINavigationController+CQFullScreenPopGesture.m */; };
+		346EDFE72310433300F6F1E4 /* CQEllipsisLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 346EDFE62310433300F6F1E4 /* CQEllipsisLabel.m */; };
 		34CCBE431F1F3F7F00FEF04D /* CQTextToVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CCBE421F1F3F7F00FEF04D /* CQTextToVideoController.m */; };
 		34CCBE451F1F3F9400FEF04D /* CQTextToVideoController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CCBE441F1F3F9400FEF04D /* CQTextToVideoController.storyboard */; };
 		34CCBE471F1F475500FEF04D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34CCBE461F1F475500FEF04D /* AVFoundation.framework */; };
@@ -374,6 +375,8 @@
 		345E4E6522EC9DC300EDD1BE /* CQRGirl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQRGirl.m; sourceTree = "<group>"; };
 		345E4E6722ECAEE900EDD1BE /* UINavigationController+CQFullScreenPopGesture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+CQFullScreenPopGesture.h"; sourceTree = "<group>"; };
 		345E4E6822ECAEE900EDD1BE /* UINavigationController+CQFullScreenPopGesture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+CQFullScreenPopGesture.m"; sourceTree = "<group>"; };
+		346EDFE52310433300F6F1E4 /* CQEllipsisLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQEllipsisLabel.h; sourceTree = "<group>"; };
+		346EDFE62310433300F6F1E4 /* CQEllipsisLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQEllipsisLabel.m; sourceTree = "<group>"; };
 		34CCBE411F1F3F7F00FEF04D /* CQTextToVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQTextToVideoController.h; sourceTree = "<group>"; };
 		34CCBE421F1F3F7F00FEF04D /* CQTextToVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQTextToVideoController.m; sourceTree = "<group>"; };
 		34CCBE441F1F3F9400FEF04D /* CQTextToVideoController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CQTextToVideoController.storyboard; sourceTree = "<group>"; };
@@ -1087,6 +1090,7 @@
 		04F875C31E03F98300D25907 /* CoreText */ = {
 			isa = PBXGroup;
 			children = (
+				346EDFE42310429800F6F1E4 /* CQLabel */,
 				04A4EFFF1E07B2E6001596B2 /* Controller */,
 				04A4F0001E07B362001596B2 /* Views */,
 				04A4F0011E07B36C001596B2 /* Model */,
@@ -1105,6 +1109,15 @@
 			);
 			name = KVO;
 			path = Runtime/KVO;
+			sourceTree = "<group>";
+		};
+		346EDFE42310429800F6F1E4 /* CQLabel */ = {
+			isa = PBXGroup;
+			children = (
+				346EDFE52310433300F6F1E4 /* CQEllipsisLabel.h */,
+				346EDFE62310433300F6F1E4 /* CQEllipsisLabel.m */,
+			);
+			path = CQLabel;
 			sourceTree = "<group>";
 		};
 		34EF422E22EC62F700F17F7F /* Study */ = {
@@ -1427,6 +1440,7 @@
 				345E4E6622EC9DC300EDD1BE /* CQRGirl.m in Sources */,
 				0453E6461DFE831500DD68E1 /* CQFooterView.m in Sources */,
 				04451C7C21F1756D00F252C8 /* CQButton.m in Sources */,
+				346EDFE72310433300F6F1E4 /* CQEllipsisLabel.m in Sources */,
 				34CCBE431F1F3F7F00FEF04D /* CQTextToVideoController.m in Sources */,
 				0481030B1DF9065C00FE7C0F /* main.m in Sources */,
 				04468E1E1E14EF3C002D6942 /* CQVideoModel.m in Sources */,

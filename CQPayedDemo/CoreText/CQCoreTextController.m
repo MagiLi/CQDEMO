@@ -13,6 +13,8 @@
 #import "CQBigImageView.h"
 #import "CQCTFrameParser.h"
 
+#import "CQEllipsisLabel.h"
+
 static CGFloat margin = 10.0;
 
 @interface CQCoreTextController ()
@@ -34,7 +36,7 @@ static CGFloat margin = 10.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreen_W, kScreen_H)];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreen_W, kScreen_H - 150.0)];
     scrollView.alwaysBounceVertical = YES;
 //    scrollView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:scrollView];
@@ -65,8 +67,31 @@ static CGFloat margin = 10.0;
                                              selector:@selector(linkPressed:)
                                                  name:CQDisplayViewLinkPressedNotification
                                                object:nil]; // 链接 监听
+    
+    [self addEllipsisLabel];
 
 }
+- (void)addEllipsisLabel {
+    NSString *tex = @"在当代中国音乐文学史上，在当代中国音乐文学史上，在当代中在当代中国音乐文学史上，在当代中在当代中国音乐文学史上，在当代中在当代中国音乐文学史上，在当代中在当代中国音乐文学史上，在当代中";
+    
+    CGFloat height = [tex sizeWithConstrainedToWidth:kScreen_W - 15 * 2 fromFont:[UIFont systemFontOfSize:18] lineSpace:5].height;
+    
+    NSInteger num = [tex numberOfLinesWithConstrainedToWidth:kScreen_W - 15 * 2 fromFont:[UIFont systemFontOfSize:18] lineSpace:5];
+    
+    CGFloat labelheight = height / num;
+    
+    NSInteger row = num >= 2 ? 2 : num;
+    
+    CQEllipsisLabel *label = [[CQEllipsisLabel alloc] initWithFrame:CGRectMake(15, kScreen_H - 150.0, kScreen_W - 15 * 2, labelheight * row)];
+    
+    label.font = [UIFont systemFontOfSize:18];
+    label.lineSpace = 5;
+    label.numberOfLines = 2;
+    label.text = tex;
+    label.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:label];
+}
+
 #pragma mark -
 #pragma mark - 展示图片
 - (void)imagePressed:(NSNotification*)notification {
